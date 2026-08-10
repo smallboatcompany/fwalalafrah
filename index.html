@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوال الأفراح | أصالة تمتد عبر الأجيال - منذ 1973م</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#143d2b',
+                        brandDarkGreen: '#0a2117',
+                        brandCream: '#f5f0eb',
+                        brandGold: '#d4af37',
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #0a2117; color: #f5f0eb; }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(10,33,23,0.85), rgba(10,33,23,0.98)), url('https://images.unsplash.com/photo-1541518763669-27fef04b14e8?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="border-b border-white/10 bg-brandDarkGreen/90 backdrop-blur fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border-2 border-brandGold bg-brandGreen flex items-center justify-center font-black text-xl text-brandCream">
+                    ف
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-wide text-brandGold">فوال الأفراح</h1>
+                    <span class="text-[10px] text-gray-300 tracking-widest uppercase">منذ عام 1973م</span>
+                </div>
+            </div>
+            
+            <a href="menu.html" class="bg-brandGold text-brandDarkGreen font-black px-6 py-2.5 rounded-xl hover:bg-yellow-400 transition shadow-lg flex items-center gap-2 text-sm">
+                <i class="fa-solid fa-utensils"></i> المنيو والطلب
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-24 pb-12 px-4">
+        <div class="container mx-auto text-center max-w-4xl">
+            <span class="inline-block bg-brandGold/20 border border-brandGold text-brandGold text-xs font-bold px-4 py-1.5 rounded-full mb-6">
+                ✨ تجربة طعام عصرية بطعم الماضي الجميل
+            </span>
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight text-white">
+                أصالة تمتد <span class="text-brandGold">عبر الأجيال</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                منذ 1973م، ونحن نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة. لسنا مجرد فوال تقليدي، بل تجربة راقية تجمع العائلة والأصدقاء.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="menu.html" class="bg-brandGold text-brandDarkGreen font-black px-8 py-4 rounded-2xl text-lg hover:bg-yellow-400 transition shadow-2xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-square-plus"></i> تصفح المنيو واطلب الآن
+                </a>
+                <a href="#branches" class="border-2 border-white/30 text-white font-bold px-8 py-4 rounded-2xl text-lg hover:bg-white/10 transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-location-dot text-brandGold"></i> فروعنا الثلاثة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branches Direct Order Section -->
+    <section id="branches" class="py-20 bg-brandGreen/40 border-t border-white/10">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-brandGold mb-4">فروعنا في خدمة ضيوفنا</h2>
+                <p class="text-gray-300">اختر الفرع القريب منك للتواصل أو الطلب المباشر عبر الواتساب</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Branch 1: Al Rawdah -->
+                <div class="bg-brandDarkGreen border border-brandGold/30 p-8 rounded-3xl text-center shadow-2xl flex flex-col justify-between hover:border-brandGold transition">
+                    <div>
+                        <div class="w-16 h-16 bg-brandGold/10 text-brandGold rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-brandGold/30">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">فرع الروضة</h3>
+                        <p class="text-gray-400 text-sm mb-6">الرياض - حي الروضة</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/966533508148" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm mb-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> واتساب: 0533508148
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Branch 2: Al Mounsiya -->
+                <div class="bg-brandDarkGreen border border-brandGold/30 p-8 rounded-3xl text-center shadow-2xl flex flex-col justify-between hover:border-brandGold transition">
+                    <div>
+                        <div class="w-16 h-16 bg-brandGold/10 text-brandGold rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-brandGold/30">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">فرع المونسية</h3>
+                        <p class="text-gray-400 text-sm mb-6">الرياض - حي المونسية</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/966550907600" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm mb-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> واتساب: 0550907600
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Branch 3: Al Qadisiyyah -->
+                <div class="bg-brandDarkGreen border border-brandGold/30 p-8 rounded-3xl text-center shadow-2xl flex flex-col justify-between hover:border-brandGold transition">
+                    <div>
+                        <div class="w-16 h-16 bg-brandGold/10 text-brandGold rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-brandGold/30">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">فرع القادسية</h3>
+                        <p class="text-gray-400 text-sm mb-6">الرياض - حي القادسية</p>
+                    </div>
+                    <div>
+                        <a href="https://wa.me/966583993468" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-lg text-sm mb-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> واتساب: 0583993468
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social TikTok Feed Banner -->
+    <section class="py-12 bg-black/40 text-center border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <p class="text-gray-400 text-sm mb-3">تابعوا يومياتنا وتغطياتنا على تيك توك</p>
+            <a href="https://www.tiktok.com/@fwalalafrah" target="_blank" class="inline-flex items-center gap-3 text-2xl font-black text-white hover:text-brandGold transition">
+                <i class="fa-brands fa-tiktok text-3xl"></i> @fwalalafrah
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black/80 text-center text-xs text-gray-500 border-t border-white/10">
+        <p>&copy; 2026 فوال الأفراح. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>

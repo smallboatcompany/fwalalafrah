@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فوال الأفراح | المنيو الرقمي والطلب المباشر</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandGreen: '#143d2b',
+                        brandDarkGreen: '#0b2419',
+                        brandCream: '#f5f0eb',
+                        brandSilver: '#e2e8f0',
+                        brandGold: '#d4af37',
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f8fafc; }
+        .active-tab { background-color: #143d2b !important; color: #ffffff !important; border-color: #143d2b !important; }
+        .badge-popular { background: linear-gradient(135deg, #d4af37, #b8860b); }
+    </style>
+</head>
+<body class="pb-24">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 bg-brandDarkGreen text-white shadow-xl border-b border-white/10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border-2 border-brandSilver bg-brandGreen flex items-center justify-center font-bold text-brandCream">
+                    ف
+                </div>
+                <div>
+                    <h1 class="text-xl font-black tracking-wide text-brandCream">فوال الأفراح</h1>
+                    <p class="text-[10px] text-gray-300">قائمة الطعام والطلبات</p>
+                </div>
+            </a>
+            <a href="index.html" class="text-xs bg-white/10 hover:bg-white/20 text-brandCream px-3 py-1.5 rounded-lg transition border border-white/20">
+                <i class="fa-solid fa-house ml-1"></i> الرئيسية
+            </a>
+        </div>
+    </header>
+
+    <!-- Search & Category Filter Section -->
+    <section class="bg-brandGreen text-white pt-6 pb-8 px-4 rounded-b-3xl shadow-lg">
+        <div class="container mx-auto max-w-4xl">
+            <!-- Search Input -->
+            <div class="relative mb-6">
+                <input type="text" id="searchInput" onkeyup="searchMenu()" placeholder="ابحث عن طبقك المفضل (فول، كبدة، عريكة...)" 
+                       class="w-full py-3.5 pr-11 pl-4 rounded-2xl text-gray-800 bg-white shadow-inner focus:outline-none focus:ring-2 focus:ring-brandGold text-sm font-medium">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-4 text-gray-400"></i>
+            </div>
+
+            <!-- Horizontal Scroll Category Tabs -->
+            <div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide text-sm font-bold">
+                <button onclick="filterCategory('all', this)" class="category-btn active-tab px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">الكل</button>
+                <button onclick="filterCategory('foul', this)" class="category-btn px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">الفول والعدس</button>
+                <button onclick="filterCategory('kebda', this)" class="category-btn px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">الكبدة والشعبيات</button>
+                <button onclick="filterCategory('mutabbaq', this)" class="category-btn px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">المطبق والتميس</button>
+                <button onclick="filterCategory('areeka', this)" class="category-btn px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">العريكة والمعصوب</button>
+                <button onclick="filterCategory('drinks', this)" class="category-btn px-5 py-2.5 rounded-xl bg-white/10 text-white whitespace-nowrap border border-white/20 transition">المشروبات والشاي</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items Grid -->
+    <main class="container mx-auto px-4 max-w-4xl mt-8">
+        <div class="grid md:grid-cols-2 gap-4" id="menuGrid">
+            
+            <!-- Item 1 -->
+            <div class="menu-card foul bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4 relative overflow-hidden">
+                <span class="badge-popular text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg absolute top-0 left-0">الأكثر طلباً 🔥</span>
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">فول جرة بالأصالة</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">فول يمني طازج مطبوخ بالفخار يعلوه السمن البلدي وزيت الزيتون الأصلي.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">12</span> ر.س</span>
+                        <button onclick="addToCart('فول جرة بالأصالة', 12)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="menu-card kebda bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4 relative overflow-hidden">
+                <span class="badge-popular text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg absolute top-0 left-0">توصية الشيف ⭐</span>
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">كبدة غنم طازجة بالصاج</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">كبدة غنم بلدي طازجة تـعدّ يومياً على الصاج مع الفلفل والخضار المحمصة.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">28</span> ر.س</span>
+                        <button onclick="addToCart('كبدة غنم طازجة بالصاج', 28)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-card mutabbaq bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">مطبق مالح بالمفروم</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">عجينة هشّة مقرمشة محشوة باللحم المفروم والبيض والكراث الطازج.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">14</span> ر.س</span>
+                        <button onclick="addToCart('مطبق مالح بالمفروم', 14)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-card areeka bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">عريكة الأفراح الملكية</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">عريكة غنية بالتمور الفاخرة والقشطة الطازجة والعسل الطبيعي والمكسرات.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">24</span> ر.س</span>
+                        <button onclick="addToCart('عريكة الأفراح الملكية', 24)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="menu-card mutabbaq bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">تميس بالسمسم ساخن</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">خبز تميس أفغاني تقليدي يخرج طازجاً ومقرمشاً من التنور مباشرة.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">3</span> ر.س</span>
+                        <button onclick="addToCart('تميس بالسمسم ساخن', 3)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="menu-card drinks bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex justify-between gap-4">
+                <div class="flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-lg text-brandDarkGreen item-name">شاي عدني مخدر براد</h3>
+                        <p class="text-xs text-gray-500 mt-1 line-clamp-2">شاي عدني بالحليب والهيل والبهارات العربية الأصيلة.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-3">
+                        <span class="text-brandGreen font-black text-base"><span class="item-price">8</span> ر.س</span>
+                        <button onclick="addToCart('شاي عدني مخدر براد', 8)" class="bg-brandGreen text-white px-3 py-1.5 rounded-xl text-xs font-bold hover:bg-brandDarkGreen transition">
+                            + إضافة للطلب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating Cart Bar (Appears when items are added) -->
+    <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-xl mx-auto bg-brandDarkGreen text-white rounded-2xl p-4 shadow-2xl flex justify-between items-center z-50 border border-brandGold/30 hidden">
+        <div class="flex items-center gap-3">
+            <div class="relative bg-brandGreen p-3 rounded-xl">
+                <i class="fa-solid fa-basket-shopping text-brandGold text-lg"></i>
+                <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </div>
+            <div>
+                <p class="text-xs text-gray-300">إجمالي الطلب:</p>
+                <p class="text-lg font-black text-brandGold"><span id="cartTotal">0</span> ر.س</p>
+            </div>
+        </div>
+        <button onclick="openCartModal()" class="bg-brandGold text-brandDarkGreen font-black px-5 py-2.5 rounded-xl text-sm hover:bg-yellow-400 transition shadow">
+            مراجعة الطلب <i class="fa-solid fa-arrow-left mr-1"></i>
+        </button>
+    </div>
+
+    <!-- Cart Modal / Drawer -->
+    <div id="cartModal" class="fixed inset-0 bg-black/70 z-50 flex items-end sm:items-center justify-center hidden p-0 sm:p-4">
+        <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="bg-brandDarkGreen text-white p-4 flex justify-between items-center">
+                <h2 class="font-bold text-lg text-brandCream"><i class="fa-solid fa-cart-shopping ml-2 text-brandGold"></i> سلة طلبات فوال الأفراح</h2>
+                <button onclick="closeCartModal()" class="text-gray-300 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div class="p-4 overflow-y-auto flex-1 space-y-3" id="cartItemsList">
+                <!-- Dynamic Items Inserted via JS -->
+            </div>
+
+            <!-- Branch & Order Type Selection -->
+            <div class="p-4 bg-gray-50 border-t border-gray-200 space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-brandDarkGreen mb-1">اختر الفرع القريب منك للطلب:</label>
+                    <select id="branchSelect" class="w-full p-3 rounded-xl border border-gray-300 font-bold text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brandGreen">
+                        <option value="0533508148">فرع الروضة (0533508148)</option>
+                        <option value="0550907600">فرع المونسية (0550907600)</option>
+                        <option value="0583993468">فرع القادسية (0583993468)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-brandDarkGreen mb-1">نوع الطلب:</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                        <label class="border p-2.5 rounded-xl flex items-center justify-center gap-2 cursor-pointer bg-white">
+                            <input type="radio" name="orderType" value="تجهيز واستلام من الفرع" checked class="accent-brandGreen">
+                            استلام من الفرع
+                        </label>
+                        <label class="border p-2.5 rounded-xl flex items-center justify-center gap-2 cursor-pointer bg-white">
+                            <input type="radio" name="orderType" value="توصيل محلي" class="accent-brandGreen">
+                            توصيل
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Final Submit Button -->
+                <button onclick="sendOrderToWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-black py-3.5 rounded-xl text-base flex items-center justify-center gap-2 transition shadow-lg mt-2">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> إرسال الطلب للواتساب مباشرة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic for Cart and Filtering -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            const existingIndex = cart.findIndex(item => item.name === name);
+            if(existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('cartCount').innerText = totalItems;
+            document.getElementById('cartTotal').innerText = totalPrice;
+
+            const cartBar = document.getElementById('cartBar');
+            if (totalItems > 0) {
+                cartBar.classList.remove('hidden');
+            } else {
+                cartBar.classList.add('hidden');
+                closeCartModal();
+            }
+        }
+
+        function openCartModal() {
+            const listContainer = document.getElementById('cartItemsList');
+            listContainer.innerHTML = '';
+
+            cart.forEach((item, index) => {
+                listContainer.innerHTML += `
+                    <div class="flex justify-between items-center bg-gray-100 p-3 rounded-xl border border-gray-200">
+                        <div>
+                            <p class="font-bold text-sm text-brandDarkGreen">${item.name}</p>
+                            <p class="text-xs text-brandGreen font-extrabold">${item.price * item.qty} ر.س</p>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border">
+                            <button onclick="changeQty(${index}, -1)" class="text-red-600 font-bold px-1 text-base">-</button>
+                            <span class="font-bold text-sm px-1">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)" class="text-green-600 font-bold px-1 text-base">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cartModal').classList.remove('hidden');
+        }
+
+        function closeCartModal() {
+            document.getElementById('cartModal').classList.add('hidden');
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if(cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+            if(cart.length > 0) openCartModal();
+        }
+
+        function sendOrderToWhatsApp() {
+            if(cart.length === 0) return;
+
+            const selectedPhone = document.getElementById('branchSelect').value;
+            const branchName = document.getElementById('branchSelect').options[document.getElementById('branchSelect').selectedIndex].text.split(' ')[1];
+            const orderType = document.querySelector('input[name="orderType"]:checked').value;
+            
+            let message = `مرحباً فوال الأفراح - ${branchName} 🌿\n`;
+            message += `أريد عمل طلب جديد (${orderType}):\n\n`;
+
+            let total = 0;
+            cart.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+                message += `▪️ ${item.name} (${item.qty}x) = ${subtotal} ر.س\n`;
+            });
+
+            message += `\n💰 الإجمالي المطلوب: ${total} ر.س`;
+            message += `\n\nشكراً لكم!`;
+
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/966${selectedPhone.substring(1)}?text=${encodedMsg}`, '_blank');
+        }
+
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active-tab'));
+            btn.classList.add('active-tab');
+
+            const cards = document.querySelectorAll('.menu-card');
+            cards.forEach(card => {
+                if(cat === 'all' || card.classList.contains(cat)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function searchMenu() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.menu-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.item-name').innerText.toLowerCase();
+                if(name.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
