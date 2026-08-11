@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فوال الأفراح | المنيو الرقمي الرسمي والطلبات</title>
-    <!-- Tailwind CSS -->
+    <meta name="description" content="تصفح المنيو الرقمي الكامل لمطعم فوال الأفراح، أكثر من 110 طبقاً شعبياً أصيلاً، حدد أصنافك وأرسل طلبك مباشرة عبر الواتساب لأقرب فرع.">
+    <link rel="canonical" href="https://fwalalafrah.com/menu.html">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Tailwind CSS & Google Fonts & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandGreen: '#2d5b43',       /* زيتي فاتح مريح للعين */
-                        brandDarkGreen: '#1e3e2d',
+                        brandGreen: '#2d5b43',
+                        brandDarkGreen: '#142e20',
                         brandGold: '#c5a059',
+                        brandCream: '#fbf9f4',
                     },
                     fontFamily: {
                         tajawal: ['Tajawal', 'sans-serif'],
@@ -25,65 +31,83 @@
             }
         }
     </script>
-    <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #ffffff; color: #1e293b; }
-        .active-tab { background-color: #2d5b43 !important; color: #ffffff !important; border-color: #2d5b43 !important; }
-        .scrollbar-none::-webkit-scrollbar { display: none; }
-        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+
+    <!-- ملف التصميم الموحّد بين صفحتي الرئيسية والمنيو -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-white pb-28">
 
-    <!-- Header / الهيدر الفاخر -->
-    <header class="sticky top-0 z-40 bg-brandGreen text-white shadow-md">
+    <!-- ==================== Header / الهيدر الزجاجي الفاخر (مطابق للرئيسية) ==================== -->
+    <header id="siteHeader" class="site-header sticky top-0 z-50 text-white border-b border-white/10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <!-- هنا مكان اللوقو (يمكن استبدال الحرف بصورة اللوقو) -->
-                <img src="logo.png" alt="لوقو فوال الأفراح" class="w-10 h-10 object-contain rounded-full bg-white p-0.5 border border-brandGold text-xs flex items-center justify-center font-bold text-brandGreen" onerror="this.outerHTML='<div class=\'w-10 h-10 rounded-full border-2 border-brandGold bg-white text-brandGreen flex items-center justify-center font-black\'>ف</div>'">
+
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="logo-badge">
+                    <img src="images/logo-icon.png" alt="لوقو فوال الأفراح" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+                    <div id="logoFallback" class="hidden w-full h-full bg-brandGreen text-brandGold items-center justify-center font-black text-lg rounded-full">ف</div>
+                </div>
                 <div>
-                    <h1 class="text-lg font-black text-white">فوال الأفراح</h1>
-                    <p class="text-[10px] text-emerald-100">المنيو الرقمي والطلب السريع</p>
+                    <span class="text-xl font-black tracking-wide text-white block leading-tight-ar">فوال الأفراح</span>
+                    <span class="text-[11px] text-emerald-200/90 font-medium tracking-wider">المنيو الرقمي والطلب السريع</span>
                 </div>
             </a>
-            <a href="index.html" class="text-xs bg-white/15 hover:bg-white/25 text-white px-3 py-1.5 rounded-xl transition">
-                <i class="fa-solid fa-house ml-1"></i> الرئيسية
+
+            <a href="index.html" class="btn-press flex items-center gap-2 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-xl border border-white/10">
+                <i class="fa-solid fa-house"></i> <span class="hidden sm:inline">الرئيسية</span>
             </a>
         </div>
     </header>
 
     <!-- Search & Category Filters -->
-    <section class="bg-emerald-50/60 border-b border-emerald-100 py-5 px-4">
+    <section class="bg-emerald-50/60 border-b border-emerald-100 py-6 px-4">
         <div class="container mx-auto max-w-5xl">
             <!-- البحث -->
-            <div class="relative mb-4">
-                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضل (فول، كبدة، مطبق، معصوب...)" 
-                       class="w-full py-3 pr-11 pl-4 rounded-xl text-slate-800 bg-white border border-emerald-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brandGreen text-sm font-medium">
-                <i class="fa-solid fa-magnifying-glass absolute right-4 top-3.5 text-slate-400"></i>
+            <div class="relative mb-5">
+                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضل (فول، كبدة، مطبق، معصوب...)"
+                       class="w-full py-3.5 pr-11 pl-4 rounded-xl text-slate-800 bg-white border border-emerald-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brandGreen text-sm font-medium transition-shadow">
+                <i class="fa-solid fa-magnifying-glass absolute right-4 top-4 text-slate-400"></i>
             </div>
 
             <!-- أزرار الأقسام -->
             <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-bold scrollbar-none">
-                <button onclick="setCategory('all', this)" class="category-btn active-tab px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">الكل</button>
-                <button onclick="setCategory('foul', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">الفول والعدس والحمص</button>
-                <button onclick="setCategory('eggs', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">البيض والشعبيات</button>
-                <button onclick="setCategory('mains', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">الأطباق الرئيسية والفاصوليا</button>
-                <button onclick="setCategory('mutabbaq', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">المطبّق</button>
-                <button onclick="setCategory('masoub', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">المعصوب والفتة والعريكة</button>
-                <button onclick="setCategory('bread', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">الخبز والإضافات</button>
-                <button onclick="setCategory('drinks', this)" class="category-btn px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm transition">المشروبات</button>
+                <button onclick="setCategory('all', this)" class="category-btn active-tab px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الكل</button>
+                <button onclick="setCategory('foul', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الفول والعدس والحمص</button>
+                <button onclick="setCategory('eggs', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">البيض والشعبيات</button>
+                <button onclick="setCategory('mains', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الأطباق الرئيسية والفاصوليا</button>
+                <button onclick="setCategory('mutabbaq', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المطبّق</button>
+                <button onclick="setCategory('masoub', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المعصوب والفتة والعريكة</button>
+                <button onclick="setCategory('bread', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الخبز والإضافات</button>
+                <button onclick="setCategory('drinks', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المشروبات</button>
             </div>
         </div>
     </section>
 
     <!-- قائمة الأطباق الديناميكية -->
-    <main class="container mx-auto px-4 max-w-5xl mt-6">
-        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-4" id="menuGrid">
+    <main class="container mx-auto px-4 max-w-5xl mt-8">
+        <div class="grid sm:grid-cols-2 gap-4" id="menuGrid">
             <!-- يتم تحميل الأطباق هنا تلقائياً بواسطة الجافاسكريبت -->
         </div>
     </main>
 
+    <!-- ==================== Footer / الفوتر (مطابق للرئيسية) ==================== -->
+    <footer class="bg-brandDarkGreen text-emerald-100/70 py-14 mt-16 border-t border-white/5 text-sm">
+        <div class="container mx-auto px-4 text-center">
+            <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-white/5 border border-brandGold/40 flex items-center justify-center p-1.5">
+                <img src="images/logo-icon.png" alt="فوال الأفراح" class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-2xl font-black text-white mb-2 leading-tight-ar">فوال الأفراح</h3>
+            <p class="text-xs text-emerald-100/50 mb-8 leading-loose-ar">أصالة تمتد عبر الأجيال | الطعم اللي تعودنا عليه منذ 1973م</p>
+            <div class="flex justify-center items-center gap-6 mb-9 text-xl">
+                <a href="https://www.tiktok.com/@fwalalafrah" target="_blank" class="hover:text-brandGold transition-colors" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+            <p class="text-xs text-emerald-100/30">&copy; 2026 فوال الأفراح. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
     <!-- شريط السلة العائم -->
-    <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-brandGreen text-white rounded-2xl p-4 shadow-2xl flex justify-between items-center z-50 hidden border border-white/20">
+    <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-brandGreen text-white rounded-2xl p-4 shadow-2xl flex justify-between items-center z-50 border border-white/20">
         <div class="flex items-center gap-3">
             <div class="relative bg-white/20 p-2.5 rounded-xl">
                 <i class="fa-solid fa-basket-shopping text-white text-lg"></i>
@@ -94,17 +118,17 @@
                 <p class="text-base font-black text-white"><span id="cartTotal">0</span> ر.س</p>
             </div>
         </div>
-        <button onclick="openCartModal()" class="bg-white text-brandGreen font-black px-4 py-2 rounded-xl text-xs hover:bg-emerald-50 transition shadow">
+        <button onclick="openCartModal()" class="btn-press bg-white text-brandGreen font-black px-4 py-2 rounded-xl text-xs hover:bg-emerald-50 shadow">
             مراجعة الطلب <i class="fa-solid fa-arrow-left mr-1"></i>
         </button>
     </div>
 
     <!-- نافذة سلة الطلبات والواتساب -->
-    <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center hidden p-0 sm:p-4">
-        <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+    <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none p-0 sm:p-4">
+        <div class="modal-sheet bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="bg-brandGreen text-white p-4 flex justify-between items-center">
                 <h2 class="font-bold text-sm"><i class="fa-solid fa-cart-shopping ml-2"></i> سلة أطباقك المختارة</h2>
-                <button onclick="closeCartModal()" class="text-white/80 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+                <button onclick="closeCartModal()" class="text-white/80 hover:text-white text-xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
             <div class="p-4 overflow-y-auto flex-1 space-y-3" id="cartItemsList"></div>
@@ -119,7 +143,7 @@
                     </select>
                 </div>
 
-                <button onclick="sendOrderToWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-black py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 transition shadow-md">
+                <button onclick="sendOrderToWhatsApp()" class="btn-press w-full bg-green-600 hover:bg-green-700 text-white font-black py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md">
                     <i class="fa-brands fa-whatsapp text-xl"></i> إرسال الطلب المباشر للواتساب
                 </button>
             </div>
@@ -259,6 +283,16 @@
         let currentCategory = 'all';
         let cart = [];
 
+        // بديل أنيق عند تعذر تحميل صورة الطبق
+        function imgFallback(imgEl) {
+            const wrap = imgEl.parentElement;
+            imgEl.remove();
+            const placeholder = document.createElement('div');
+            placeholder.className = 'w-full h-full flex items-center justify-center text-slate-300 text-2xl';
+            placeholder.innerHTML = '<i class="fa-solid fa-utensils"></i>';
+            wrap.appendChild(placeholder);
+        }
+
         function renderMenu() {
             const grid = document.getElementById('menuGrid');
             const searchVal = document.getElementById('searchInput').value.toLowerCase().trim();
@@ -270,28 +304,35 @@
                 return matchCat && matchSearch;
             });
 
-            if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">لا يوجد طبق بهذا الاسم</div>`;
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 text-slate-400">
+                        <i class="fa-solid fa-utensils text-3xl mb-3 block"></i>
+                        لا يوجد طبق بهذا الاسم
+                    </div>`;
                 return;
             }
 
             filtered.forEach(item => {
-                // إذا لم توجد صورة نضع أيقونة أنيقة افتراضية
-                const imgHTML = item.img ? 
-                    `<img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300 text-xl\'><i class=\'fa-solid fa-utensils\'></i></div>'">` :
-                    `<div class="w-full h-full flex items-center justify-center text-slate-300 text-xl"><i class="fa-solid fa-utensils"></i></div>`;
+                const imgHTML = item.img ?
+                    `<img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="imgFallback(this)">` :
+                    `<div class="w-full h-full flex items-center justify-center text-slate-300 text-2xl"><i class="fa-solid fa-utensils"></i></div>`;
+
+                const inCart = cart.find(i => i.name === item.name);
+                const qtyBadge = inCart ? `<span class="absolute top-2 right-2 bg-brandGold text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">${inCart.qty}</span>` : '';
 
                 grid.innerHTML += `
-                    <div class="bg-white rounded-2xl p-3 border border-slate-200 shadow-sm hover:shadow-md transition flex items-center justify-between gap-3">
-                        <div class="w-20 h-20 bg-slate-50 rounded-xl overflow-hidden flex-shrink-0 border border-slate-100 flex items-center justify-center">
+                    <div class="dish-card p-3 flex items-center justify-between gap-3">
+                        <div class="dish-img-wrap relative w-20 h-20 rounded-xl flex-shrink-0 border border-slate-100 flex items-center justify-center">
                             ${imgHTML}
+                            ${qtyBadge}
                         </div>
-                        <div class="flex-1">
-                            <h3 class="font-bold text-slate-800 text-sm">${item.name}</h3>
-                            <p class="text-[11px] text-amber-600 font-semibold mt-0.5"><i class="fa-solid fa-fire-flame-curved text-[9px]"></i> ${item.cal} سعرة حرارية</p>
-                            <div class="flex items-center justify-between mt-2">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-slate-800 text-sm leading-tight-ar truncate">${item.name}</h3>
+                            <p class="text-[11px] text-amber-600 font-semibold mt-1"><i class="fa-solid fa-fire-flame-curved text-[9px]"></i> ${item.cal} سعرة حرارية</p>
+                            <div class="flex items-center justify-between mt-2.5">
                                 <span class="text-brandGreen font-black text-sm">${item.price} <span class="text-[10px]">ر.س</span></span>
-                                <button onclick="addToCart('${item.name}', ${item.price})" class="bg-brandGreen text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-brandDarkGreen transition">
+                                <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, this)" class="btn-press bg-brandGreen text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-brandDarkGreen">
                                     + إضافة
                                 </button>
                             </div>
@@ -308,11 +349,17 @@
             renderMenu();
         }
 
-        function addToCart(name, price) {
+        function addToCart(name, price, btnEl) {
             const index = cart.findIndex(i => i.name === name);
-            if(index > -1) { cart[index].qty += 1; } 
+            if (index > -1) { cart[index].qty += 1; }
             else { cart.push({ name, price, qty: 1 }); }
             updateCartUI();
+            renderMenu();
+
+            if (btnEl) {
+                btnEl.classList.add('bump');
+                setTimeout(() => btnEl.classList.remove('bump'), 400);
+            }
         }
 
         function updateCartUI() {
@@ -323,8 +370,15 @@
             document.getElementById('cartTotal').innerText = totalPrice;
 
             const cartBar = document.getElementById('cartBar');
-            if (totalItems > 0) { cartBar.classList.remove('hidden'); } 
-            else { cartBar.classList.add('hidden'); closeCartModal(); }
+            const cartCountEl = document.getElementById('cartCount');
+            if (totalItems > 0) {
+                cartBar.classList.add('show');
+                cartCountEl.classList.add('bump');
+                setTimeout(() => cartCountEl.classList.remove('bump'), 400);
+            } else {
+                cartBar.classList.remove('show');
+                closeCartModal();
+            }
         }
 
         function openCartModal() {
@@ -338,32 +392,37 @@
                             <p class="text-xs text-brandGreen font-bold">${item.price * item.qty} ر.س</p>
                         </div>
                         <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-slate-200">
-                            <button onclick="changeQty(${idx}, -1)" class="text-red-600 font-bold px-1.5 text-base">-</button>
+                            <button onclick="changeQty(${idx}, -1)" class="text-red-600 font-bold px-1.5 text-base transition-transform active:scale-90">-</button>
                             <span class="font-bold text-xs px-1">${item.qty}</span>
-                            <button onclick="changeQty(${idx}, 1)" class="text-green-600 font-bold px-1.5 text-base">+</button>
+                            <button onclick="changeQty(${idx}, 1)" class="text-green-600 font-bold px-1.5 text-base transition-transform active:scale-90">+</button>
                         </div>
                     </div>
                 `;
             });
-            document.getElementById('cartModal').classList.remove('hidden');
+            const modal = document.getElementById('cartModal');
+            modal.classList.remove('pointer-events-none');
+            requestAnimationFrame(() => modal.classList.add('open'));
         }
 
         function closeCartModal() {
-            document.getElementById('cartModal').classList.add('hidden');
+            const modal = document.getElementById('cartModal');
+            modal.classList.remove('open');
+            setTimeout(() => modal.classList.add('pointer-events-none'), 300);
         }
 
         function changeQty(idx, delta) {
             cart[idx].qty += delta;
-            if(cart[idx].qty <= 0) cart.splice(idx, 1);
+            if (cart[idx].qty <= 0) cart.splice(idx, 1);
             updateCartUI();
-            if(cart.length > 0) openCartModal();
+            renderMenu();
+            if (cart.length > 0) openCartModal();
         }
 
         function sendOrderToWhatsApp() {
-            if(cart.length === 0) return;
+            if (cart.length === 0) return;
             const phone = document.getElementById('branchSelect').value;
             const branchText = document.getElementById('branchSelect').options[document.getElementById('branchSelect').selectedIndex].text;
-            
+
             let msg = `مرحباً فوال الأفراح (${branchText.split('(')[0].trim()}) 🌿\nأريد طلب الأطباق التالية:\n\n`;
             let total = 0;
             cart.forEach(i => {
@@ -377,7 +436,8 @@
         }
 
         // تشغيل القائمة عند الفتح
-        window.onload = renderMenu;
+        window.addEventListener('DOMContentLoaded', renderMenu);
     </script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
