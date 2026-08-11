@@ -6,53 +6,133 @@
     <title>فوال الأفراح | المنيو الرقمي والطلبات</title>
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- Tailwind CSS & Icons -->
+    <!-- المكتبات المباشرة -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandOlive: '#1c4d2d',
-                        brandDarkOlive: '#11331d',
-                        brandGold: '#c9993b',
-                        brandCream: '#f7f9f7',
+                        brandOlive: '#235d39',
+                        brandDarkOlive: '#133821',
+                        brandGold: '#c89b3c',
+                        brandCream: '#fafbfa',
                     }
                 }
             }
         }
     </script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fafbfa;
+            color: #1e293b;
+            line-height: 2 !important;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.4 !important;
+        }
+
+        .site-header {
+            background-color: rgba(35, 93, 57, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .category-btn.active-tab {
+            background-color: #235d39 !important;
+            color: #ffffff !important;
+            border-color: #235d39 !important;
+        }
+
+        .dish-card {
+            background: #ffffff;
+            border: 1px solid #e5ebe6;
+            border-radius: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .dish-card:hover {
+            border-color: #c89b3c;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        #cartBar {
+            transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.1), opacity 0.3s ease;
+            transform: translateY(150%);
+            opacity: 0;
+        }
+
+        #cartBar.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #cartModal {
+            transition: opacity 0.3s ease;
+        }
+
+        #cartModal .modal-sheet {
+            transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.1);
+            transform: translateY(100%);
+        }
+
+        #cartModal.open {
+            opacity: 1;
+        }
+
+        #cartModal.open .modal-sheet {
+            transform: translateY(0);
+        }
+
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .btn-press { transition: all 0.2s ease; }
+        .btn-press:active { transform: scale(0.96); }
+    </style>
 </head>
-<body class="bg-[#f7f9f7] text-slate-800 pt-20 pb-28">
+<body class="bg-[#fafbfa] text-slate-800 pt-20 pb-28">
 
     <!-- Header -->
     <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-50 text-white border-b border-white/10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="فوال الأفراح" class="logo-img" onerror="this.src='logo-icon.png'">
+            <a href="index.html" class="flex items-center">
+                <img src="logo.png" alt="فوال الأفراح" class="logo-img" onerror="this.onerror=null; this.src='logo-icon.png';">
             </a>
 
-            <a href="index.html" class="text-xs font-bold bg-white/10 hover:bg-white/20 text-white px-3.5 py-2 rounded-xl border border-white/10 transition-all">
+            <a href="index.html" class="btn-press text-xs font-bold bg-white/10 hover:bg-white/20 text-white px-3.5 py-2 rounded-xl border border-white/10">
                 <i class="fa-solid fa-house ml-1"></i> الرئيسية
             </a>
         </div>
     </header>
 
-    <!-- شريط البحث وفلاتر الأقسام السريعة -->
+    <!-- الشريط التفاعلي للبحث والأقسام -->
     <section class="bg-white border-b border-slate-200 py-3.5 px-4 sticky top-[58px] z-40 shadow-sm">
         <div class="container mx-auto max-w-5xl">
             <!-- البحث -->
             <div class="relative mb-3">
-                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضّل (فول، كبدة، مطبق...)"
+                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضّل..."
                        class="w-full py-2.5 pr-9 pl-4 rounded-xl text-slate-800 bg-slate-50 border border-slate-200 text-xs md:text-sm font-medium focus:ring-2 focus:ring-brandOlive outline-none">
-                <i class="fa-solid fa-magnifying-glass absolute right-3 top-3 text-slate-400 text-xs"></i>
+                <i class="fa-solid fa-magnifying-glass absolute right-3 top-3.5 text-slate-400 text-xs"></i>
             </div>
 
-            <!-- أزرار الأقسام -->
+            <!-- أزرار الفلاتر الجوال -->
             <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-bold scrollbar-none">
                 <button onclick="setCategory('all', this)" class="category-btn active-tab px-3.5 py-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 whitespace-nowrap">الكل</button>
                 <button onclick="setCategory('foul', this)" class="category-btn px-3.5 py-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 whitespace-nowrap">فول وعدس</button>
@@ -66,12 +146,12 @@
         </div>
     </section>
 
-    <!-- شبكة الأصناف الديناميكية -->
+    <!-- شبكة الأصناف -->
     <main class="container mx-auto px-4 max-w-5xl mt-5">
         <div class="grid sm:grid-cols-2 gap-3" id="menuGrid"></div>
     </main>
 
-    <!-- شريط السلة العائم -->
+    <!-- سلة الطلبات العائمة -->
     <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-brandOlive text-white rounded-2xl p-3.5 shadow-xl flex justify-between items-center z-50 border border-white/20">
         <div class="flex items-center gap-3">
             <div class="relative bg-white/10 p-2 rounded-xl">
@@ -83,12 +163,12 @@
                 <p class="text-sm font-black text-white"><span id="cartTotal">0</span> ر.س</p>
             </div>
         </div>
-        <button onclick="openCartModal()" class="bg-brandGold text-white font-black px-4 py-2 rounded-xl text-xs shadow">
+        <button onclick="openCartModal()" class="btn-press bg-brandGold text-white font-black px-4 py-2 rounded-xl text-xs shadow">
             مراجعة الطلب <i class="fa-solid fa-arrow-left mr-1"></i>
         </button>
     </div>
 
-    <!-- النافذة المنسدلة للطلب -->
+    <!-- نافذة إرسال الواتساب -->
     <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none p-0 sm:p-4">
         <div class="modal-sheet bg-white w-full max-w-lg rounded-t-3xl sm:rounded-2xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
             <div class="bg-brandOlive text-white p-4 flex justify-between items-center">
@@ -108,16 +188,17 @@
                     </select>
                 </div>
 
-                <button onclick="sendOrderToWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white font-black py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm">
+                <button onclick="sendOrderToWhatsApp()" class="btn-press w-full bg-green-600 hover:bg-green-700 text-white font-black py-3 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm">
                     <i class="fa-brands fa-whatsapp text-lg"></i> إرسال الطلب المباشر للواتساب
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- البرمجة الكاملة لبطاقات وسلة الطعام -->
     <script>
         const menuData = [
-            // الفول
+            // الفول والعدس
             { id: 1, name: 'فول جرة سمن وزيت', price: 9, cal: 320, cat: 'foul' },
             { id: 2, name: 'فول قلابة سمن وزيت', price: 9, cal: 340, cat: 'foul' },
             { id: 3, name: 'فول طاوة', price: 11, cal: 490, cat: 'foul' },
@@ -134,7 +215,7 @@
             { id: 29, name: 'كبدة حاشي طازج', price: 22, cal: 310, cat: 'mains' },
             { id: 31, name: 'مقلقل لحم', price: 22, cal: 410, cat: 'mains' },
 
-            // مطبق
+            // المطبق
             { id: 48, name: 'مطبق الأفراح المميز', price: 9, cal: 320, cat: 'mutabbaq' },
             { id: 57, name: 'مطبق حلو قشطة', price: 8, cal: 750, cat: 'mutabbaq' },
 
@@ -143,12 +224,12 @@
             { id: 67, name: 'معصوب قشطة عسل وسمن', price: 17, cal: 850, cat: 'masoub' },
             { id: 85, name: 'عريكة الأفراح الخاصة', price: 20, cal: 750, cat: 'masoub' },
 
-            // خبز وتميس
+            // الخبز والتميس
             { id: 90, name: 'ملوح صغير', price: 2, cal: 820, cat: 'bread' },
             { id: 95, name: 'تميس سمن', price: 3, cal: 1400, cat: 'bread' },
             { id: 97, name: 'تميس عادي', price: 1, cal: 1400, cat: 'bread' },
 
-            // مشروبات
+            // المشروبات
             { id: 105, name: 'شاي سادة', price: 1, cal: 60, cat: 'drinks' },
             { id: 107, name: 'حليب عدني', price: 3, cal: 90, cat: 'drinks' }
         ];
@@ -186,7 +267,7 @@
                             <p class="text-[10px] text-amber-600 font-bold mt-1"><i class="fa-solid fa-fire text-[9px]"></i> ${item.cal} سعرة</p>
                             <span class="text-brandOlive font-black text-xs sm:text-sm block mt-1">${item.price} <span class="text-[9px]">ر.س</span></span>
                         </div>
-                        <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="bg-brandOlive text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm">
+                        <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="btn-press bg-brandOlive text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm">
                             + إضافة
                         </button>
                     </div>
@@ -274,6 +355,5 @@
 
         window.addEventListener('DOMContentLoaded', renderMenu);
     </script>
-    <script src="assets/js/main.js"></script>
 </body>
 </html>

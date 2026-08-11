@@ -4,87 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فوال الأفراح | أصالة تمتد عبر الأجيال - منذ 1973م</title>
-    <meta name="description" content="مطعم فوال الأفراح - خيارك الأول لألذ فطور شعبي في الرياض منذ عام 1973م.">
+    <meta name="description" content="مطعم فوال الأفراح - الفطور الشعبي الأصيل في الرياض منذ عام 1973م.">
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- Tailwind CSS & Icons -->
+    <!-- المكتبات المباشرة عبر الانترنت -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brandOlive: '#1c4d2d',
-                        brandDarkOlive: '#11331d',
-                        brandGold: '#c9993b',
-                        brandCream: '#f7f9f7',
+                        brandOlive: '#235d39',       /* أخضر زيتي فاتح فاخر ومريح */
+                        brandDarkOlive: '#133821',   /* زيتي داكن أنيق */
+                        brandGold: '#c89b3c',        /* ذهبي مبهج */
+                        brandCream: '#fafbfa',
                     }
                 }
             }
         }
     </script>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body class="bg-[#f7f9f7] text-slate-800 pt-20">
+    <!-- التنسيقات المدمجة المباشرة -->
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #fafbfa;
+            color: #1e293b;
+            line-height: 2 !important;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    <!-- ==================== Header / الهيدر الرئيسي ==================== -->
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.4 !important;
+        }
+
+        p {
+            line-height: 2.1 !important;
+        }
+
+        /* الهيدر واللوقو الحر بدون إطارات ولا مربعات */
+        .site-header {
+            background-color: rgba(35, 93, 57, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            background-color: rgba(19, 56, 33, 0.99);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* قائمة الجوال المنسدلة السلسة */
+        #mobileMenu {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease;
+        }
+
+        #mobileMenu.open {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .btn-press {
+            transition: all 0.2s ease;
+        }
+
+        .btn-press:active {
+            transform: scale(0.96);
+        }
+    </style>
+</head>
+<body class="bg-[#fafbfa] text-slate-800 pt-20">
+
+    <!-- ==================== Header / الهيدر الزيتي الفاخر ==================== -->
     <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-50 text-white border-b border-white/10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
 
-            <!-- اللوقو الشغال كاملاً بمساره الطبيعي -->
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="logo.png" alt="فوال الأفراح" class="logo-img" onerror="this.src='logo-icon.png'">
+            <!-- الشعار الحر الاصلي بدون اقتطاع -->
+            <a href="index.html" class="flex items-center">
+                <img src="logo.png" alt="فوال الأفراح" class="logo-img" onerror="this.onerror=null; this.src='logo-icon.png';">
             </a>
 
-            <!-- روابط التنقل desktop -->
+            <!-- روابط التنقل الكمبيوتر -->
             <nav class="hidden md:flex items-center gap-8 font-bold text-sm text-emerald-100">
                 <a href="#about" class="hover:text-brandGold transition-colors">من نحن</a>
-                <a href="#vision" class="hover:text-brandGold transition-colors">الرؤية والرسالة</a>
                 <a href="#features" class="hover:text-brandGold transition-colors">لماذا نتميز؟</a>
-                <a href="#branches" class="hover:text-brandGold transition-colors">فروعنا</a>
+                <a href="#branches" class="hover:text-brandGold transition-colors">فروعنا الثلاثة</a>
             </nav>
 
             <!-- زر التوجه للمنيو -->
             <div class="hidden sm:flex items-center">
-                <a href="menu.html" class="bg-brandGold hover:bg-amber-600 text-white font-black px-5 py-2.5 rounded-xl shadow-sm text-sm transition-all">
-                    <i class="fa-solid fa-utensils ml-1"></i> المنيو والطلب السريع
+                <a href="menu.html" class="btn-press bg-brandGold hover:bg-amber-600 text-white font-black px-5 py-2.5 rounded-xl shadow-md text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> المنيو والطلب السريع
                 </a>
             </div>
 
-            <!-- زر القائمة للجوال -->
-            <button id="menuToggle" class="md:hidden text-white text-2xl p-2 focus:outline-none" aria-label="القائمة">
+            <!-- زر الجوال -->
+            <button onclick="toggleMenu()" class="md:hidden text-white text-2xl p-2 focus:outline-none" aria-label="القائمة">
                 <i class="fa-solid fa-bars" id="menuIcon"></i>
             </button>
         </div>
 
-        <!-- قائمة الجوال المنسدلة -->
-        <div id="mobileMenu" class="md:hidden bg-[#11331d] border-t border-white/10 px-5 text-center font-bold text-emerald-100">
+        <!-- القائمة المنسدلة للجوال -->
+        <div id="mobileMenu" class="md:hidden bg-[#133821] border-t border-white/10 px-5 text-center font-bold text-emerald-100">
             <div class="py-5 space-y-3">
                 <a href="#about" onclick="toggleMenu()" class="block py-2 border-b border-white/5">من نحن</a>
-                <a href="#vision" onclick="toggleMenu()" class="block py-2 border-b border-white/5">الرؤية والرسالة</a>
                 <a href="#features" onclick="toggleMenu()" class="block py-2 border-b border-white/5">لماذا فوال الأفراح؟</a>
                 <a href="#branches" onclick="toggleMenu()" class="block py-2 border-b border-white/5">فروعنا والواتساب</a>
-                <a href="menu.html" class="block bg-brandGold text-white py-3 rounded-xl font-black mt-2">
+                <a href="menu.html" class="block bg-brandGold text-white py-3 rounded-xl font-black mt-2 shadow">
                     <i class="fa-solid fa-utensils ml-1"></i> تصفح المنيو واطلب الآن
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- ==================== Main Content / محتوى الرئيسية ==================== -->
+    <!-- ==================== Main Content ==================== -->
     <main>
-        <!-- قسم البانر الرئيسي (Hero) -->
-        <section class="py-16 md:py-24 bg-gradient-to-b from-[#1c4d2d]/10 via-white to-[#f7f9f7]">
+        <!-- البانر الرئيسي -->
+        <section class="py-16 md:py-24 bg-gradient-to-b from-[#235d39]/10 via-white to-[#fafbfa]">
             <div class="container mx-auto px-4 text-center max-w-4xl">
                 
-                <span class="inline-block bg-[#1c4d2d]/10 border border-[#1c4d2d]/20 text-brandOlive text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-6">
-                    أصالة تمتد عبر الأجيال | منذ عام 1973م
+                <span class="inline-block bg-[#235d39]/10 border border-[#235d39]/20 text-brandOlive text-xs md:text-sm font-bold px-4 py-1.5 rounded-full mb-6">
+                    أصالة تمتد عبر الأجيال | الطعم الأصيل منذ 1973م
                 </span>
 
-                <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-6">
+                <h1 class="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-relaxed">
                     تجربة الفطور الشعبي الأصيل <br class="hidden sm:block">
                     <span class="text-brandOlive">بأسلوب عصري يجمع الأحبّة</span>
                 </h1>
@@ -94,10 +153,10 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
-                    <a href="menu.html" class="bg-brandOlive hover:bg-brandDarkOlive text-white font-black px-8 py-3.5 rounded-xl text-base shadow-md transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-burger text-brandGold"></i> تصفح المنيو واطلب الآن
+                    <a href="menu.html" class="btn-press bg-brandOlive hover:bg-brandDarkOlive text-white font-black px-8 py-3.5 rounded-2xl text-base shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-burger text-brandGold"></i> تصفح المنيو واطلب سلتك
                     </a>
-                    <a href="#branches" class="bg-white border-2 border-brandOlive text-brandOlive font-bold px-8 py-3.5 rounded-xl text-base hover:bg-brandOlive hover:text-white transition-all flex items-center justify-center gap-2">
+                    <a href="#branches" class="btn-press bg-white border-2 border-brandOlive text-brandOlive font-bold px-8 py-3.5 rounded-2xl text-base hover:bg-brandOlive hover:text-white shadow-sm flex items-center justify-center gap-2">
                         <i class="fa-solid fa-store"></i> اختر الفرع المباشر
                     </a>
                 </div>
@@ -105,15 +164,15 @@
                 <!-- إحصائيات -->
                 <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-14 pt-8 border-t border-slate-200">
                     <div>
-                        <span class="block text-2xl md:text-3xl font-black text-brandOlive">+50</span>
+                        <span class="block text-2xl md:text-4xl font-black text-brandOlive">+50</span>
                         <span class="text-xs md:text-sm text-slate-500 font-bold">عاماً من الخبرة</span>
                     </div>
                     <div>
-                        <span class="block text-2xl md:text-3xl font-black text-brandOlive">3</span>
+                        <span class="block text-2xl md:text-4xl font-black text-brandOlive">3</span>
                         <span class="text-xs md:text-sm text-slate-500 font-bold">فروع بالرياض</span>
                     </div>
                     <div>
-                        <span class="block text-2xl md:text-3xl font-black text-brandOlive">+110</span>
+                        <span class="block text-2xl md:text-4xl font-black text-brandOlive">+110</span>
                         <span class="text-xs md:text-sm text-slate-500 font-bold">طبق طازج</span>
                     </div>
                 </div>
@@ -122,12 +181,12 @@
         </section>
 
         <!-- قسم من نحن -->
-        <section id="about" class="py-16 md:py-20 bg-white border-t border-slate-100">
+        <section id="about" class="py-16 bg-white border-t border-slate-100">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="grid md:grid-cols-2 gap-10 items-center">
                     <div>
-                        <span class="text-brandGold font-extrabold text-xs uppercase tracking-wider block mb-2">عراقة المذاق</span>
-                        <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-4">
+                        <span class="text-brandGold font-extrabold text-xs uppercase tracking-wider block mb-2">قصة عراقتنا</span>
+                        <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-4">
                             «فوال الأفراح»... أصالة تمتد عبر الأجيال
                         </h2>
                         <p class="text-slate-600 text-sm md:text-base mb-4">
@@ -145,54 +204,53 @@
             </div>
         </section>
 
-        <!-- قسم المميزات -->
-        <section id="features" class="py-16 bg-[#f7f9f7] border-t border-slate-200">
+        <!-- المميزات -->
+        <section id="features" class="py-16 bg-[#fafbfa] border-t border-slate-200">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-10">
-                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">لماذا نتميز؟</h2>
-                    <p class="text-slate-500 text-sm">سر إقبال زبائننا لأكثر من خمسة عقود</p>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">لماذا يفضلنا الجميع؟</h2>
+                    <p class="text-slate-500 text-sm">سر إقبال زبائننا لأكثر من 50 عاماً</p>
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="p-5 text-center bg-white border border-slate-200 rounded-xl">
+                    <div class="p-5 text-center bg-white border border-slate-200 rounded-2xl shadow-sm">
                         <i class="fa-solid fa-drumstick-bite text-brandGold text-2xl mb-2"></i>
                         <h3 class="font-bold text-slate-800 text-sm mb-1">لحوم وكبدة طازجة</h3>
-                        <p class="text-xs text-slate-500">تُعد يومياً وطازجة على الصاج مع كل طلب.</p>
+                        <p class="text-xs text-slate-500">تُعد يومياً على الصاج بكل إتقان.</p>
                     </div>
 
-                    <div class="p-5 text-center bg-white border border-slate-200 rounded-xl">
+                    <div class="p-5 text-center bg-white border border-slate-200 rounded-2xl shadow-sm">
                         <i class="fa-solid fa-fire text-brandGold text-2xl mb-2"></i>
                         <h3 class="font-bold text-slate-800 text-sm mb-1">خبز تميس ساخن</h3>
-                        <p class="text-xs text-slate-500">يخرج طازجاً ومقرمشاً من التنور مباشرة.</p>
+                        <p class="text-xs text-slate-500">طازج ومقرمش من التنور مباشرة.</p>
                     </div>
 
-                    <div class="p-5 text-center bg-white border border-slate-200 rounded-xl">
+                    <div class="p-5 text-center bg-white border border-slate-200 rounded-2xl shadow-sm">
                         <i class="fa-solid fa-mortar-pestle text-brandGold text-2xl mb-2"></i>
                         <h3 class="font-bold text-slate-800 text-sm mb-1">وصفات جرة أصيلة</h3>
-                        <p class="text-xs text-slate-500">نفس المذاق الأصيل والنكهة الموروثة منذ 1973م.</p>
+                        <p class="text-xs text-slate-500">نفس المذاق النقي منذ عام 1973م.</p>
                     </div>
 
-                    <div class="p-5 text-center bg-white border border-slate-200 rounded-xl">
+                    <div class="p-5 text-center bg-white border border-slate-200 rounded-2xl shadow-sm">
                         <i class="fa-brands fa-whatsapp text-brandGold text-2xl mb-2"></i>
                         <h3 class="font-bold text-slate-800 text-sm mb-1">طلب واتساب سريع</h3>
-                        <p class="text-xs text-slate-500">حدد أطباقك واستلمها من الفرع بدون انتظار.</p>
+                        <p class="text-xs text-slate-500">حدد طلبك واستلمه بدون انتظار.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الفروع -->
+        <!-- الفروع -->
         <section id="branches" class="py-16 bg-white border-t border-slate-200">
             <div class="container mx-auto px-4 max-w-6xl">
                 <div class="text-center mb-10">
                     <h2 class="text-2xl md:text-3xl font-black text-slate-900 mb-2">فروعنا بمدينة الرياض</h2>
-                    <p class="text-slate-500 text-sm">تواصل مع الفرع الأقرب إليك مباشرة عبر الواتساب</p>
+                    <p class="text-slate-500 text-sm">اختر الفرع القريب منك للتواصل أو الطلب عبر الواتساب</p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6">
 
-                    <!-- الروضة -->
-                    <div class="bg-[#f7f9f7] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
+                    <div class="bg-[#fafbfa] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
                         <div>
                             <div class="w-12 h-12 bg-emerald-100 text-brandOlive rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 <i class="fa-solid fa-shop"></i>
@@ -200,13 +258,12 @@
                             <h3 class="text-lg font-black text-slate-900 mb-1">فرع الروضة</h3>
                             <p class="text-slate-500 text-xs mb-4">مدينة الرياض - حي الروضة</p>
                         </div>
-                        <a href="https://wa.me/966533508148?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20الروضة" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
+                        <a href="https://wa.me/966533508148?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20الروضة" target="_blank" class="btn-press bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
                             <i class="fa-brands fa-whatsapp text-base"></i> الواتساب: 0533508148
                         </a>
                     </div>
 
-                    <!-- المونسية -->
-                    <div class="bg-[#f7f9f7] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
+                    <div class="bg-[#fafbfa] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
                         <div>
                             <div class="w-12 h-12 bg-emerald-100 text-brandOlive rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 <i class="fa-solid fa-shop"></i>
@@ -214,13 +271,12 @@
                             <h3 class="text-lg font-black text-slate-900 mb-1">فرع المونسية</h3>
                             <p class="text-slate-500 text-xs mb-4">مدينة الرياض - حي المونسية</p>
                         </div>
-                        <a href="https://wa.me/966550907600?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20المونسية" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
+                        <a href="https://wa.me/966550907600?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20المونسية" target="_blank" class="btn-press bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
                             <i class="fa-brands fa-whatsapp text-base"></i> الواتساب: 0550907600
                         </a>
                     </div>
 
-                    <!-- القادسية -->
-                    <div class="bg-[#f7f9f7] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
+                    <div class="bg-[#fafbfa] border border-slate-200 p-6 rounded-2xl text-center flex flex-col justify-between">
                         <div>
                             <div class="w-12 h-12 bg-emerald-100 text-brandOlive rounded-xl flex items-center justify-center mx-auto mb-3 text-xl">
                                 <i class="fa-solid fa-shop"></i>
@@ -228,8 +284,8 @@
                             <h3 class="text-lg font-black text-slate-900 mb-1">فرع القادسية</h3>
                             <p class="text-slate-500 text-xs mb-4">مدينة الرياض - حي القادسية</p>
                         </div>
-                        <a href="https://wa.me/966583993468?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20القادسية" target="_blank" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> الواتساب: 0583993468
+                        <a href="https://wa.me/966583993468?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20القادسية" target="_blank" class="btn-press bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 text-xs shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-base"></i> الواتساب: 0583993468
                         </a>
                     </div>
 
@@ -238,8 +294,8 @@
         </section>
     </main>
 
-    <!-- ==================== Footer / الفوتر ==================== -->
-    <footer class="bg-brandDarkOlive text-emerald-100/80 py-10 text-center text-sm">
+    <!-- الفوتر -->
+    <footer class="bg-[#133821] text-emerald-100/80 py-10 text-center text-sm">
         <div class="container mx-auto px-4">
             <h3 class="text-xl font-black text-white mb-2">فوال الأفراح</h3>
             <p class="text-xs text-emerald-100/60 mb-6">أصالة تمتد عبر الأجيال | الطعم اللي تعودنا عليه منذ 1973م</p>
@@ -247,6 +303,33 @@
         </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <!-- البرمجة المدمجة للتحكم بالموقع -->
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            if (!mobileMenu) return;
+
+            mobileMenu.classList.toggle('open');
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('siteHeader');
+            if (header) {
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
