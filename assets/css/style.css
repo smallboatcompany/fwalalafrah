@@ -1,14 +1,20 @@
 /* ============================================================
-   فوال الأفراح — تصميم مريح للعين (زيتي فاتح + ذهبي مطفي)
+   فوال الأفراح — ملف الأساسيات والتنسيق القياسي
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
 
 :root {
-    --brand-olive: #1e5631;        /* أخضر زيتي حيوي فاتح ومريح */
-    --brand-olive-dark: #123b20;   /* زيتي غامق للعناوين */
-    --brand-gold: #d9a74a;         /* ذهبي دافئ مبهج */
-    --brand-bg: #f8faf8;           /* خلفية فاتحة مريحة جداً للعين */
+    --brand-olive: #1c4d2d;       /* أخضر زيتي رئيسي */
+    --brand-olive-dark: #11331d;  /* زيتي داكن للفوتر والهيدر */
+    --brand-gold: #c9993b;        /* ذهبي دافئ للأزرار والتأكيد */
+    --brand-bg: #f7f9f7;          /* خلفية فاتحة ومريحة */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -19,114 +25,76 @@ html {
 body {
     font-family: 'Tajawal', 'Cairo', sans-serif;
     background-color: var(--brand-bg);
-    color: #243329;
+    color: #1e293b;
+    line-height: 2;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
 }
 
-/* ==================== تباعد السطور المريح للقراءة (2.1) ==================== */
-p, span.text-desc, div.text-desc {
-    line-height: 2.1 !important;
-    letter-spacing: 0.2px;
-}
-
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Cairo', sans-serif;
-    line-height: 1.5 !important;
+    line-height: 1.4 !important;
 }
 
-/* ==================== الهيدر الزيتي الفاتح الثابت ==================== */
+p {
+    line-height: 2.1 !important;
+}
+
+/* ==================== الهيدر واللوقو ==================== */
 .site-header {
-    background-color: rgba(30, 86, 49, 0.98);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    background-color: var(--brand-olive);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
-    background-color: rgba(18, 59, 32, 0.99);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: var(--brand-olive-dark);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* إطار اللوقو */
-.logo-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
+/* عرض اللوقو بكامل حجمه الطبيعي بدون مربع ولا قطع */
+.logo-img {
     height: 48px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid var(--brand-gold);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-    padding: 3px;
-}
-
-.logo-badge img {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    max-width: 180px;
     object-fit: contain;
+    display: block;
 }
 
-/* ==================== قائمة الجوال المنسدلة ==================== */
+/* ==================== قائمة الجوال ==================== */
 #mobileMenu {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
 }
 
 #mobileMenu.open {
-    max-height: 450px;
+    max-height: 400px;
     opacity: 1;
 }
 
-/* ==================== بطاقات وأزرار مريحة للعين ==================== */
-.card-hover {
-    transition: all 0.3s ease;
+/* ==================== المنيو والسلة ==================== */
+.category-btn.active-tab {
+    background-color: var(--brand-olive) !important;
+    color: #ffffff !important;
+    border-color: var(--brand-olive) !important;
 }
 
-.card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(30, 86, 49, 0.08);
-}
-
-.btn-press {
-    transition: all 0.2s ease;
-}
-
-.btn-press:active {
-    transform: scale(0.96);
-}
-
-/* شريط تمرير أفق للأقسام بدون شريط سفلي */
-.scrollbar-none::-webkit-scrollbar { display: none; }
-.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* ==================== بطاقات المنيو بالجوال ==================== */
 .dish-card {
     background: #ffffff;
-    border: 1px solid #e2ebe4;
-    border-radius: 1.25rem;
-    transition: all 0.25s ease;
+    border: 1px solid #e5ebe6;
+    border-radius: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dish-card:hover {
     border-color: var(--brand-gold);
-    box-shadow: 0 10px 20px rgba(30, 86, 49, 0.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-.active-tab {
-    background-color: var(--brand-olive) !important;
-    color: #ffffff !important;
-    border-color: var(--brand-olive) !important;
-    box-shadow: 0 4px 12px rgba(30, 86, 49, 0.3);
-}
-
-/* سلة الطلبات العائمة */
+/* شريط السلة العائم */
 #cartBar {
-    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.1), opacity 0.3s ease;
-    transform: translateY(150%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(140%);
     opacity: 0;
 }
 
@@ -136,11 +104,11 @@ h1, h2, h3, h4 {
 }
 
 #cartModal {
-    transition: opacity 0.3s ease;
+    transition: opacity 0.25s ease;
 }
 
 #cartModal .modal-sheet {
-    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.1);
+    transition: transform 0.3s ease;
     transform: translateY(100%);
 }
 
@@ -151,3 +119,6 @@ h1, h2, h3, h4 {
 #cartModal.open .modal-sheet {
     transform: translateY(0);
 }
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
