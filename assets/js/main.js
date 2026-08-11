@@ -1,4 +1,3 @@
-// التحكم في فتح وإغلاق قائمة الجوال الهيدر
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuIcon = document.getElementById('menuIcon');
@@ -19,11 +18,10 @@ if (menuToggle) {
     menuToggle.addEventListener('click', toggleMenu);
 }
 
-// إضافة ظلال خلفية للهيدر عند السكرول
 window.addEventListener('scroll', () => {
     const header = document.getElementById('siteHeader');
     if (header) {
-        if (window.scrollY > 30) {
+        if (window.scrollY > 20) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
