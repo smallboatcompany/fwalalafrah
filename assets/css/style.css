@@ -1,0 +1,150 @@
+/* ============================================================
+   فوال الأفراح — نظام التصميم الفاخر (الزيتي الملكي والذهبي)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+:root {
+    --brand-olive: #163323;       /* زيتي ملكي فخم */
+    --brand-olive-dark: #0a1911;  /* زيتي ليل عميق */
+    --brand-gold: #ca9e43;        /* ذهبي مطفي فاخر */
+    --brand-gold-light: #e5c175;  /* ذهبي فاتح */
+    --brand-cream: #fbf9f4;       /* كريمي مريح */
+    --brand-bg: #f6f8f6;          /* خلفية الصفحة */
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    background-color: var(--brand-bg);
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* حل مشكلة اختفاء الهيدر أو القفز عند التمرير */
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+/* ==================== إيقاع النصوص ==================== */
+h1, h2, h3, h4, h5 {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    line-height: 1.3;
+}
+p {
+    line-height: 1.9;
+}
+.leading-tight-ar { line-height: 1.25; }
+.leading-loose-ar { line-height: 2; }
+
+/* ==================== الهيدر الثابت والتأثير الزجاجي ==================== */
+.site-header {
+    background-color: rgba(22, 51, 35, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+}
+.site-header.scrolled {
+    background-color: rgba(10, 25, 17, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.logo-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 30%, #ffffff, #f4efe2 70%);
+    border: 2px solid var(--brand-gold);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.logo-badge:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+/* ==================== قائمة الجوال المنسدلة السلسة ==================== */
+#mobileMenu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+#mobileMenu.open {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* ==================== البطاقات والأزرار ==================== */
+.card-hover {
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(22, 51, 35, 0.15);
+}
+
+.btn-press {
+    transition: all 0.2s ease;
+}
+.btn-press:active {
+    transform: scale(0.96);
+}
+
+/* شريط التمرير الأفق للأقسام بدون شريط سفلي مزعج */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ==================== بطاقات المنيو ==================== */
+.dish-card {
+    background: #ffffff;
+    border: 1px solid #e9eee9;
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+}
+.dish-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -8px rgba(22, 51, 35, 0.12);
+    border-color: rgba(202, 158, 67, 0.4);
+}
+
+.active-tab {
+    background-color: var(--brand-olive) !important;
+    color: #ffffff !important;
+    border-color: var(--brand-olive) !important;
+    box-shadow: 0 6px 16px -4px rgba(22, 51, 35, 0.4);
+}
+
+/* سلة الطلبات العائمة */
+#cartBar {
+    transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1.1), opacity 0.3s ease;
+    transform: translateY(150%);
+    opacity: 0;
+}
+#cartBar.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#cartModal {
+    transition: opacity 0.3s ease;
+}
+#cartModal .modal-sheet {
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1.1);
+    transform: translateY(100%);
+}
+#cartModal.open {
+    opacity: 1;
+}
+#cartModal.open .modal-sheet {
+    transform: translateY(0);
+}
