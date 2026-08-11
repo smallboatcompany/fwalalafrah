@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فوال الأفراح | المنيو الرقمي الرسمي والطلبات</title>
-    <meta name="description" content="تصفح المنيو الرقمي الكامل لمطعم فوال الأفراح، أكثر من 110 طبقاً شعبياً أصيلاً، حدد أصنافك وأرسل طلبك مباشرة عبر الواتساب لأقرب فرع.">
-    <link rel="canonical" href="https://fwalalafrah.com/menu.html">
+    <title>فوال الأفراح | المنيو الرقمي</title>
     <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
 
-    <!-- Tailwind CSS & Google Fonts & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -19,279 +14,138 @@
             theme: {
                 extend: {
                     colors: {
-                        brandGreen: '#2d5b43',
-                        brandDarkGreen: '#142e20',
-                        brandGold: '#c5a059',
-                        brandCream: '#fbf9f4',
-                    },
-                    fontFamily: {
-                        tajawal: ['Tajawal', 'sans-serif'],
+                        brandOlive: '#1e5631',
+                        brandDarkOlive: '#123b20',
+                        brandGold: '#d9a74a',
+                        brandCream: '#f8faf8',
                     }
                 }
             }
         }
     </script>
 
-    <!-- ملف التصميم الموحّد بين صفحتي الرئيسية والمنيو -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-white pb-28">
+<body class="bg-[#f8faf8] pb-28 pt-20">
 
-    <!-- ==================== Header / الهيدر الزجاجي الفاخر (مطابق للرئيسية) ==================== -->
-    <header id="siteHeader" class="site-header sticky top-0 z-50 text-white border-b border-white/10">
+    <!-- Header -->
+    <header id="siteHeader" class="site-header fixed top-0 left-0 right-0 z-50 text-white border-b border-white/10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-
-            <a href="index.html" class="flex items-center gap-3 group">
+            <a href="index.html" class="flex items-center gap-3">
                 <div class="logo-badge">
-                    <img src="images/logo-icon.png" alt="لوقو فوال الأفراح" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-                    <div id="logoFallback" class="hidden w-full h-full bg-brandGreen text-brandGold items-center justify-center font-black text-lg rounded-full">ف</div>
+                    <img src="logo.png" alt="فوال الأفراح" onerror="this.src='logo-icon.png'">
                 </div>
                 <div>
-                    <span class="text-xl font-black tracking-wide text-white block leading-tight-ar">فوال الأفراح</span>
-                    <span class="text-[11px] text-emerald-200/90 font-medium tracking-wider">المنيو الرقمي والطلب السريع</span>
+                    <span class="text-lg font-black text-white block leading-tight">فوال الأفراح</span>
+                    <span class="text-[10px] text-amber-200 font-medium">المنيو الرقمي السريع</span>
                 </div>
             </a>
 
-            <a href="index.html" class="btn-press flex items-center gap-2 text-xs sm:text-sm font-bold bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded-xl border border-white/10">
-                <i class="fa-solid fa-house"></i> <span class="hidden sm:inline">الرئيسية</span>
+            <a href="index.html" class="btn-press text-xs font-bold bg-white/10 text-white px-3.5 py-2 rounded-xl border border-white/10">
+                <i class="fa-solid fa-house"></i> الرئيسية
             </a>
         </div>
     </header>
 
-    <!-- Search & Category Filters -->
-    <section class="bg-emerald-50/60 border-b border-emerald-100 py-6 px-4">
+    <!-- البحث والأقسام للجوال سهلة التصفح -->
+    <section class="bg-white border-b border-slate-200 py-4 px-4 sticky top-[60px] z-40 shadow-sm">
         <div class="container mx-auto max-w-5xl">
-            <!-- البحث -->
-            <div class="relative mb-5">
-                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضل (فول، كبدة، مطبق، معصوب...)"
-                       class="w-full py-3.5 pr-11 pl-4 rounded-xl text-slate-800 bg-white border border-emerald-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brandGreen text-sm font-medium transition-shadow">
-                <i class="fa-solid fa-magnifying-glass absolute right-4 top-4 text-slate-400"></i>
+            <div class="relative mb-3">
+                <input type="text" id="searchInput" onkeyup="renderMenu()" placeholder="ابحث عن طبقك المفضّل..."
+                       class="w-full py-3 pr-10 pl-4 rounded-xl text-slate-800 bg-slate-50 border border-slate-200 text-xs md:text-sm font-medium focus:ring-2 focus:ring-brandOlive outline-none">
+                <i class="fa-solid fa-magnifying-glass absolute right-3.5 top-3.5 text-slate-400 text-sm"></i>
             </div>
 
-            <!-- أزرار الأقسام -->
+            <!-- أقسام قابلة للسحب بالسحب بسهولة بالجوال -->
             <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-bold scrollbar-none">
-                <button onclick="setCategory('all', this)" class="category-btn active-tab px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الكل</button>
-                <button onclick="setCategory('foul', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الفول والعدس والحمص</button>
-                <button onclick="setCategory('eggs', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">البيض والشعبيات</button>
-                <button onclick="setCategory('mains', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الأطباق الرئيسية والفاصوليا</button>
-                <button onclick="setCategory('mutabbaq', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المطبّق</button>
-                <button onclick="setCategory('masoub', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المعصوب والفتة والعريكة</button>
-                <button onclick="setCategory('bread', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">الخبز والإضافات</button>
-                <button onclick="setCategory('drinks', this)" class="category-btn px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 whitespace-nowrap shadow-sm">المشروبات</button>
+                <button onclick="setCategory('all', this)" class="category-btn active-tab px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">الكل</button>
+                <button onclick="setCategory('foul', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">فول وعدس</button>
+                <button onclick="setCategory('eggs', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">بيض وشعبيات</button>
+                <button onclick="setCategory('mains', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">كبدة ومقلقل</button>
+                <button onclick="setCategory('mutabbaq', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">المطبّق</button>
+                <button onclick="setCategory('masoub', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">معصوب وعريكة</button>
+                <button onclick="setCategory('bread', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">خبز وتميس</button>
+                <button onclick="setCategory('drinks', this)" class="category-btn px-4 py-2.5 rounded-xl bg-slate-100 border text-slate-700 whitespace-nowrap">مشروبات</button>
             </div>
         </div>
     </section>
 
-    <!-- قائمة الأطباق الديناميكية -->
-    <main class="container mx-auto px-4 max-w-5xl mt-8">
-        <div class="grid sm:grid-cols-2 gap-4" id="menuGrid">
-            <!-- يتم تحميل الأطباق هنا تلقائياً بواسطة الجافاسكريبت -->
-        </div>
+    <!-- قائمة الأصناف -->
+    <main class="container mx-auto px-4 max-w-5xl mt-5">
+        <div class="grid sm:grid-cols-2 gap-3" id="menuGrid"></div>
     </main>
 
-    <!-- ==================== Footer / الفوتر (مطابق للرئيسية) ==================== -->
-    <footer class="bg-brandDarkGreen text-emerald-100/70 py-14 mt-16 border-t border-white/5 text-sm">
-        <div class="container mx-auto px-4 text-center">
-            <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-white/5 border border-brandGold/40 flex items-center justify-center p-1.5">
-                <img src="images/logo-icon.png" alt="فوال الأفراح" class="w-full h-full object-contain">
-            </div>
-            <h3 class="text-2xl font-black text-white mb-2 leading-tight-ar">فوال الأفراح</h3>
-            <p class="text-xs text-emerald-100/50 mb-8 leading-loose-ar">أصالة تمتد عبر الأجيال | الطعم اللي تعودنا عليه منذ 1973م</p>
-            <div class="flex justify-center items-center gap-6 mb-9 text-xl">
-                <a href="https://www.tiktok.com/@fwalalafrah" target="_blank" class="hover:text-brandGold transition-colors" title="TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-            </div>
-            <p class="text-xs text-emerald-100/30">&copy; 2026 فوال الأفراح. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
-
-    <!-- شريط السلة العائم -->
-    <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-brandGreen text-white rounded-2xl p-4 shadow-2xl flex justify-between items-center z-50 border border-white/20">
+    <!-- شريط السلة العائم بالجوال -->
+    <div id="cartBar" class="fixed bottom-4 left-4 right-4 max-w-md mx-auto bg-brandOlive text-white rounded-2xl p-3.5 shadow-2xl flex justify-between items-center z-50 border border-white/20">
         <div class="flex items-center gap-3">
-            <div class="relative bg-white/20 p-2.5 rounded-xl">
-                <i class="fa-solid fa-basket-shopping text-white text-lg"></i>
+            <div class="relative bg-white/10 p-2 rounded-xl">
+                <i class="fa-solid fa-basket-shopping text-brandGold text-lg"></i>
                 <span id="cartCount" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center">0</span>
             </div>
             <div>
                 <p class="text-[10px] text-emerald-100">إجمالي الطلب:</p>
-                <p class="text-base font-black text-white"><span id="cartTotal">0</span> ر.س</p>
+                <p class="text-sm font-black text-white"><span id="cartTotal">0</span> ر.س</p>
             </div>
         </div>
-        <button onclick="openCartModal()" class="btn-press bg-white text-brandGreen font-black px-4 py-2 rounded-xl text-xs hover:bg-emerald-50 shadow">
+        <button onclick="openCartModal()" class="btn-press bg-brandGold text-white font-black px-4 py-2 rounded-xl text-xs shadow">
             مراجعة الطلب <i class="fa-solid fa-arrow-left mr-1"></i>
         </button>
     </div>
 
-    <!-- نافذة سلة الطلبات والواتساب -->
+    <!-- النافذة المنسدلة -->
     <div id="cartModal" class="fixed inset-0 bg-black/60 z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none p-0 sm:p-4">
-        <div class="modal-sheet bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
-            <div class="bg-brandGreen text-white p-4 flex justify-between items-center">
-                <h2 class="font-bold text-sm"><i class="fa-solid fa-cart-shopping ml-2"></i> سلة أطباقك المختارة</h2>
-                <button onclick="closeCartModal()" class="text-white/80 hover:text-white text-xl transition-colors"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-sheet bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="bg-brandOlive text-white p-4 flex justify-between items-center">
+                <h2 class="font-bold text-sm"><i class="fa-solid fa-cart-shopping ml-2 text-brandGold"></i> أطباقك المختارة</h2>
+                <button onclick="closeCartModal()" class="text-white text-lg"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
-            <div class="p-4 overflow-y-auto flex-1 space-y-3" id="cartItemsList"></div>
+            <div class="p-4 overflow-y-auto flex-1 space-y-2.5" id="cartItemsList"></div>
 
             <div class="p-4 bg-slate-50 border-t border-slate-200 space-y-3">
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-1">حدد فرع فوال الأفراح المراد الطلب منه:</label>
-                    <select id="branchSelect" class="w-full p-3 rounded-xl border border-slate-300 font-bold text-xs bg-white focus:ring-2 focus:ring-brandGreen">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">اختر الفرع المراد الطلب منه:</label>
+                    <select id="branchSelect" class="w-full p-3 rounded-xl border border-slate-300 font-bold text-xs bg-white focus:ring-2 focus:ring-brandOlive">
                         <option value="0533508148">فرع الروضة (0533508148)</option>
                         <option value="0550907600">فرع المونسية (0550907600)</option>
                         <option value="0583993468">فرع القادسية (0583993468)</option>
                     </select>
                 </div>
 
-                <button onclick="sendOrderToWhatsApp()" class="btn-press w-full bg-green-600 hover:bg-green-700 text-white font-black py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 shadow-md">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> إرسال الطلب المباشر للواتساب
+                <button onclick="sendOrderToWhatsApp()" class="btn-press w-full bg-green-600 hover:bg-green-700 text-white font-black py-3.5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> إرسال الطلب المباشر للواتساب
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- قاعدة بيانات المنيو الكاملة والبرمجة -->
     <script>
-        // كافة أطباق المنيو من الصورة الرسمية مع الأسعار والسعرات الحرارية وخانة الصورة
         const menuData = [
-            // --- الفول والعدس والحمص ---
-            { id: 1, name: 'فول جرة سمن وزيت', price: 9, cal: 320, cat: 'foul', img: 'images/foul-jarra.jpg' },
-            { id: 2, name: 'فول قلابة سمن وزيت', price: 9, cal: 340, cat: 'foul', img: 'images/foul-qallaba.jpg' },
-            { id: 3, name: 'فول طاوة', price: 11, cal: 490, cat: 'foul', img: '' },
-            { id: 4, name: 'فول بيض صنعاني', price: 12, cal: 560, cat: 'foul', img: '' },
-            { id: 5, name: 'فول بالحجر', price: 11, cal: 520, cat: 'foul', img: '' },
-            { id: 6, name: 'فول بالتونة', price: 12, cal: 420, cat: 'foul', img: '' },
-            { id: 7, name: 'فول مشكل', price: 13, cal: 420, cat: 'foul', img: '' },
-            { id: 8, name: 'فول الأفراح الخاص', price: 11, cal: 320, cat: 'foul', img: '' },
-            { id: 9, name: 'عدس طاوة', price: 11, cal: 300, cat: 'foul', img: '' },
-            { id: 10, name: 'عدس بالبيض', price: 12, cal: 450, cat: 'foul', img: '' },
-            { id: 11, name: 'عدس بالتونة', price: 12, cal: 550, cat: 'foul', img: '' },
-            { id: 12, name: 'حمص الأفراح', price: 10, cal: 415, cat: 'foul', img: '' },
-            { id: 13, name: 'حمص مشكل', price: 12, cal: 510, cat: 'foul', img: '' },
-            { id: 14, name: 'حمص باللحم', price: 22, cal: 540, cat: 'foul', img: '' },
-            { id: 15, name: 'حمص بالدجاج', price: 20, cal: 610, cat: 'foul', img: '' },
-            { id: 16, name: 'حمص بالتونة', price: 20, cal: 415, cat: 'foul', img: '' },
-            { id: 17, name: 'حمص بالفول', price: 11, cal: 620, cat: 'foul', img: '' },
-
-            // --- البيض والشعبيات ---
-            { id: 18, name: 'بيض سادة', price: 9, cal: 370, cat: 'eggs', img: '' },
-            { id: 19, name: 'بيض عيون', price: 9, cal: 370, cat: 'eggs', img: '' },
-            { id: 20, name: 'بيض فرن', price: 10, cal: 380, cat: 'eggs', img: '' },
-            { id: 21, name: 'بيض بالتونة', price: 12, cal: 500, cat: 'eggs', img: '' },
-            { id: 22, name: 'شكشوكة عادي', price: 10, cal: 380, cat: 'eggs', img: '' },
-            { id: 23, name: 'شكشوكة عدني', price: 11, cal: 480, cat: 'eggs', img: '' },
-            { id: 24, name: 'شكشوكة تونسية', price: 12, cal: 410, cat: 'eggs', img: '' },
-            { id: 25, name: 'شكشوكة خماسية', price: 14, cal: 451, cat: 'eggs', img: '' },
-            { id: 26, name: 'لحسة بلدي', price: 12, cal: 420, cat: 'eggs', img: '' },
-
-            // --- الأطباق الرئيسية والفاصوليا ---
-            { id: 27, name: 'كبدة غنم طازج', price: 22, cal: 350, cat: 'mains', img: '' },
-            { id: 28, name: 'كبدة غنم مبرد', price: 20, cal: 350, cat: 'mains', img: '' },
-            { id: 29, name: 'كبدة حاشي طازج', price: 22, cal: 310, cat: 'mains', img: '' },
-            { id: 30, name: 'كبدة حاشي مبرد', price: 20, cal: 350, cat: 'mains', img: '' },
-            { id: 31, name: 'مقلقل لحم', price: 22, cal: 410, cat: 'mains', img: '' },
-            { id: 32, name: 'مقلقل دجاج', price: 20, cal: 350, cat: 'mains', img: '' },
-            { id: 33, name: 'تقاطيع طازجة', price: 22, cal: 480, cat: 'mains', img: '' },
-            { id: 34, name: 'تونة سادة', price: 12, cal: 450, cat: 'mains', img: '' },
-            { id: 35, name: 'عقدة', price: 15, cal: 436, cat: 'mains', img: '' },
-            { id: 36, name: 'سلتة يمنية', price: 15, cal: 436, cat: 'mains', img: '' },
-            { id: 37, name: 'سلطة الأفراح', price: 10, cal: 510, cat: 'mains', img: '' },
-            { id: 38, name: 'مجموعة الأطباق', price: 15, cal: 600, cat: 'mains', img: '' },
-            { id: 39, name: 'مجموعة الأفراح الخاصة', price: 17, cal: 600, cat: 'mains', img: '' },
-            { id: 40, name: 'فاصوليا سادة', price: 10, cal: 250, cat: 'mains', img: '' },
-            { id: 41, name: 'فاصوليا بالتونة', price: 12, cal: 330, cat: 'mains', img: '' },
-            { id: 42, name: 'فاصوليا بالبيض', price: 12, cal: 330, cat: 'mains', img: '' },
-            { id: 43, name: 'فاصوليا حمراء', price: 12, cal: 250, cat: 'mains', img: '' },
-            { id: 44, name: 'بازاليا سادة', price: 10, cal: 290, cat: 'mains', img: '' },
-            { id: 45, name: 'بازاليا بالتونة', price: 12, cal: 700, cat: 'mains', img: '' },
-            { id: 46, name: 'بازاليا رطب عدني', price: 12, cal: 380, cat: 'mains', img: '' },
-            { id: 47, name: 'بازاليا بالبيض', price: 12, cal: 380, cat: 'mains', img: '' },
-
-            // --- المطبّق ---
-            { id: 48, name: 'مطبق الأفراح المميز', price: 9, cal: 320, cat: 'mutabbaq', img: '' },
-            { id: 49, name: 'مطبق كبدة', price: 9, cal: 340, cat: 'mutabbaq', img: '' },
-            { id: 50, name: 'مطبق دجاج', price: 11, cal: 490, cat: 'mutabbaq', img: '' },
-            { id: 51, name: 'مطبق حاشي', price: 12, cal: 560, cat: 'mutabbaq', img: '' },
-            { id: 52, name: 'مطبق لحم طازج', price: 11, cal: 520, cat: 'mutabbaq', img: '' },
-            { id: 53, name: 'مطبق مالح بالجبن', price: 12, cal: 420, cat: 'mutabbaq', img: '' },
-            { id: 54, name: 'مطبق بالتونة', price: 13, cal: 420, cat: 'mutabbaq', img: '' },
-            { id: 55, name: 'مطبق بالتونة والجبن', price: 11, cal: 320, cat: 'mutabbaq', img: '' },
-            { id: 56, name: 'مطبق بالخضار', price: 8, cal: 390, cat: 'mutabbaq', img: '' },
-            { id: 57, name: 'مطبق حلو قشطة', price: 8, cal: 750, cat: 'mutabbaq', img: '' },
-            { id: 58, name: 'مطبق حلو موز', price: 8, cal: 400, cat: 'mutabbaq', img: '' },
-            { id: 59, name: 'مطبق حلو جبن', price: 9, cal: 590, cat: 'mutabbaq', img: '' },
-            { id: 60, name: 'مطبق حلو جبن قشطة', price: 9, cal: 820, cat: 'mutabbaq', img: '' },
-            { id: 61, name: 'مطبق حلو جبن وموز', price: 9, cal: 326, cat: 'mutabbaq', img: '' },
-            { id: 62, name: 'مطبق بر', price: 8, cal: 240, cat: 'mutabbaq', img: '' },
-            { id: 63, name: 'مطبق جبن سائل', price: 16, cal: 810, cat: 'mutabbaq', img: '' },
-            { id: 64, name: 'مطبق حجازي', price: 10, cal: 810, cat: 'mutabbaq', img: '' },
-            { id: 65, name: 'مطبق لبنة', price: 12, cal: 560, cat: 'mutabbaq', img: '' },
-
-            // --- المعصوب والفتة والعريكة ---
-            { id: 66, name: 'معصوب عادي عسل سمن', price: 12, cal: 620, cat: 'masoub', img: '' },
-            { id: 67, name: 'معصوب قشطة عسل وسمن', price: 17, cal: 850, cat: 'masoub', img: '' },
-            { id: 68, name: 'معصوب تمر', price: 13, cal: 790, cat: 'masoub', img: '' },
-            { id: 69, name: 'معصوب مشكل', price: 20, cal: 520, cat: 'masoub', img: '' },
-            { id: 70, name: 'معصوب كورن فليكس', price: 20, cal: 520, cat: 'masoub', img: '' },
-            { id: 71, name: 'معصوب دبل قشطة', price: 20, cal: 950, cat: 'masoub', img: '' },
-            { id: 72, name: 'معصوب مشكل دخن', price: 20, cal: 500, cat: 'masoub', img: '' },
-            { id: 73, name: 'معصوب مكسرات', price: 25, cal: 620, cat: 'masoub', img: '' },
-            { id: 74, name: 'معصوب ملكي', price: 21, cal: 470, cat: 'masoub', img: '' },
-            { id: 75, name: 'كوب معصوب', price: 14, cal: 500, cat: 'masoub', img: '' },
-            { id: 76, name: 'فتة دبل بالقشطة', price: 20, cal: 940, cat: 'masoub', img: '' },
-            { id: 77, name: 'فتة عادي سمن وعسل', price: 10, cal: 820, cat: 'masoub', img: '' },
-            { id: 78, name: 'فتة قشطة سمن وعسل', price: 17, cal: 840, cat: 'masoub', img: '' },
-            { id: 79, name: 'فتة تمر سمن وعسل', price: 13, cal: 870, cat: 'masoub', img: '' },
-            { id: 80, name: 'فتة كوكتيل', price: 17, cal: 470, cat: 'masoub', img: '' },
-            { id: 81, name: 'فتة كورن فليكس', price: 20, cal: 470, cat: 'masoub', img: '' },
-            { id: 82, name: 'فتة دخن', price: 20, cal: 750, cat: 'masoub', img: '' },
-            { id: 83, name: 'حنيني دخن', price: 20, cal: 850, cat: 'masoub', img: '' },
-            { id: 84, name: 'كوب عريكة', price: 14, cal: 500, cat: 'masoub', img: '' },
-            { id: 85, name: 'عريكة الأفراح الخاصة', price: 20, cal: 750, cat: 'masoub', img: '' },
-            { id: 86, name: 'عريكة مكسرات', price: 25, cal: 850, cat: 'masoub', img: '' },
-            { id: 87, name: 'عريكة كورن فليكس', price: 22, cal: 630, cat: 'masoub', img: '' },
-            { id: 88, name: 'عريكة دبل قشطة', price: 22, cal: 987, cat: 'masoub', img: '' },
-            { id: 89, name: 'مراصيع الأفراح', price: 15, cal: 750, cat: 'masoub', img: '' },
-
-            // --- الخبز والإضافات ---
-            { id: 90, name: 'ملوح صغير', price: 2, cal: 820, cat: 'bread', img: '' },
-            { id: 91, name: 'ملوح دبل', price: 3, cal: 830, cat: 'bread', img: '' },
-            { id: 92, name: 'ملوح رطب', price: 7, cal: 1420, cat: 'bread', img: '' },
-            { id: 93, name: 'ملوح بالسمن', price: 3, cal: 1400, cat: 'bread', img: '' },
-            { id: 94, name: 'ملوح رطب بالسمن والعسل', price: 7, cal: 520, cat: 'bread', img: '' },
-            { id: 95, name: 'تميس سمن', price: 3, cal: 1400, cat: 'bread', img: '' },
-            { id: 96, name: 'تميس سكر', price: 3, cal: 1446, cat: 'bread', img: '' },
-            { id: 97, name: 'تميس عادي', price: 1, cal: 1400, cat: 'bread', img: '' },
-            { id: 98, name: 'تميس بسكوت', price: 3, cal: 1400, cat: 'bread', img: '' },
-            { id: 99, name: 'تميس بالجبن', price: 5, cal: 1802, cat: 'bread', img: '' },
-            { id: 100, name: 'خبز الطيبين', price: 8, cal: 247, cat: 'bread', img: '' },
-            { id: 101, name: 'بنت الصحن', price: 16, cal: 1117, cat: 'bread', img: '' },
-            { id: 102, name: 'جبن سائل مالح', price: 5, cal: 402, cat: 'bread', img: '' },
-            { id: 103, name: 'جبن شيدر', price: 5, cal: 298, cat: 'bread', img: '' },
-            { id: 104, name: 'إضافة كورن فليكس', price: 5, cal: 120, cat: 'bread', img: '' },
-
-            // --- المشروبات ---
-            { id: 105, name: 'شاي سادة', price: 1, cal: 60, cat: 'drinks', img: '' },
-            { id: 106, name: 'شاي بالحليب', price: 2, cal: 80, cat: 'drinks', img: '' },
-            { id: 107, name: 'حليب عدني', price: 3, cal: 90, cat: 'drinks', img: '' },
-            { id: 108, name: 'نسكافيه', price: 3, cal: 90, cat: 'drinks', img: '' },
-            { id: 109, name: 'ماء نقي', price: 1, cal: 0, cat: 'drinks', img: '' },
-            { id: 110, name: 'مشروبات غازية', price: 3, cal: 42, cat: 'drinks', img: '' },
-            { id: 111, name: 'عصير الربيع', price: 2, cal: 42, cat: 'drinks', img: '' },
+            { id: 1, name: 'فول جرة سمن وزيت', price: 9, cal: 320, cat: 'foul' },
+            { id: 2, name: 'فول قلابة سمن وزيت', price: 9, cal: 340, cat: 'foul' },
+            { id: 3, name: 'فول طاوة', price: 11, cal: 490, cat: 'foul' },
+            { id: 4, name: 'فول بيض صنعاني', price: 12, cal: 560, cat: 'foul' },
+            { id: 9, name: 'عدس طاوة', price: 11, cal: 300, cat: 'foul' },
+            { id: 18, name: 'بيض عيون', price: 9, cal: 370, cat: 'eggs' },
+            { id: 22, name: 'شكشوكة عادي', price: 10, cal: 380, cat: 'eggs' },
+            { id: 23, name: 'شكشوكة عدني', price: 11, cal: 480, cat: 'eggs' },
+            { id: 27, name: 'كبدة غنم طازج', price: 22, cal: 350, cat: 'mains' },
+            { id: 29, name: 'كبدة حاشي طازج', price: 22, cal: 310, cat: 'mains' },
+            { id: 31, name: 'مقلقل لحم', price: 22, cal: 410, cat: 'mains' },
+            { id: 48, name: 'مطبق الأفراح المميز', price: 9, cal: 320, cat: 'mutabbaq' },
+            { id: 57, name: 'مطبق حلو قشطة', price: 8, cal: 750, cat: 'mutabbaq' },
+            { id: 66, name: 'معصوب عادي عسل سمن', price: 12, cal: 620, cat: 'masoub' },
+            { id: 67, name: 'معصوب قشطة عسل وسمن', price: 17, cal: 850, cat: 'masoub' },
+            { id: 85, name: 'عريكة الأفراح الخاصة', price: 20, cal: 750, cat: 'masoub' },
+            { id: 90, name: 'ملوح صغير', price: 2, cal: 820, cat: 'bread' },
+            { id: 95, name: 'تميس سمن', price: 3, cal: 1400, cat: 'bread' },
+            { id: 97, name: 'تميس عادي', price: 1, cal: 1400, cat: 'bread' },
+            { id: 105, name: 'شاي سادة', price: 1, cal: 60, cat: 'drinks' },
+            { id: 107, name: 'حليب عدني', price: 3, cal: 90, cat: 'drinks' }
         ];
 
         let currentCategory = 'all';
         let cart = [];
-
-        // بديل أنيق عند تعذر تحميل صورة الطبق
-        function imgFallback(imgEl) {
-            const wrap = imgEl.parentElement;
-            imgEl.remove();
-            const placeholder = document.createElement('div');
-            placeholder.className = 'w-full h-full flex items-center justify-center text-slate-300 text-2xl';
-            placeholder.innerHTML = '<i class="fa-solid fa-utensils"></i>';
-            wrap.appendChild(placeholder);
-        }
 
         function renderMenu() {
             const grid = document.getElementById('menuGrid');
@@ -305,38 +159,27 @@
             });
 
             if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-16 text-slate-400">
-                        <i class="fa-solid fa-utensils text-3xl mb-3 block"></i>
-                        لا يوجد طبق بهذا الاسم
-                    </div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-10 text-slate-400 text-xs">لا يوجد طبق بهذا الاسم</div>`;
                 return;
             }
 
             filtered.forEach(item => {
-                const imgHTML = item.img ?
-                    `<img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="imgFallback(this)">` :
-                    `<div class="w-full h-full flex items-center justify-center text-slate-300 text-2xl"><i class="fa-solid fa-utensils"></i></div>`;
-
                 const inCart = cart.find(i => i.name === item.name);
-                const qtyBadge = inCart ? `<span class="absolute top-2 right-2 bg-brandGold text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow">${inCart.qty}</span>` : '';
+                const qtyBadge = inCart ? `<span class="bg-brandGold text-white text-[10px] font-black px-2 py-0.5 rounded-full">${inCart.qty}</span>` : '';
 
                 grid.innerHTML += `
                     <div class="dish-card p-3 flex items-center justify-between gap-3">
-                        <div class="dish-img-wrap relative w-20 h-20 rounded-xl flex-shrink-0 border border-slate-100 flex items-center justify-center">
-                            ${imgHTML}
-                            ${qtyBadge}
-                        </div>
                         <div class="flex-1 min-w-0">
-                            <h3 class="font-bold text-slate-800 text-sm leading-tight-ar truncate">${item.name}</h3>
-                            <p class="text-[11px] text-amber-600 font-semibold mt-1"><i class="fa-solid fa-fire-flame-curved text-[9px]"></i> ${item.cal} سعرة حرارية</p>
-                            <div class="flex items-center justify-between mt-2.5">
-                                <span class="text-brandGreen font-black text-sm">${item.price} <span class="text-[10px]">ر.س</span></span>
-                                <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, this)" class="btn-press bg-brandGreen text-white px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-brandDarkGreen">
-                                    + إضافة
-                                </button>
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-extrabold text-slate-800 text-xs sm:text-sm truncate">${item.name}</h3>
+                                ${qtyBadge}
                             </div>
+                            <p class="text-[10px] text-amber-600 font-bold mt-1"><i class="fa-solid fa-fire text-[9px]"></i> ${item.cal} سعرة</p>
+                            <span class="text-brandOlive font-black text-xs sm:text-sm block mt-1.5">${item.price} <span class="text-[9px]">ر.س</span></span>
                         </div>
+                        <button onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})" class="btn-press bg-brandOlive text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm">
+                            + إضافة
+                        </button>
                     </div>
                 `;
             });
@@ -349,17 +192,12 @@
             renderMenu();
         }
 
-        function addToCart(name, price, btnEl) {
+        function addToCart(name, price) {
             const index = cart.findIndex(i => i.name === name);
             if (index > -1) { cart[index].qty += 1; }
             else { cart.push({ name, price, qty: 1 }); }
             updateCartUI();
             renderMenu();
-
-            if (btnEl) {
-                btnEl.classList.add('bump');
-                setTimeout(() => btnEl.classList.remove('bump'), 400);
-            }
         }
 
         function updateCartUI() {
@@ -370,15 +208,8 @@
             document.getElementById('cartTotal').innerText = totalPrice;
 
             const cartBar = document.getElementById('cartBar');
-            const cartCountEl = document.getElementById('cartCount');
-            if (totalItems > 0) {
-                cartBar.classList.add('show');
-                cartCountEl.classList.add('bump');
-                setTimeout(() => cartCountEl.classList.remove('bump'), 400);
-            } else {
-                cartBar.classList.remove('show');
-                closeCartModal();
-            }
+            if (totalItems > 0) { cartBar.classList.add('show'); }
+            else { cartBar.classList.remove('show'); closeCartModal(); }
         }
 
         function openCartModal() {
@@ -386,22 +217,22 @@
             list.innerHTML = '';
             cart.forEach((item, idx) => {
                 list.innerHTML += `
-                    <div class="flex justify-between items-center bg-slate-100 p-3 rounded-xl">
+                    <div class="flex justify-between items-center bg-slate-100 p-2.5 rounded-xl text-xs">
                         <div>
-                            <p class="font-bold text-sm text-slate-800">${item.name}</p>
-                            <p class="text-xs text-brandGreen font-bold">${item.price * item.qty} ر.س</p>
+                            <p class="font-bold text-slate-800">${item.name}</p>
+                            <p class="text-brandOlive font-black">${item.price * item.qty} ر.س</p>
                         </div>
                         <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-slate-200">
-                            <button onclick="changeQty(${idx}, -1)" class="text-red-600 font-bold px-1.5 text-base transition-transform active:scale-90">-</button>
-                            <span class="font-bold text-xs px-1">${item.qty}</span>
-                            <button onclick="changeQty(${idx}, 1)" class="text-green-600 font-bold px-1.5 text-base transition-transform active:scale-90">+</button>
+                            <button onclick="changeQty(${idx}, -1)" class="text-red-600 font-bold px-1.5">-</button>
+                            <span class="font-bold">${item.qty}</span>
+                            <button onclick="changeQty(${idx}, 1)" class="text-green-600 font-bold px-1.5">+</button>
                         </div>
                     </div>
                 `;
             });
             const modal = document.getElementById('cartModal');
             modal.classList.remove('pointer-events-none');
-            requestAnimationFrame(() => modal.classList.add('open'));
+            modal.classList.add('open');
         }
 
         function closeCartModal() {
@@ -421,9 +252,7 @@
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return;
             const phone = document.getElementById('branchSelect').value;
-            const branchText = document.getElementById('branchSelect').options[document.getElementById('branchSelect').selectedIndex].text;
-
-            let msg = `مرحباً فوال الأفراح (${branchText.split('(')[0].trim()}) 🌿\nأريد طلب الأطباق التالية:\n\n`;
+            let msg = `مرحباً فوال الأفراح 🌿\nأريد طلب الأصناف التالية:\n\n`;
             let total = 0;
             cart.forEach(i => {
                 const sub = i.price * i.qty;
@@ -431,11 +260,9 @@
                 msg += `• ${i.name} (${i.qty}x) = ${sub} ر.س\n`;
             });
             msg += `\n💰 الإجمالي: ${total} ر.س`;
-
             window.open(`https://wa.me/966${phone.substring(1)}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // تشغيل القائمة عند الفتح
         window.addEventListener('DOMContentLoaded', renderMenu);
     </script>
     <script src="assets/js/main.js"></script>
