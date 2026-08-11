@@ -1,14 +1,69 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- ==================== 1. أجهزة البحث والـ SEO الاحترافي ==================== -->
     <title>فوال الأفراح | أصالة تمتد عبر الأجيال - منذ 1973م</title>
-    <!-- Tailwind CSS -->
+    <meta name="description" content="مطعم فوال الأفراح - خيارك الأول لألذ فطور شعبي في الرياض منذ عام 1973م. فول جرة، كبدة طازجة، مطبق، معصوب وعريكة ملكية. فروعنا: الروضة، المونسية، والقادسية.">
+    <meta name="keywords" content="فوال, فوال الافراح, فوال الأفراح, فطور شعبي الرياض, افضل فوال بالرياض, كبدة طازجة, فول وكبدة, مطبق, معصوب, عريكة, فوال الروضة, فوال المونسية, فوال القادسية, مطعم فطور">
+    <meta name="author" content="فوال الأفراح">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://fwalalafrah.com/">
+
+    <!-- Open Graph / WhatsApp & Social Media Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="فوال الأفراح | أصالة تمتد عبر الأجيال منذ 1973م">
+    <meta property="og:description" content="تذوق طعم الفطور الشعبي الأصيل بروح عصرية. اطلب الآن مباشرة عبر الواتساب من أقرب فرع لك.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:locale" content="ar_SA">
+
+    <!-- Favicon (أيقونة المتصفح) -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+
+    <!-- Google Structured Data / JSON-LD Schema لقوقل -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "فوال الأفراح",
+      "alternateName": ["فوال الافراح", "Fwal Al-Afrah"],
+      "image": "logo.png",
+      "url": "https://fwalalafrah.com",
+      "telephone": "+966533508148",
+      "priceRange": "$$",
+      "servesCuisine": ["Saudi", "Middle Eastern", "Breakfast"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "الرياض",
+        "addressRegion": "منطقة الرياض",
+        "addressCountry": "SA"
+      },
+      "department": [
+        {
+          "@type": "Restaurant",
+          "name": "فوال الأفراح - فرع الروضة",
+          "telephone": "+966533508148"
+        },
+        {
+          "@type": "Restaurant",
+          "name": "فوال الأفراح - فرع المونسية",
+          "telephone": "+966550907600"
+        },
+        {
+          "@type": "Restaurant",
+          "name": "فوال الأفراح - فرع القادسية",
+          "telephone": "+966583993468"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS & Google Fonts & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Font: Tajawal -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -16,11 +71,10 @@
             theme: {
                 extend: {
                     colors: {
-                        brandGreen: '#2d5b43',       /* زيتي فاتح هادئ ومريح */
-                        brandDarkGreen: '#1e3e2d',   /* زيتي أغمق للتدرج */
+                        brandGreen: '#2d5b43',       /* زيتي فاتح مريح */
+                        brandDarkGreen: '#1b3b2b',   /* زيتي دافئ للعمق */
                         brandGold: '#c5a059',        /* ذهبي هادئ */
-                        brandBg: '#ffffff',          /* خلفية بيضاء */
-                        brandSoftGray: '#f8fafc',
+                        brandCream: '#fcfbf7',       /* بيج ناعم جداً */
                     },
                     fontFamily: {
                         tajawal: ['Tajawal', 'sans-serif'],
@@ -33,105 +87,277 @@
         body { font-family: 'Tajawal', sans-serif; background-color: #ffffff; color: #1e293b; }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-white text-slate-800 antialiased selection:bg-brandGreen selection:text-white">
 
-    <!-- Header (زيتي فاتح مريح للعين) -->
-    <header class="sticky top-0 z-50 bg-brandGreen text-white shadow-md">
+    <!-- ==================== Header / الهيدر الزجاجي الفاخر ==================== -->
+    <header class="sticky top-0 z-50 bg-brandGreen/95 backdrop-blur-md text-white border-b border-white/10 shadow-md transition-all">
         <div class="container mx-auto px-4 py-3.5 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-full border-2 border-brandGold bg-white text-brandGreen flex items-center justify-center font-black text-xl shadow-sm">
-                    ف
+            
+            <!-- اللوقو والعلامة التجارية -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 rounded-full bg-white border-2 border-brandGold flex items-center justify-center p-0.5 shadow-sm overflow-hidden group-hover:scale-105 transition transform">
+                    <!-- محاولة تحميل logo.png وفي حال عدم وجودها يظهر السهم/الأيقونة الفاخرة تلقائياً -->
+                    <img src="logo.png" alt="لوقو فوال الأفراح" class="w-full h-full object-contain" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+                    <div id="logoFallback" class="hidden w-full h-full bg-brandGreen text-brandGold items-center justify-center font-black text-lg rounded-full">
+                        ف
+                    </div>
                 </div>
                 <div>
-                    <h1 class="text-xl font-black text-white tracking-wide">فوال الأفراح</h1>
-                    <span class="text-[11px] text-emerald-100 font-medium">أصالة منذ عام 1973م</span>
+                    <span class="text-xl font-black tracking-wide text-white block leading-none">فوال الأفراح</span>
+                    <span class="text-[10px] text-emerald-200 font-medium tracking-wider">منذ عام 1973م</span>
                 </div>
             </a>
-            
-            <a href="menu.html" class="bg-brandGold hover:bg-yellow-600 text-white font-bold px-5 py-2.5 rounded-xl transition shadow-sm flex items-center gap-2 text-sm">
-                <i class="fa-solid fa-utensils"></i> المنيو والطلب
+
+            <!-- روابط التنقل لسطح المكتب -->
+            <nav class="hidden md:flex items-center gap-8 font-bold text-sm text-emerald-100">
+                <a href="#about" class="hover:text-brandGold transition">من نحن</a>
+                <a href="#vision" class="hover:text-brandGold transition">الرؤية والرسالة</a>
+                <a href="#why-us" class="hover:text-brandGold transition">لماذا نتميز؟</a>
+                <a href="#branches" class="hover:text-brandGold transition">فروعنا الثلاثة</a>
+            </nav>
+
+            <!-- زر الطلب والمنيو الرئيسي -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="menu.html" class="bg-brandGold hover:bg-yellow-600 text-white font-black px-5 py-2.5 rounded-xl transition shadow-md flex items-center gap-2 text-sm transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-utensils"></i> المنيو والطلب السريع
+                </a>
+            </div>
+
+            <!-- زر القائمة للجوال -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl p-1 focus:outline-none">
+                <i class="fa-solid fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- قائمة التنقل للجوال (Mobile Drawer) -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brandDarkGreen border-t border-white/10 px-4 py-6 space-y-4 text-center font-bold text-emerald-100">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 hover:text-brandGold border-b border-white/5">من نحن</a>
+            <a href="#vision" onclick="toggleMobileMenu()" class="block py-2 hover:text-brandGold border-b border-white/5">الرؤية والرسالة والأهداف</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block py-2 hover:text-brandGold border-b border-white/5">لماذا فوال الأفراح؟</a>
+            <a href="#branches" onclick="toggleMobileMenu()" class="block py-2 hover:text-brandGold border-b border-white/5">فروعنا والواتساب</a>
+            <a href="menu.html" class="block bg-brandGold text-white py-3 rounded-xl font-black mt-2">
+                <i class="fa-solid fa-utensils ml-1"></i> تصفح المنيو واطلب الآن
             </a>
         </div>
     </header>
 
-    <!-- Hero Section (خلفية بيضاء مع عناصر زيتي فاتح) -->
-    <section class="py-16 md:py-24 bg-gradient-to-b from-emerald-50/50 to-white px-4">
-        <div class="container mx-auto text-center max-w-3xl">
-            <span class="inline-block bg-brandGreen/10 text-brandGreen border border-brandGreen/20 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
-                ✨ خبرة أكثر من 50 عاماً في تقديم الفطور الشعبي
-            </span>
-            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight text-slate-800">
-                أصالة تمتد <span class="text-brandGreen">عبر الأجيال</span>
+    <!-- ==================== Hero Section / البانر الترحيبي المحفز ==================== -->
+    <section class="relative py-20 md:py-28 bg-gradient-to-b from-emerald-50/70 via-white to-amber-50/30 overflow-hidden">
+        <div class="container mx-auto px-4 text-center max-w-4xl relative z-10">
+            
+            <div class="inline-flex items-center gap-2 bg-brandGreen/10 border border-brandGreen/20 text-brandGreen text-xs md:text-sm font-bold px-4 py-2 rounded-full mb-6">
+                <span class="w-2 h-2 rounded-full bg-brandGreen animate-pulse"></span>
+                <span>أصالة تمتد عبر الأجيال | الطعم اللي تعودنا عليه</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-black text-slate-800 mb-6 leading-tight">
+                تجربة الفطور الشعبي الأصيل <br>
+                <span class="text-brandGreen">بأسلوب عصري يجمع الأحبّة</span>
             </h1>
+
             <p class="text-base md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed font-normal">
-                نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة. تجربة طعام عصرية تجمع بين طعم الماضي الجميل والستايل الحديث.
+                منذ عام 1973م، ونحن نبتكر طعم الماضي الجميل بلمسات عصرية. نقدم لك أطباقك المفضلة من الفول، الكبدة الطازجة، والمخبوزات بتفاصيل رفيعة المستوى.
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="menu.html" class="bg-brandGreen text-white font-bold px-8 py-4 rounded-2xl text-lg hover:bg-brandDarkGreen transition shadow-lg shadow-emerald-900/10 flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-list-check"></i> تصفح المنيو واطلب الآن
+            <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto">
+                <a href="menu.html" class="bg-brandGreen hover:bg-brandDarkGreen text-white font-black px-8 py-4 rounded-2xl text-base transition shadow-xl shadow-emerald-900/10 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                    <i class="fa-solid fa-burger text-brandGold"></i> تصفح المنيو واطلب سلتك
                 </a>
-                <a href="#branches" class="border-2 border-brandGreen text-brandGreen font-bold px-8 py-4 rounded-2xl text-lg hover:bg-brandGreen hover:text-white transition flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-location-dot"></i> فروعنا الثلاثة
+                <a href="#branches" class="bg-white border-2 border-brandGreen text-brandGreen font-bold px-8 py-4 rounded-2xl text-base hover:bg-brandGreen hover:text-white transition shadow-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-store"></i> اختر الفرع المباشر
                 </a>
+            </div>
+
+            <!-- إحصائيات وأرقام الثقة -->
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mt-16 pt-8 border-t border-slate-200">
+                <div>
+                    <span class="block text-2xl md:text-4xl font-black text-brandGreen">+50</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-bold">عاماً من العراقة</span>
+                </div>
+                <div>
+                    <span class="block text-2xl md:text-4xl font-black text-brandGreen">3</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-bold">فروع بالرياض</span>
+                </div>
+                <div>
+                    <span class="block text-2xl md:text-4xl font-black text-brandGreen">+110</span>
+                    <span class="text-xs md:text-sm text-slate-500 font-bold">طبقاً شعبياً طازجاً</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== بروفايل الشركة: من نحن ==================== -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brandGold font-bold text-xs uppercase tracking-widest block mb-2">قصة نجاحنا</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-6 leading-snug">
+                        «فوال الأفراح»... أصالة تمتد عبر الأجيال
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-sm md:text-base mb-4">
+                        منذ عام 1973م، ونحن نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة. نحن لسنا مجرد فوال تقليدي، بل تجربة طعام عصرية تجمع بين طعم الماضي الجميل والستايل الحديث.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                        نقدم لك أطباقك المفضلة بتفاصيل عصرية رفيعة المستوى، تجمع العائلة والأصدقاء حول موائد تدوم معها أجمل الذكريات.
+                    </p>
+                </div>
+
+                <div class="relative rounded-3xl overflow-hidden border-4 border-brandGreen/20 shadow-2xl bg-slate-100 min-h-[300px] flex items-center justify-center">
+                    <!-- صورة البروفايل المعبرة -->
+                    <img src="https://images.unsplash.com/photo-1541518763669-27fef04b14e8?auto=format&fit=crop&w=800&q=80" alt="فوال الأفراح تجربة عصرية" class="w-full h-80 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDarkGreen/80 via-transparent to-transparent flex items-end p-6">
+                        <p class="text-white font-bold text-sm">الطعم الأصيل اللي تعودنا عليه منذ عقود</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Branches Section -->
-    <section id="branches" class="py-16 bg-slate-50 border-y border-slate-100">
+    <!-- ==================== الرؤية والمهمة وهدفنا (من الكتيب) ==================== -->
+    <section id="vision" class="py-20 bg-emerald-50/50 border-y border-emerald-100">
         <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-black text-slate-800 mb-2">فروعنا وخيارات الطلب السريع</h2>
-                <p class="text-slate-500 text-sm">اضغط على زر الفرع للتواصل المباشر والطلب عبر الواتساب</p>
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-3">دستور عملنا وقيمنا</h2>
+                <p class="text-slate-500 text-sm">نلتزم بأعلى معايير الجودة والضيافة السعودية العريقة</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-8">
                 
-                <!-- Branch 1: Rawdah -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl border border-emerald-100">
-                            <i class="fa-solid fa-store"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-1">فرع الروضة</h3>
-                        <p class="text-slate-400 text-xs mb-6">الرياض - حي الروضة</p>
+                <!-- الرؤية -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-brandGreen/10 text-brandGreen rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
                     </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-3">الرؤية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        أن نكون العلامة التجارية الأولى والوجهة المفضلة في تقديم المأكولات الشعبية والمخبوزات العصرية بروح مبتكرة، مع الحفاظ على الهوية الأصيلة التي وثق بها عملاؤنا لخمسة عقود.
+                    </p>
+                </div>
+
+                <!-- المهمة -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-brandGreen/10 text-brandGreen rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-3">المهمة</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        تقديم تجربة طعام استثنائية من خلال دمج المذاق التقليدي الغني مع أعلى معايير الجودة والضيافة العصرية، لتبقى كل وجبة تجربة فريدة تحاكي الماضي بأسلوب الحاضر.
+                    </p>
+                </div>
+
+                <!-- هدفنا -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-brandGreen/10 text-brandGreen rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-flag"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-3">هدفنا</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        توسيع نطاق ضيافتنا والوصول إلى كل بيت يبحث عن الذوق الأصيل، مع الابتكار المستمر في التقديم والتوسع في خدماتنا لنكون دائماً الخيار الأول لفطورك وجمعاتك اليومية.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== لماذا يفضلنا العملاء؟ ==================== -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black text-slate-800 mb-3">لماذا يختار الجميع فوال الأفراح؟</h2>
+                <p class="text-slate-500 text-sm">سر التميز المستمر لأكثر من 50 عاماً</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 text-center border border-slate-100 rounded-2xl bg-slate-50">
+                    <div class="text-brandGreen text-3xl mb-3"><i class="fa-solid fa-drumstick-bite"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1">لحوم وكبدة بلدي طازجة</h4>
+                    <p class="text-xs text-slate-500">موردة يومياً ومعدة على الصاج بأعلى معايير النظافة.</p>
+                </div>
+                <div class="p-6 text-center border border-slate-100 rounded-2xl bg-slate-50">
+                    <div class="text-brandGreen text-3xl mb-3"><i class="fa-solid fa-fire"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1">خبز تميس ساخن</h4>
+                    <p class="text-xs text-slate-500">يخرج طازجاً ومقرمشاً من التنور مباشرة مع كل طلب.</p>
+                </div>
+                <div class="p-6 text-center border border-slate-100 rounded-2xl bg-slate-50">
+                    <div class="text-brandGreen text-3xl mb-3"><i class="fa-solid fa-mortar-pestle"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1">وصفات جرة حقيقية</h4>
+                    <p class="text-xs text-slate-500">نفس المذاق الأصيل والنكهات الموروثة منذ عام 1973م.</p>
+                </div>
+                <div class="p-6 text-center border border-slate-100 rounded-2xl bg-slate-50">
+                    <div class="text-brandGreen text-3xl mb-3"><i class="fa-brands fa-whatsapp"></i></div>
+                    <h4 class="font-bold text-slate-800 mb-1">طلب واتساب سريع</h4>
+                    <p class="text-xs text-slate-500">حدد أصنافك واستلم طلبك جاهزاً بدون انتظار.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== الفروع والطلب المباشر ==================== -->
+    <section id="branches" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-3">فروعنا الثلاثة بمدينة الرياض</h2>
+                <p class="text-slate-500 text-sm">اختر الفرع الأقرب إليك للتواصل أو إرسال طلبك المباشر عبر الواتساب</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- فرع الروضة -->
+                <div class="bg-white border border-slate-200 p-8 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
                     <div>
+                        <div class="w-16 h-16 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-emerald-100">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-800 mb-1">فرع الروضة</h3>
+                        <p class="text-slate-500 text-xs mb-6">مدينة الرياض - حي الروضة</p>
+                    </div>
+                    <div class="space-y-2">
                         <a href="https://wa.me/966533508148?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20الروضة" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm text-sm">
                             <i class="fa-brands fa-whatsapp text-lg"></i> الواتساب: 0533508148
                         </a>
-                    </div>
-                </div>
-
-                <!-- Branch 2: Mounsiya -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                    <div>
-                        <div class="w-14 h-14 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl border border-emerald-100">
-                            <i class="fa-solid fa-store"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-1">فرع المونسية</h3>
-                        <p class="text-slate-400 text-xs mb-6">الرياض - حي المونسية</p>
-                    </div>
-                    <div>
-                        <a href="https://wa.me/966550907600?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20المونسية" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm text-sm">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> الواتساب: 0550907600
+                        <a href="tel:0533508148" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs">
+                            <i class="fa-solid fa-phone"></i> اتصال مباشر
                         </a>
                     </div>
                 </div>
 
-                <!-- Branch 3: Qadisiyyah -->
-                <div class="bg-white border border-slate-200 p-6 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <!-- فرع المونسية -->
+                <div class="bg-white border border-slate-200 p-8 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
                     <div>
-                        <div class="w-14 h-14 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl border border-emerald-100">
-                            <i class="fa-solid fa-store"></i>
+                        <div class="w-16 h-16 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-emerald-100">
+                            <i class="fa-solid fa-shop"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-800 mb-1">فرع القادسية</h3>
-                        <p class="text-slate-400 text-xs mb-6">الرياض - حي القادسية</p>
+                        <h3 class="text-2xl font-black text-slate-800 mb-1">فرع المونسية</h3>
+                        <p class="text-slate-500 text-xs mb-6">مدينة الرياض - حي المونسية</p>
                     </div>
+                    <div class="space-y-2">
+                        <a href="https://wa.me/966550907600?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20المونسية" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> الواتساب: 0550907600
+                        </a>
+                        <a href="tel:0550907600" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs">
+                            <i class="fa-solid fa-phone"></i> اتصال مباشر
+                        </a>
+                    </div>
+                </div>
+
+                <!-- فرع القادسية -->
+                <div class="bg-white border border-slate-200 p-8 rounded-3xl text-center shadow-sm hover:shadow-md transition flex flex-col justify-between">
                     <div>
+                        <div class="w-16 h-16 bg-emerald-50 text-brandGreen rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl border border-emerald-100">
+                            <i class="fa-solid fa-shop"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-800 mb-1">فرع القادسية</h3>
+                        <p class="text-slate-500 text-xs mb-6">مدينة الرياض - حي القادسية</p>
+                    </div>
+                    <div class="space-y-2">
                         <a href="https://wa.me/966583993468?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20القادسية" target="_blank" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition shadow-sm text-sm">
                             <i class="fa-brands fa-whatsapp text-lg"></i> الواتساب: 0583993468
+                        </a>
+                        <a href="tel:0583993468" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-2 transition text-xs">
+                            <i class="fa-solid fa-phone"></i> اتصال مباشر
                         </a>
                     </div>
                 </div>
@@ -140,20 +366,39 @@
         </div>
     </section>
 
-    <!-- Social Media Section -->
-    <section class="py-12 bg-white text-center">
-        <div class="container mx-auto px-4">
-            <p class="text-slate-500 text-sm mb-2">تابعونا وتعرفوا على أطباقنا اليومية عبر التيك توك</p>
-            <a href="https://www.tiktok.com/@fwalalafrah" target="_blank" class="inline-flex items-center gap-2 text-xl font-bold text-brandGreen hover:text-brandDarkGreen transition">
-                <i class="fa-brands fa-tiktok text-2xl"></i> @fwalalafrah
+    <!-- ==================== Call To Action Banner ==================== -->
+    <section class="py-16 bg-brandGreen text-white text-center px-4">
+        <div class="container mx-auto max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-black mb-4">مشتهي فطور شعبي طازج وساخن؟</h2>
+            <p class="text-emerald-100 mb-8 font-normal">تصفح قائمتنا الكاملة التي تحتوي على أكثر من 110 أطباق، حدد الأصناف بلمسة زر وأرسل طلبك فوراً للفرع.</p>
+            <a href="menu.html" class="inline-block bg-brandGold hover:bg-yellow-600 text-white font-black text-lg px-10 py-4 rounded-2xl transition shadow-xl transform hover:scale-105">
+                <i class="fa-solid fa-cart-plus ml-2"></i> الدخول إلى المنيو والطلب الآن
             </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-6 bg-slate-900 text-white text-center text-xs border-t border-slate-800">
-        <p>&copy; 2026 فوال الأفراح. جميع الحقوق محفوظة.</p>
+    <!-- ==================== Footer / الفوتر ==================== -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-black text-white mb-2">فوال الأفراح</h3>
+            <p class="text-xs text-slate-500 mb-6">أصالة تمتد عبر الأجيال | الطعم اللي تعودنا عليه منذ 1973م</p>
+
+            <div class="flex justify-center items-center gap-6 mb-8 text-xl">
+                <a href="https://www.tiktok.com/@fwalalafrah" target="_blank" class="hover:text-brandGold transition" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+
+            <p class="text-xs text-slate-600">&copy; 2026 فوال الأفراح. جميع الحقوق محفوظة.</p>
+        </div>
     </footer>
 
+    <!-- JavaScript للتحكم بالقائمة -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
