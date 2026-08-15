@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ==================== 1. وسوم معاينة الواتساب والشبكات ==================== -->
+    <!-- ==================== 1. وسوم معاينة الواتساب وشبكات التواصل ==================== -->
     <meta itemprop="name" content="منيو فوال الأفراح | المنيو الرسمي والطلب المباشر بالرياض">
     <meta itemprop="description" content="تصفح قائمة طعام فوال الأفراح بالرياض: كبدة بلدي طازجة، فول جرة، معصوب، عريكة، ومخبوزات التنور. اطلب الآن مباشرة عبر الواتساب.">
     <meta itemprop="image" content="https://smallboatcompany.github.io/fwalalafrah/og-image.jpg">
@@ -44,7 +44,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- ==================== التنسيقات الفاخرة الموحدة (CSS) ==================== -->
+    <!-- ==================== التنسيقات الفائقة والسرعة (CSS) ==================== -->
     <style>
         :root {
             --primary: #1e5233;
@@ -133,7 +133,6 @@
             color: #94a3b8; font-size: 0.95rem; pointer-events: none;
         }
 
-        /* تصنيفات الأقسام */
         .categories-scroll {
             display: flex; gap: 0.5rem; overflow-x: auto;
             padding-bottom: 0.25rem; scrollbar-width: none;
@@ -169,7 +168,7 @@
             border: 1.5px solid #edf2f0; padding: 0.85rem;
             display: flex; align-items: center; justify-content: space-between; gap: 0.85rem;
             box-shadow: var(--card-shadow); position: relative; overflow: hidden;
-            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .dish-card:hover {
             border-color: var(--accent);
@@ -187,9 +186,7 @@
         }
         .dish-img {
             width: 100%; height: 100%; object-fit: cover; display: block;
-            transition: transform 0.5s ease;
         }
-        .dish-card:hover .dish-img { transform: scale(1.08); }
 
         .dish-info { flex: 1; min-width: 0; }
         .dish-title {
@@ -206,7 +203,7 @@
         }
         .dish-price span { font-size: 0.75rem; font-weight: 700; color: #64748b; }
 
-        /* أزرار الإضافة والتعديل على الكمية */
+        /* أزرار الإضافة والتعديل */
         .dish-actions {
             flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
         }
@@ -216,9 +213,9 @@
             width: 38px; height: 38px; border-radius: 12px;
             border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
             font-size: 0.9rem; font-weight: 800; box-shadow: 0 4px 10px rgba(30, 82, 51, 0.2);
-            transition: transform 0.2s ease, background-color 0.2s ease;
+            transition: transform 0.15s ease, background-color 0.15s ease;
         }
-        .btn-add-initial:active { transform: scale(0.9); }
+        .btn-add-initial:active { transform: scale(0.88); }
         .btn-add-initial:hover { background-color: var(--primary-light); }
 
         .qty-stepper {
@@ -233,7 +230,7 @@
             cursor: pointer; display: flex; align-items: center; justify-content: center;
             font-size: 0.8rem; font-weight: 900; transition: all 0.15s ease;
         }
-        .btn-step:active { transform: scale(0.88); }
+        .btn-step:active { transform: scale(0.85); }
         .btn-step-minus { background-color: #fee2e2; color: #dc2626; }
         .btn-step-plus { background-color: var(--primary); color: #ffffff; }
         .step-count {
@@ -245,43 +242,49 @@
             position: fixed; bottom: 1.25rem; left: 1rem; right: 1rem;
             max-width: 440px; margin: 0 auto;
             background: linear-gradient(135deg, var(--primary-dark) 0%, #174229 100%);
-            color: #fff; border-radius: 50px; padding: 0.6rem 0.85rem 0.6rem 1.25rem;
+            color: #fff; border-radius: 50px; padding: 0.65rem 0.9rem 0.65rem 1.25rem;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 15px 35px rgba(16, 48, 29, 0.4), 0 0 0 1.5px rgba(207, 162, 77, 0.4);
+            box-shadow: 0 15px 35px rgba(16, 48, 29, 0.45), 0 0 0 1.5px rgba(207, 162, 77, 0.4);
             z-index: 995;
             transform: translateY(180%);
             opacity: 0; pointer-events: none;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
         }
         #cartBar.show {
             transform: translateY(0); opacity: 1; pointer-events: auto;
         }
 
-        .cart-bar-info { display: flex; align-items: center; gap: 0.75rem; }
+        .cart-bar-info { display: flex; align-items: center; gap: 0.85rem; }
+        
+        /* تصميم أيقونة السلة المحدث والعداد */
         .cart-badge-icon {
-            position: relative; width: 40px; height: 40px;
-            background: rgba(255,255,255,0.12); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-            color: var(--accent); border: 1px solid rgba(255,255,255,0.15);
+            position: relative; width: 44px; height: 44px;
+            background: rgba(255,255,255,0.12); border-radius: 14px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            color: var(--accent); border: 1.5px solid rgba(207, 162, 77, 0.3);
+            flex-shrink: 0;
         }
         .cart-badge-num {
-            position: absolute; -top: 3px; -right: 3px;
-            background-color: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900;
-            width: 18px; height: 18px; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            position: absolute; -top: 6px; -right: 6px;
+            background-color: #ef4444; color: #fff; font-size: 0.72rem; font-weight: 900;
+            min-width: 22px; height: 22px; padding: 0 4px; border-radius: 50px;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+            font-family: 'Cairo', sans-serif; line-height: 1;
         }
 
         .btn-view-cart {
             background: linear-gradient(135deg, var(--accent) 0%, #b88d3b 100%);
-            color: #fff; font-weight: 900; font-size: 0.85rem; padding: 0.65rem 1.25rem;
+            color: #fff; font-weight: 900; font-size: 0.88rem; padding: 0.7rem 1.35rem;
             border-radius: 50px; border: none; cursor: pointer;
-            display: inline-flex; align-items: center; gap: 0.4rem;
+            display: inline-flex; align-items: center; gap: 0.45rem;
             box-shadow: 0 4px 15px rgba(207, 162, 77, 0.4);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.15s ease;
+            flex-shrink: 0;
         }
-        .btn-view-cart:active { transform: scale(0.95); }
+        .btn-view-cart:active { transform: scale(0.94); }
 
-        /* ==================== نافذة السلة السفلية Bottom Sheet Modal ==================== */
+        /* ==================== نافذة السلة السفلية ==================== */
         #cartModal {
             position: fixed; inset: 0; z-index: 1050;
             background-color: rgba(14, 43, 26, 0.65);
@@ -335,7 +338,7 @@
             background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 1.25rem 1.5rem;
         }
 
-        /* ==================== بطاقات اختيار الفروع التفاعلية ==================== */
+        /* بطاقات اختيار الفروع التفاعلية */
         .branch-select-title {
             display: flex; align-items: center; justify-content: space-between;
             font-size: 0.85rem; font-weight: 800; color: #1e293b; margin-bottom: 0.6rem;
@@ -385,7 +388,7 @@
             border-radius: 16px; border: none; cursor: pointer; width: 100%;
             display: flex; align-items: center; justify-content: center; gap: 0.6rem;
             box-shadow: 0 8px 25px rgba(22, 163, 74, 0.35);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
         .btn-send-whatsapp:active { transform: scale(0.97); }
 
@@ -396,7 +399,7 @@
         .empty-results i { font-size: 2.5rem; color: #cbd5e1; margin-bottom: 0.5rem; }
     </style>
 
-    <!-- Schema Structured Data لقائمة الطعام -->
+    <!-- Schema Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -429,7 +432,7 @@
     <!-- مؤشر النزول -->
     <div id="scrollProgress"></div>
 
-    <!-- الهيدر الفاخر الموحد -->
+    <!-- الهيدر -->
     <header class="site-header">
         <div class="container">
             <div class="nav-wrap">
@@ -446,13 +449,11 @@
     <!-- شريط التحكم والبحث الذكي الثابت -->
     <section class="sticky-control-bar">
         <div class="container">
-            <!-- خانة البحث الفوري -->
             <div class="search-box-wrap">
                 <input type="text" id="searchInput" oninput="renderMenu()" placeholder="ابحث عن طبقك المفضّل (كبدة، فول جرة، معصوب ملكي، تميس...)" class="search-input">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
 
-            <!-- تصنيفات القائمة التفاعلية -->
             <div class="categories-scroll">
                 <button onclick="setCategory('all', this)" class="cat-btn active-cat">الكل</button>
                 <button onclick="setCategory('mains', this)" class="cat-btn">كبدة ومقلقل</button>
@@ -473,7 +474,7 @@
         <div class="menu-grid" id="menuGrid"></div>
     </main>
 
-    <!-- سلة الطلبات العائمة التفاعلية بتصميم الكبسولة الفاخرة -->
+    <!-- سلة الطلبات العائمة التفاعلية -->
     <div id="cartBar">
         <div class="cart-bar-info">
             <div class="cart-badge-icon">
@@ -492,7 +493,7 @@
         </button>
     </div>
 
-    <!-- نافذة السلة السفلية المنبثقة Bottom Sheet Modal -->
+    <!-- نافذة السلة السفلية المنبثقة -->
     <div id="cartModal">
         <div class="modal-sheet">
             <div class="modal-header">
@@ -504,10 +505,8 @@
                 </button>
             </div>
 
-            <!-- قائمة الأصناف المختارة في السلة -->
             <div class="modal-items-list" id="cartItemsList"></div>
 
-            <!-- قسم تأكيد واختيار الفرع بطريقة البطاقات التفاعلية -->
             <div class="modal-footer">
                 <div class="branch-select-title">
                     <span><i class="fa-solid fa-location-dot" style="color:var(--accent); margin-left: 4px;"></i> استلام الطلب من الفرع:</span>
@@ -561,7 +560,7 @@
         </div>
     </div>
 
-    <!-- ==================== بيانات وأصناف المنيو الكاملة ==================== -->
+    <!-- ==================== بيانات وأصناف المنيو ومحرك التحديث الفوري ==================== -->
     <script>
         const menuData = [
             // --- كبدة ومقلقل ---
@@ -718,7 +717,7 @@
             }
 
             filtered.forEach(item => {
-                const inCart = cart.find(i => i.name === item.name);
+                const inCart = cart.find(i => i.id === item.id);
                 const qty = inCart ? inCart.qty : 0;
 
                 grid.innerHTML += `
@@ -738,7 +737,7 @@
                         </div>
 
                         <div class="dish-actions">
-                            <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" 
+                            <button onclick="modifyCart(${item.id}, 1)" 
                                     class="btn-add-initial" 
                                     id="addBtn-${item.id}"
                                     style="${qty > 0 ? 'display:none;' : 'display:flex;'}"
@@ -747,11 +746,11 @@
                             </button>
 
                             <div class="qty-stepper ${qty > 0 ? 'active-stepper' : ''}" id="stepper-${item.id}">
-                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, -1)" class="btn-step btn-step-minus" aria-label="إنقاص">
+                                <button onclick="modifyCart(${item.id}, -1)" class="btn-step btn-step-minus" aria-label="إنقاص">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
                                 <span class="step-count" id="count-${item.id}">${qty}</span>
-                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" class="btn-step btn-step-plus" aria-label="زيادة">
+                                <button onclick="modifyCart(${item.id}, 1)" class="btn-step btn-step-plus" aria-label="زيادة">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
@@ -768,40 +767,80 @@
             renderMenu();
         }
 
-        function modifyCart(name, price, delta) {
-            const index = cart.findIndex(i => i.name === name);
+        // دالة التعديل السريعة والفورية بدون رندرة للصفحة
+        function modifyCart(itemId, delta) {
+            const itemData = menuData.find(i => i.id === itemId);
+            if (!itemData) return;
+
+            const index = cart.findIndex(i => i.id === itemId);
+            let currentQty = 0;
+
             if (index > -1) {
                 cart[index].qty += delta;
+                currentQty = cart[index].qty;
                 if (cart[index].qty <= 0) {
                     cart.splice(index, 1);
+                    currentQty = 0;
                 }
             } else if (delta > 0) {
-                cart.push({ name, price, qty: 1 });
+                cart.push({ id: itemData.id, name: itemData.name, price: itemData.price, qty: 1 });
+                currentQty = 1;
             }
+
+            // 1. تحديث العنصر في البطاقة مباشرة وبسرعة فائقة
+            const addBtn = document.getElementById(`addBtn-${itemId}`);
+            const stepper = document.getElementById(`stepper-${itemId}`);
+            const countEl = document.getElementById(`count-${itemId}`);
+
+            if (addBtn && stepper && countEl) {
+                if (currentQty > 0) {
+                    addBtn.style.display = 'none';
+                    stepper.classList.add('active-stepper');
+                    countEl.innerText = currentQty;
+                } else {
+                    addBtn.style.display = 'flex';
+                    stepper.classList.remove('active-stepper');
+                    countEl.innerText = '0';
+                }
+            }
+
+            // 2. تحديث السلة العائمة
             updateCartUI();
-            renderMenu();
         }
 
         function updateCartUI() {
             const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
             const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.qty), 0);
 
-            document.getElementById('cartCount').innerText = totalItems;
-            document.getElementById('cartTotal').innerText = totalPrice;
-
+            const countEl = document.getElementById('cartCount');
+            const totalEl = document.getElementById('cartTotal');
             const cartBar = document.getElementById('cartBar');
+
+            countEl.innerText = totalItems;
+            totalEl.innerText = totalPrice;
+
             if (totalItems > 0) {
                 cartBar.classList.add('show');
             } else {
                 cartBar.classList.remove('show');
                 closeCartModal();
             }
+
+            // تحديث نافذة المودال إذا كانت مفتوحة
+            const modal = document.getElementById('cartModal');
+            if (modal.classList.contains('open')) {
+                if (cart.length > 0) {
+                    buildCartModalItems();
+                } else {
+                    closeCartModal();
+                }
+            }
         }
 
-        function openCartModal() {
+        function buildCartModalItems() {
             const list = document.getElementById('cartItemsList');
             list.innerHTML = '';
-            cart.forEach((item, idx) => {
+            cart.forEach((item) => {
                 list.innerHTML += `
                     <div class="cart-item-row">
                         <div style="flex:1; min-width:0;">
@@ -809,13 +848,17 @@
                             <p style="font-weight:900; color:var(--primary); font-size:0.85rem; font-family:'Cairo'; margin-top:0.15rem;">${item.price * item.qty} ر.س</p>
                         </div>
                         <div style="display:flex; align-items:center; gap:0.4rem; background:#fff; padding:0.25rem 0.5rem; border-radius:10px; border:1px solid #cbd5e1;">
-                            <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, -1)" style="background:none; border:none; color:#dc2626; font-weight:bold; cursor:pointer; padding:2px 5px;"><i class="fa-solid fa-minus" style="font-size:0.75rem;"></i></button>
+                            <button onclick="modifyCart(${item.id}, -1)" style="background:none; border:none; color:#dc2626; font-weight:bold; cursor:pointer; padding:2px 5px;"><i class="fa-solid fa-minus" style="font-size:0.75rem;"></i></button>
                             <span style="font-weight:900; font-size:0.85rem; color:#0f172a;">${item.qty}</span>
-                            <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer; padding:2px 5px;"><i class="fa-solid fa-plus" style="font-size:0.75rem;"></i></button>
+                            <button onclick="modifyCart(${item.id}, 1)" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer; padding:2px 5px;"><i class="fa-solid fa-plus" style="font-size:0.75rem;"></i></button>
                         </div>
                     </div>
                 `;
             });
+        }
+
+        function openCartModal() {
+            buildCartModalItems();
             const modal = document.getElementById('cartModal');
             modal.classList.add('open');
         }
@@ -825,19 +868,16 @@
             modal.classList.remove('open');
         }
 
-        // إغلاق النافذة عند الضغط على الخلفية
         document.getElementById('cartModal').addEventListener('click', (e) => {
             if (e.target.id === 'cartModal') closeCartModal();
         });
 
-        // دالة اختيار الفرع التفاعلي
         function selectBranch(phone, cardEl) {
             document.querySelectorAll('.branch-choice-card').forEach(c => c.classList.remove('selected-branch'));
             cardEl.classList.add('selected-branch');
             document.getElementById('selectedBranchPhone').value = phone;
         }
 
-        // إرسال الطلب عبر الواتساب المباشر
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return;
             const phone = document.getElementById('selectedBranchPhone').value;
@@ -852,7 +892,6 @@
             window.open(`https://wa.me/966${phone.substring(1)}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
-        // شريط تقدم النزول
         window.addEventListener('scroll', () => {
             const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
