@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ==================== 1. وسوم معاينة الواتساب وشبكات التواصل ==================== -->
+    <!-- ==================== 1. وسوم معاينة الواتساب والشبكات ==================== -->
     <meta itemprop="name" content="منيو فوال الأفراح | المنيو الرسمي والطلب المباشر بالرياض">
     <meta itemprop="description" content="تصفح قائمة طعام فوال الأفراح بالرياض: كبدة بلدي طازجة، فول جرة، معصوب، عريكة، ومخبوزات التنور. اطلب الآن مباشرة عبر الواتساب.">
     <meta itemprop="image" content="https://smallboatcompany.github.io/fwalalafrah/og-image.jpg">
@@ -44,19 +44,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- ==================== التنسيقات الاحترافية المدمجة (تطبيقات التوصيل الحديثة) ==================== -->
+    <!-- ==================== التنسيقات الفاخرة الموحدة (CSS) ==================== -->
     <style>
         :root {
             --primary: #1e5233;
             --primary-light: #2a6f46;
-            --primary-dark: #0e2b1a;
+            --primary-dark: #10301d;
             --accent: #cfa24d;
             --accent-glow: rgba(207, 162, 77, 0.35);
-            --bg-light: #f8faf8;
+            --bg-light: #f9fbf9;
             --text-main: #0f172a;
             --text-muted: #64748b;
-            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            --card-shadow-hover: 0 12px 28px rgba(30, 82, 51, 0.1);
+            --card-shadow: 0 4px 20px rgba(16, 48, 29, 0.05);
+            --card-shadow-hover: 0 12px 30px rgba(30, 82, 51, 0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -66,8 +66,8 @@
             background-color: var(--bg-light);
             color: var(--text-main);
             line-height: 1.6;
-            padding-top: 65px;
-            padding-bottom: 110px;
+            padding-top: 75px;
+            padding-bottom: 120px;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -75,17 +75,18 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 100%; max-width: 1050px; margin: 0 auto; padding: 0 1rem; }
 
-        /* شريط التمرير العلوي */
+        /* شريط التمرير العلوي المضيء */
         #scrollProgress {
             position: fixed; top: 0; left: 0; height: 3.5px; width: 0%;
             background: linear-gradient(90deg, var(--accent), #fef08a, var(--accent));
             z-index: 1002; transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(207, 162, 77, 0.8);
         }
 
         /* ==================== الهيدر ==================== */
         .site-header {
-            position: fixed; top: 0; left: 0; right: 0; height: 65px;
-            background-color: rgba(14, 43, 26, 0.96);
+            position: fixed; top: 0; left: 0; right: 0; height: 75px;
+            background-color: rgba(16, 48, 29, 0.96);
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             z-index: 1000;
@@ -93,20 +94,21 @@
             display: flex; align-items: center;
         }
         .nav-wrap { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo-img { height: 42px; width: auto; object-fit: contain; }
+        .logo-img { height: 46px; width: auto; object-fit: contain; }
 
         .btn-nav-home {
-            background-color: rgba(255,255,255,0.1); color: #fff;
-            padding: 0.5rem 1rem; border-radius: 12px; font-weight: 700;
-            font-size: 0.82rem; display: inline-flex; align-items: center; gap: 0.4rem;
-            border: 1px solid rgba(255,255,255,0.15); transition: background-color 0.2s;
+            background-color: rgba(255,255,255,0.08); color: #fff;
+            padding: 0.55rem 1.1rem; border-radius: 12px; font-weight: 800;
+            font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.4rem;
+            border: 1px solid rgba(255,255,255,0.15); transition: background-color 0.2s, transform 0.2s;
         }
-        .btn-nav-home:active { background-color: rgba(255,255,255,0.2); }
+        .btn-nav-home:hover { background-color: rgba(255,255,255,0.15); }
+        .btn-nav-home:active { transform: scale(0.96); }
 
         /* ==================== شريط البحث والتصنيفات الثابت ==================== */
         .sticky-control-bar {
-            position: sticky; top: 65px; z-index: 990;
-            background: rgba(255, 255, 255, 0.96);
+            position: sticky; top: 75px; z-index: 990;
+            background: rgba(249, 251, 249, 0.96);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid #e2e8f0;
@@ -114,18 +116,16 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
 
-        .search-box-wrap {
-            position: relative; margin-bottom: 0.65rem;
-        }
+        .search-box-wrap { position: relative; margin-bottom: 0.65rem; }
         .search-input {
             width: 100%; padding: 0.75rem 2.6rem 0.75rem 1rem;
-            border-radius: 14px; border: 1.5px solid #e2e8f0;
-            background-color: #f8fafc; font-family: inherit; font-size: 0.88rem;
+            border-radius: 16px; border: 1.5px solid #e2e8f0;
+            background-color: #ffffff; font-family: inherit; font-size: 0.88rem;
             font-weight: 600; color: var(--text-main); outline: none;
-            transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
         }
         .search-input:focus {
-            border-color: var(--primary); background-color: #fff;
+            border-color: var(--primary);
             box-shadow: 0 0 0 4px rgba(30, 82, 51, 0.1);
         }
         .search-icon {
@@ -143,7 +143,7 @@
         .cat-btn {
             padding: 0.5rem 1.1rem; border-radius: 50px;
             font-size: 0.82rem; font-weight: 800; font-family: inherit;
-            background-color: #f1f5f9; color: #475569; border: 1px solid transparent;
+            background-color: #ffffff; color: #475569; border: 1px solid #e2e8f0;
             white-space: nowrap; cursor: pointer; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .cat-btn:active { transform: scale(0.95); }
@@ -155,7 +155,7 @@
             transform: translateY(-1px);
         }
 
-        /* ==================== بطاقات أطباق المنيو الاحترافية ==================== */
+        /* ==================== بطاقات أطباق المنيو ==================== */
         .menu-grid {
             display: grid; grid-template-columns: 1fr;
             gap: 0.85rem; margin-top: 1rem;
@@ -191,15 +191,13 @@
         }
         .dish-card:hover .dish-img { transform: scale(1.08); }
 
-        .dish-info {
-            flex: 1; min-width: 0;
-        }
+        .dish-info { flex: 1; min-width: 0; }
         .dish-title {
             font-size: 0.95rem; font-weight: 800; color: #0f172a;
             white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.2rem;
         }
         .dish-meta {
-            display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem;
+            display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem;
             color: #d97706; font-weight: 700; margin-bottom: 0.35rem;
         }
         .dish-price {
@@ -208,7 +206,7 @@
         }
         .dish-price span { font-size: 0.75rem; font-weight: 700; color: #64748b; }
 
-        /* أزرار الإضافة والتعديل على الكمية في البطاقة */
+        /* أزرار الإضافة والتعديل على الكمية */
         .dish-actions {
             flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
         }
@@ -245,11 +243,11 @@
         /* ==================== سلة الطلبات العائمة الاحترافية ==================== */
         #cartBar {
             position: fixed; bottom: 1.25rem; left: 1rem; right: 1rem;
-            max-width: 480px; margin: 0 auto;
-            background: linear-gradient(135deg, var(--primary) 0%, #133b23 100%);
-            color: #fff; border-radius: 20px; padding: 0.85rem 1.25rem;
+            max-width: 440px; margin: 0 auto;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #174229 100%);
+            color: #fff; border-radius: 50px; padding: 0.6rem 0.85rem 0.6rem 1.25rem;
             display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 15px 35px rgba(14, 43, 26, 0.4), 0 0 0 1px rgba(207, 162, 77, 0.3);
+            box-shadow: 0 15px 35px rgba(16, 48, 29, 0.4), 0 0 0 1.5px rgba(207, 162, 77, 0.4);
             z-index: 995;
             transform: translateY(180%);
             opacity: 0; pointer-events: none;
@@ -259,34 +257,34 @@
             transform: translateY(0); opacity: 1; pointer-events: auto;
         }
 
-        .cart-bar-info { display: flex; align-items: center; gap: 0.85rem; }
+        .cart-bar-info { display: flex; align-items: center; gap: 0.75rem; }
         .cart-badge-icon {
-            position: relative; width: 44px; height: 44px;
-            background: rgba(255,255,255,0.12); border-radius: 14px;
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            position: relative; width: 40px; height: 40px;
+            background: rgba(255,255,255,0.12); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
             color: var(--accent); border: 1px solid rgba(255,255,255,0.15);
         }
         .cart-badge-num {
-            position: absolute; -top: 5px; -right: 5px;
-            background-color: #ef4444; color: #fff; font-size: 0.7rem; font-weight: 900;
-            width: 20px; height: 20px; border-radius: 50%; display: flex;
+            position: absolute; -top: 3px; -right: 3px;
+            background-color: #ef4444; color: #fff; font-size: 0.68rem; font-weight: 900;
+            width: 18px; height: 18px; border-radius: 50%; display: flex;
             align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .btn-view-cart {
             background: linear-gradient(135deg, var(--accent) 0%, #b88d3b 100%);
-            color: #fff; font-weight: 900; font-size: 0.85rem; padding: 0.65rem 1.2rem;
-            border-radius: 14px; border: none; cursor: pointer;
+            color: #fff; font-weight: 900; font-size: 0.85rem; padding: 0.65rem 1.25rem;
+            border-radius: 50px; border: none; cursor: pointer;
             display: inline-flex; align-items: center; gap: 0.4rem;
-            box-shadow: 0 4px 12px rgba(207, 162, 77, 0.35);
-            transition: transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(207, 162, 77, 0.4);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .btn-view-cart:active { transform: scale(0.94); }
+        .btn-view-cart:active { transform: scale(0.95); }
 
         /* ==================== نافذة السلة السفلية Bottom Sheet Modal ==================== */
         #cartModal {
             position: fixed; inset: 0; z-index: 1050;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(14, 43, 26, 0.65);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             display: flex; align-items: flex-end; justify-content: center;
@@ -299,8 +297,8 @@
         #cartModal.open { opacity: 1; pointer-events: auto; }
 
         .modal-sheet {
-            background: #fff; width: 100%; max-width: 480px;
-            border-radius: 28px 28px 0 0; max-height: 85vh;
+            background: #fff; width: 100%; max-width: 460px;
+            border-radius: 28px 28px 0 0; max-height: 88vh;
             display: flex; flex-direction: column; overflow: hidden;
             box-shadow: 0 -10px 40px rgba(0,0,0,0.25);
             transform: translateY(100%);
@@ -314,8 +312,9 @@
         }
 
         .modal-header {
-            background-color: var(--primary); color: #fff;
-            padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff; padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(207, 162, 77, 0.3);
         }
         .btn-close-modal {
             background: rgba(255,255,255,0.15); border: none; color: white;
@@ -335,26 +334,64 @@
         .modal-footer {
             background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 1.25rem 1.5rem;
         }
-        .branch-select {
-            width: 100%; padding: 0.75rem 1rem; border-radius: 14px;
-            border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.85rem; font-weight: 700;
-            background-color: #fff; margin-bottom: 1rem; outline: none;
+
+        /* ==================== بطاقات اختيار الفروع التفاعلية ==================== */
+        .branch-select-title {
+            display: flex; align-items: center; justify-content: space-between;
+            font-size: 0.85rem; font-weight: 800; color: #1e293b; margin-bottom: 0.6rem;
+        }
+        .branches-radio-grid {
+            display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.25rem;
+        }
+
+        .branch-choice-card {
+            border: 2px solid #e2e8f0; background: #ffffff; padding: 0.75rem 1rem;
+            border-radius: 16px; display: flex; align-items: center; justify-content: space-between;
+            cursor: pointer; transition: all 0.2s ease;
+        }
+        .branch-choice-card:hover {
+            border-color: #cbd5e1; background-color: #f8fafc;
+        }
+        .branch-choice-card.selected-branch {
+            border-color: #22c55e !important;
+            background-color: #f0fdf4 !important;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.15);
+        }
+
+        .branch-choice-info { display: flex; align-items: center; gap: 0.65rem; }
+        .branch-choice-icon {
+            width: 34px; height: 34px; border-radius: 10px;
+            background-color: #e2e8f0; color: #475569; display: flex;
+            align-items: center; justify-content: center; font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .selected-branch .branch-choice-icon {
+            background-color: #22c55e; color: #ffffff;
+        }
+
+        .branch-choice-check {
+            width: 22px; height: 22px; border-radius: 50%;
+            border: 2px solid #cbd5e1; display: flex; align-items: center;
+            justify-content: center; font-size: 0.7rem; color: transparent;
+            transition: all 0.2s;
+        }
+        .selected-branch .branch-choice-check {
+            border-color: #22c55e; background-color: #22c55e; color: #ffffff;
         }
 
         .btn-send-whatsapp {
             background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
-            color: #fff; font-weight: 900; font-size: 0.95rem; padding: 0.9rem;
+            color: #fff; font-weight: 900; font-size: 0.95rem; padding: 0.95rem;
             border-radius: 16px; border: none; cursor: pointer; width: 100%;
-            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
-            transition: transform 0.2s ease;
+            display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+            box-shadow: 0 8px 25px rgba(22, 163, 74, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .btn-send-whatsapp:active { transform: scale(0.97); }
 
-        /* رسالة الطبق غير موجود */
         .empty-results {
-            text-align: center; padding: 3rem 1rem; background: #fff;
-            border-radius: 20px; border: 1px solid #e2e8f0;
+            text-align: center; padding: 3.5rem 1rem; background: #fff;
+            border-radius: 24px; border: 1px solid #e2e8f0;
         }
         .empty-results i { font-size: 2.5rem; color: #cbd5e1; margin-bottom: 0.5rem; }
     </style>
@@ -370,13 +407,13 @@
       "hasMenuSection": [
         {
           "@type": "MenuSection",
-          "name": "فول وعدس",
-          "description": "أشهى أنواع الفول بالجرة الحجازية والعدس المبخر"
+          "name": "كبدة ومقلقل",
+          "description": "كبدة بلدي طازجة ومقلقل لحم ودجاج على الصاج"
         },
         {
           "@type": "MenuSection",
-          "name": "كبدة ومقلقل",
-          "description": "كبدة بلدي طازجة ومقلقل لحم ودجاج على الصاج"
+          "name": "فول وعدس",
+          "description": "أشهى أنواع الفول بالجرة الحجازية والعدس المبخر"
         },
         {
           "@type": "MenuSection",
@@ -392,12 +429,12 @@
     <!-- مؤشر النزول -->
     <div id="scrollProgress"></div>
 
-    <!-- الهيدر -->
+    <!-- الهيدر الفاخر الموحد -->
     <header class="site-header">
         <div class="container">
             <div class="nav-wrap">
                 <a href="index.html" class="flex items-center" aria-label="الرئيسية">
-                    <img src="logo.png" alt="فوال الأفراح" class="logo-img">
+                    <img src="logo.png" alt="شعار فوال الأفراح" class="logo-img">
                 </a>
                 <a href="index.html" class="btn-nav-home">
                     <i class="fa-solid fa-arrow-right"></i> الرئيسية
@@ -411,11 +448,11 @@
         <div class="container">
             <!-- خانة البحث الفوري -->
             <div class="search-box-wrap">
-                <input type="text" id="searchInput" oninput="renderMenu()" placeholder="ابحث عن طبقك (كبدة، فول، معصوب، تميس...)" class="search-input">
+                <input type="text" id="searchInput" oninput="renderMenu()" placeholder="ابحث عن طبقك المفضّل (كبدة، فول جرة، معصوب ملكي، تميس...)" class="search-input">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
             </div>
 
-            <!-- أقسام القائمة -->
+            <!-- تصنيفات القائمة التفاعلية -->
             <div class="categories-scroll">
                 <button onclick="setCategory('all', this)" class="cat-btn active-cat">الكل</button>
                 <button onclick="setCategory('mains', this)" class="cat-btn">كبدة ومقلقل</button>
@@ -436,7 +473,7 @@
         <div class="menu-grid" id="menuGrid"></div>
     </main>
 
-    <!-- سلة الطلبات العائمة التفاعلية -->
+    <!-- سلة الطلبات العائمة التفاعلية بتصميم الكبسولة الفاخرة -->
     <div id="cartBar">
         <div class="cart-bar-info">
             <div class="cart-badge-icon">
@@ -444,8 +481,10 @@
                 <span id="cartCount" class="cart-badge-num">0</span>
             </div>
             <div>
-                <p style="font-size: 0.72rem; color: #a7f3d0; font-weight: 700;">إجمالي الطلب:</p>
-                <p style="font-size: 1.15rem; font-weight: 900; font-family:'Cairo'; line-height:1;"><span id="cartTotal">0</span> <span style="font-size:0.75rem;">ر.س</span></p>
+                <p style="font-size: 0.72rem; color: #a7f3d0; font-weight: 700; line-height: 1;">إجمالي الطلب:</p>
+                <p style="font-size: 1.15rem; font-weight: 900; font-family:'Cairo'; line-height: 1.2; margin-top: 2px;">
+                    <span id="cartTotal">0</span> <span style="font-size:0.75rem; font-weight:700;">ر.س</span>
+                </p>
             </div>
         </div>
         <button onclick="openCartModal()" class="btn-view-cart">
@@ -453,38 +492,76 @@
         </button>
     </div>
 
-    <!-- نافذة السلة المنبثقة Bottom Sheet -->
+    <!-- نافذة السلة السفلية المنبثقة Bottom Sheet Modal -->
     <div id="cartModal">
         <div class="modal-sheet">
             <div class="modal-header">
-                <h2 style="font-size: 1.1rem; font-weight: 900; display:flex; align-items:center; gap:0.5rem;">
-                    <i class="fa-solid fa-cart-shopping" style="color:var(--accent);"></i> سلة طلبك
+                <h2 style="font-size: 1.05rem; font-weight: 900; display:flex; align-items:center; gap:0.5rem;">
+                    <i class="fa-solid fa-cart-shopping" style="color:var(--accent);"></i> تفاصيل طلبك
                 </h2>
                 <button onclick="closeCartModal()" class="btn-close-modal" aria-label="إغلاق">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
+            <!-- قائمة الأصناف المختارة في السلة -->
             <div class="modal-items-list" id="cartItemsList"></div>
 
+            <!-- قسم تأكيد واختيار الفرع بطريقة البطاقات التفاعلية -->
             <div class="modal-footer">
-                <label style="display:block; font-size:0.8rem; font-weight:800; color:#334155; margin-bottom:0.4rem;">
-                    اختر الفرع لتجهيز طلبك فوراً:
-                </label>
-                <select id="branchSelect" class="branch-select">
-                    <option value="0533508148">فرع الروضة (0533508148)</option>
-                    <option value="0550907600">فرع المونسية (0550907600)</option>
-                    <option value="0583993468">فرع القادسية (0583993468)</option>
-                </select>
+                <div class="branch-select-title">
+                    <span><i class="fa-solid fa-location-dot" style="color:var(--accent); margin-left: 4px;"></i> استلام الطلب من الفرع:</span>
+                    <span style="font-size:0.75rem; color:#16a34a; font-weight:800;">(اختر الأقرب لك)</span>
+                </div>
+
+                <div class="branches-radio-grid">
+                    <!-- فرع الروضة -->
+                    <div class="branch-choice-card selected-branch" onclick="selectBranch('0533508148', this)">
+                        <div class="branch-choice-info">
+                            <div class="branch-choice-icon"><i class="fa-solid fa-store"></i></div>
+                            <div>
+                                <p style="font-weight: 800; font-size: 0.85rem; color: #0f172a;">فرع حي الروضة</p>
+                                <p style="font-size: 0.72rem; color: #64748b;">واتساب: 0533508148</p>
+                            </div>
+                        </div>
+                        <div class="branch-choice-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <!-- فرع المونسية -->
+                    <div class="branch-choice-card" onclick="selectBranch('0550907600', this)">
+                        <div class="branch-choice-info">
+                            <div class="branch-choice-icon"><i class="fa-solid fa-store"></i></div>
+                            <div>
+                                <p style="font-weight: 800; font-size: 0.85rem; color: #0f172a;">فرع حي المونسية</p>
+                                <p style="font-size: 0.72rem; color: #64748b;">واتساب: 0550907600</p>
+                            </div>
+                        </div>
+                        <div class="branch-choice-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <!-- فرع القادسية -->
+                    <div class="branch-choice-card" onclick="selectBranch('0583993468', this)">
+                        <div class="branch-choice-info">
+                            <div class="branch-choice-icon"><i class="fa-solid fa-store"></i></div>
+                            <div>
+                                <p style="font-weight: 800; font-size: 0.85rem; color: #0f172a;">فرع حي القادسية</p>
+                                <p style="font-size: 0.72rem; color: #64748b;">واتساب: 0583993468</p>
+                            </div>
+                        </div>
+                        <div class="branch-choice-check"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                </div>
+
+                <input type="hidden" id="selectedBranchPhone" value="0533508148">
 
                 <button onclick="sendOrderToWhatsApp()" class="btn-send-whatsapp">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> إرسال الطلب عبر الواتساب
+                    <i class="fa-brands fa-whatsapp" style="font-size: 1.25rem;"></i> إرسال الطلب المباشر للواتساب
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- ==================== بيانات وقاعدة أطباق المنيو ==================== -->
+    <!-- ==================== بيانات وأصناف المنيو الكاملة ==================== -->
     <script>
         const menuData = [
             // --- كبدة ومقلقل ---
@@ -634,8 +711,8 @@
                 grid.innerHTML = `
                     <div class="empty-results" style="grid-column: 1 / -1;">
                         <i class="fa-solid fa-utensils"></i>
-                        <p style="font-weight:800; font-size:0.95rem; color:#475569;">عذراً، لا يوجد طبق بهذا الاسم</p>
-                        <p style="font-size:0.8rem; color:#94a3b8; margin-top:0.25rem;">جرب البحث بكلمة أخرى مثل كبدة، فول، أو معصوب</p>
+                        <p style="font-weight:800; font-size:1rem; color:#1e293b;">عذراً، لا توجد نتائج مطابقة</p>
+                        <p style="font-size:0.85rem; color:#64748b; margin-top:0.3rem;">جرّب البحث عن كبدة، فول جرة، معصوب أو تميس</p>
                     </div>`;
                 return;
             }
@@ -664,16 +741,17 @@
                             <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" 
                                     class="btn-add-initial" 
                                     id="addBtn-${item.id}"
-                                    style="${qty > 0 ? 'display:none;' : 'display:flex;'}">
+                                    style="${qty > 0 ? 'display:none;' : 'display:flex;'}"
+                                    aria-label="إضافة للطلب">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
 
                             <div class="qty-stepper ${qty > 0 ? 'active-stepper' : ''}" id="stepper-${item.id}">
-                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, -1)" class="btn-step btn-step-minus">
+                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, -1)" class="btn-step btn-step-minus" aria-label="إنقاص">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
                                 <span class="step-count" id="count-${item.id}">${qty}</span>
-                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" class="btn-step btn-step-plus">
+                                <button onclick="modifyCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, 1)" class="btn-step btn-step-plus" aria-label="زيادة">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </div>
@@ -747,14 +825,22 @@
             modal.classList.remove('open');
         }
 
-        // إغلاق النافذة عند الضغط خارجها
+        // إغلاق النافذة عند الضغط على الخلفية
         document.getElementById('cartModal').addEventListener('click', (e) => {
             if (e.target.id === 'cartModal') closeCartModal();
         });
 
+        // دالة اختيار الفرع التفاعلي
+        function selectBranch(phone, cardEl) {
+            document.querySelectorAll('.branch-choice-card').forEach(c => c.classList.remove('selected-branch'));
+            cardEl.classList.add('selected-branch');
+            document.getElementById('selectedBranchPhone').value = phone;
+        }
+
+        // إرسال الطلب عبر الواتساب المباشر
         function sendOrderToWhatsApp() {
             if (cart.length === 0) return;
-            const phone = document.getElementById('branchSelect').value;
+            const phone = document.getElementById('selectedBranchPhone').value;
             let msg = `مرحباً فوال الأفراح 🌿\nأريد طلب الأصناف التالية:\n\n`;
             let total = 0;
             cart.forEach(i => {
