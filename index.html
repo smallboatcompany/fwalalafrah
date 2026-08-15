@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="أصالة الفطور الشعبي منذ عام 1973م بالرياض. تصفح المنيو واطلب الآن.">
     <meta name="twitter:image" content="https://smallboatcompany.github.io/fwalalafrah/og-image.jpg">
 
-    <!-- ==================== 2. تحسين محركات البحث الاحترافي (SEO) ==================== -->
+    <!-- ==================== 2. تحسين محركات البحث الاحترافي (Advanced SEO) ==================== -->
     <title>فوال الأفراح | أفضل مطعم فوال وفطور شعبي بالرياض منذ 1973</title>
     <meta name="description" content="الموقع الرسمي لمطعم فوال الأفراح بالرياض. تذوق أشهى فطور شعبي، كبدة بلدي طازجة، فول جرة حجازي، تميس ومعصوب ملكي عبر فروعنا بالروضة، المونسية، والقادسية. اطلب عبر الواتساب.">
     <meta name="keywords" content="فوال الأفراح, فوال, افضل فوال بالرياض, مطعم فوال, فطور شعبي الرياض, كبدة بلدي, فول جرة, تميس, معصوب, عريكة, فوال الروضة, فوال المونسية, فوال القادسية">
@@ -46,7 +46,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- ==================== التنسيقات والحركات العصرية (Modern CSS Engine) ==================== -->
+    <!-- ==================== التنسيقات والحركات العصرية السلسة ==================== -->
     <style>
         :root {
             --primary: #1e5233;
@@ -58,7 +58,6 @@
             --text-main: #0f172a;
             --text-muted: #64748b;
             --card-shadow: 0 10px 25px -5px rgba(16, 48, 29, 0.06), 0 8px 10px -6px rgba(16, 48, 29, 0.04);
-            --glow-shadow: 0 0 25px rgba(207, 162, 77, 0.35);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -77,18 +76,26 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1.25rem; }
 
+        /* شريط مؤشر النزول في أعلى الشاشة */
+        #scrollProgress {
+            position: fixed; top: 0; left: 0; height: 3.5px; width: 0%;
+            background: linear-gradient(90deg, var(--accent), #fef08a, var(--accent));
+            z-index: 1001; transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(207, 162, 77, 0.8);
+        }
+
         /* ==================== محرك الحركات والتلاشي Scroll Reveal ==================== */
         .reveal-up {
             opacity: 0;
             transform: translateY(35px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
         .reveal-scale {
             opacity: 0;
-            transform: scale(0.92) translateY(20px);
-            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(0.92) translateY(25px);
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
             will-change: opacity, transform;
         }
 
@@ -102,7 +109,7 @@
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
 
-        /* ==================== الهيدر الزجاجي الفاخر ==================== */
+        /* ==================== الهيدر الزجاجي ==================== */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; height: 75px;
             background-color: rgba(16, 48, 29, 0.94);
@@ -115,16 +122,14 @@
         }
         .site-header.scrolled {
             background-color: rgba(14, 43, 26, 0.98);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         }
         .nav-wrap { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .logo-img { height: 48px; width: auto; max-width: 180px; object-fit: contain; display: block; transition: transform 0.3s ease; }
         .logo-img:hover { transform: scale(1.05); }
         .nav-links { display: none; gap: 2rem; font-weight: 700; font-size: 0.95rem; color: #d1fae5; }
         @media (min-width: 768px) { .nav-links { display: flex; } }
-        .nav-links a {
-            position: relative; transition: color 0.3s ease;
-        }
+        .nav-links a { position: relative; transition: color 0.3s ease; }
         .nav-links a::after {
             content: ''; position: absolute; width: 0%; height: 2px;
             bottom: -4px; right: 0; background-color: var(--accent);
@@ -141,15 +146,12 @@
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         @media (min-width: 640px) { .btn-order-nav { display: inline-flex; } }
-        .btn-order-nav:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(207, 162, 77, 0.5);
-        }
+        .btn-order-nav:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(207, 162, 77, 0.5); }
 
         .menu-toggle {
             background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer;
             width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center;
-            justify-content: center; transition: background-color 0.2s;
+            justify-content: center;
         }
         .menu-toggle:active { background-color: rgba(255,255,255,0.1); }
         @media (min-width: 768px) { .menu-toggle { display: none; } }
@@ -164,28 +166,23 @@
             text-align: center;
             border-bottom: 2px solid var(--accent);
             transform: translateY(-120%);
-            opacity: 0;
-            pointer-events: none;
+            opacity: 0; pointer-events: none;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
             z-index: 999;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
-        .mobile-menu.open {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
         .mobile-menu a {
             display: block; padding: 0.9rem 0; color: #d1fae5; font-weight: 700;
             font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: color 0.2s, transform 0.2s;
+            transition: color 0.2s;
         }
-        .mobile-menu a:active { color: var(--accent); transform: scale(0.98); }
+        .mobile-menu a:active { color: var(--accent); }
 
         /* ==================== البانر الرئيسي ==================== */
         .hero {
             padding: 3.5rem 0 4.5rem;
-            background: radial-gradient(circle at 80% 20%, rgba(30, 82, 51, 0.08) 0%, rgba(249, 251, 249, 1) 70%);
+            background: radial-gradient(circle at 80% 20%, rgba(30, 82, 51, 0.09) 0%, rgba(249, 251, 249, 1) 70%);
             position: relative;
         }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
@@ -194,22 +191,21 @@
         .tag-pulse {
             display: inline-flex; align-items: center;
             background: linear-gradient(135deg, rgba(30, 82, 51, 0.12) 0%, rgba(207, 162, 77, 0.15) 100%);
-            border: 1px solid rgba(207, 162, 77, 0.3);
+            border: 1px solid rgba(207, 162, 77, 0.35);
             color: var(--primary); padding: 0.45rem 1.2rem; border-radius: 50px;
             font-weight: 800; font-size: 0.85rem; margin-bottom: 1.25rem;
             animation: pulse-glow 3s infinite;
         }
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(207, 162, 77, 0.3); }
-            50% { box-shadow: 0 0 0 8px rgba(207, 162, 77, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(207, 162, 77, 0.35); }
+            50% { box-shadow: 0 0 0 9px rgba(207, 162, 77, 0); }
         }
 
         .hero h1 { font-size: 2.2rem; font-weight: 900; color: #0f172a; margin-bottom: 1.25rem; }
         @media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
         .hero h1 span {
             background: linear-gradient(135deg, var(--primary) 0%, #2f8352 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
         .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; }
 
@@ -219,7 +215,6 @@
             padding: 0.9rem 1.85rem; border-radius: 16px; font-weight: 800; text-align: center;
             display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
             transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
-            position: relative; overflow: hidden;
         }
         .btn:active { transform: scale(0.96); }
 
@@ -227,21 +222,15 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: #fff; box-shadow: 0 8px 20px rgba(30, 82, 51, 0.25);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(30, 82, 51, 0.35);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(30, 82, 51, 0.35); }
 
         .btn-outline {
             background-color: #fff; border: 2px solid var(--primary); color: var(--primary);
             box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
-        .btn-outline:hover {
-            background-color: var(--primary); color: #fff;
-            transform: translateY(-3px);
-        }
+        .btn-outline:hover { background-color: var(--primary); color: #fff; transform: translateY(-3px); }
 
-        /* ==================== إطار الصور التفاعلي المنير ==================== */
+        /* إطار الصور التفاعلي */
         .img-frame {
             border-radius: 28px; overflow: hidden;
             border: 2px solid rgba(207, 162, 77, 0.4);
@@ -249,10 +238,10 @@
             position: relative; background-color: #e2e8f0;
             transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
         }
-        .img-frame:hover {
+        .img-frame:hover, .img-frame.glow-active {
             transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 25px 50px -10px rgba(207, 162, 77, 0.3);
+            box-shadow: 0 25px 50px -10px rgba(207, 162, 77, 0.35);
         }
         .img-frame img {
             width: 100%; height: 370px; object-fit: cover; display: block;
@@ -265,13 +254,13 @@
             color: white; font-size: 0.85rem; font-weight: 700;
         }
 
-        /* ==================== إحصائيات الأرقام التفاعلية ==================== */
+        /* ==================== إحصائيات الأرقام المتزايدة ==================== */
         .stats-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
             padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid #e2e8f0; text-align: center;
         }
         .stat-num {
-            display: block; font-size: 2.3rem; font-weight: 900; color: var(--primary);
+            display: block; font-size: 2.4rem; font-weight: 900; color: var(--primary);
             font-family: 'Cairo', sans-serif; line-height: 1.1; margin-bottom: 0.25rem;
         }
         .stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; }
@@ -285,7 +274,7 @@
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
         
-        /* تأثير البطاقات الذكي عند اللمس أو المرور */
+        /* بطاقات المميزات مع إضاءة الجوال الذكية */
         .card {
             background: #fff; border: 1px solid #e2e8f0; padding: 2rem 1.5rem; border-radius: 22px;
             text-align: center; position: relative; overflow: hidden;
@@ -297,21 +286,21 @@
             background: linear-gradient(90deg, var(--primary), var(--accent));
             opacity: 0; transition: opacity 0.3s ease;
         }
-        .card:hover, .card:active {
+        .card:hover, .card.glow-active {
             transform: translateY(-7px);
             border-color: var(--accent);
-            box-shadow: 0 15px 35px -5px rgba(207, 162, 77, 0.2);
+            box-shadow: 0 15px 35px -5px rgba(207, 162, 77, 0.25);
         }
-        .card:hover::before, .card:active::before { opacity: 1; }
+        .card:hover::before, .card.glow-active::before { opacity: 1; }
         .card i {
             font-size: 2.2rem; color: var(--accent); margin-bottom: 1.25rem;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .card:hover i { transform: scale(1.18) rotate(-5deg); }
+        .card:hover i, .card.glow-active i { transform: scale(1.18) rotate(-5deg); }
         .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
         .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
 
-        /* ==================== بطاقات الفروع والواتساب ==================== */
+        /* ==================== بطاقات الفروع ==================== */
         .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
         .branch-card {
             background: var(--bg-light); border: 1px solid #e2e8f0; padding: 2.25rem 1.75rem;
@@ -319,19 +308,19 @@
             box-shadow: var(--card-shadow);
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
-        .branch-card:hover {
+        .branch-card:hover, .branch-card.glow-active {
             transform: translateY(-8px);
             border-color: #22c55e;
-            box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.25);
         }
         .branch-icon {
             width: 56px; height: 56px; background-color: #d1fae5; color: var(--primary);
             border-radius: 18px; display: flex; align-items: center; justify-content: center;
             font-size: 1.4rem; margin: 0 auto 1.25rem auto;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
         }
-        .branch-card:hover .branch-icon {
-            transform: scale(1.1) rotate(5deg);
+        .branch-card:hover .branch-icon, .branch-card.glow-active .branch-icon {
+            transform: scale(1.12) rotate(6deg);
             background-color: var(--primary); color: #fff;
         }
 
@@ -343,32 +332,50 @@
             box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
-        }
+        .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4); }
         .btn-whatsapp:active { transform: scale(0.96); }
 
-        /* ==================== الأسئلة الشائعة FAQ ==================== */
+        /* ==================== الأسئلة الشائعة الأكورديون التفاعلية (FAQ) ==================== */
+        .faq-container { max-width: 820px; margin: 0 auto; }
         .faq-item {
             background: #fff; border: 1px solid #e2e8f0; border-radius: 18px;
-            padding: 1.5rem; margin-bottom: 1.25rem;
+            margin-bottom: 1.15rem; overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
-        .faq-item:hover {
-            transform: translateX(-5px);
+        .faq-item:hover, .faq-item.glow-active {
             border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(207, 162, 77, 0.15);
         }
-        .faq-question { font-weight: 800; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 0.5rem; display: flex; align-items: center; }
-        .faq-answer { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
+        .faq-header {
+            padding: 1.35rem 1.5rem; font-weight: 800; font-size: 1.05rem;
+            color: var(--primary-dark); display: flex; justify-content: space-between;
+            align-items: center; cursor: pointer; user-select: none;
+            transition: color 0.2s ease;
+        }
+        .faq-header:hover { color: var(--accent); }
+        .faq-icon-arrow {
+            font-size: 0.95rem; color: var(--accent);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-item.open .faq-icon-arrow { transform: rotate(180deg); }
+        .faq-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            padding: 0 1.5rem;
+            color: var(--text-muted); font-size: 0.95rem; line-height: 1.85;
+        }
+        .faq-item.open .faq-body {
+            max-height: 250px;
+            padding-bottom: 1.35rem;
+        }
 
         /* الفوتر */
         footer { background-color: var(--primary-dark); color: #d1fae5; padding: 3.5rem 0; text-align: center; font-size: 0.85rem; border-top: 2px solid var(--accent); }
         footer h3 { color: #fff; font-size: 1.4rem; margin-bottom: 0.5rem; }
     </style>
 
-    <!-- ==================== بيانات Schema المتقدمة لمحركات البحث ==================== -->
+    <!-- ==================== بيانات Schema المحدثة مع 6 أسئلة شائعة ==================== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -395,38 +402,21 @@
             "latitude": 24.7136,
             "longitude": 46.6753
           },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-              "opens": "05:00",
-              "closes": "12:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-              "opens": "18:00",
-              "closes": "00:00"
-            }
-          ],
           "department": [
             {
               "@type": "Restaurant",
               "name": "فوال الأفراح - فرع الروضة",
-              "telephone": "+966533508148",
-              "address": { "@type": "PostalAddress", "streetAddress": "شارع الحسن بن علي", "addressLocality": "الروضة، الرياض", "addressCountry": "SA" }
+              "telephone": "+966533508148"
             },
             {
               "@type": "Restaurant",
               "name": "فوال الأفراح - فرع المونسية",
-              "telephone": "+966550907600",
-              "address": { "@type": "PostalAddress", "streetAddress": "حي المونسية", "addressLocality": "المونسية، الرياض", "addressCountry": "SA" }
+              "telephone": "+966550907600"
             },
             {
               "@type": "Restaurant",
               "name": "فوال الأفراح - فرع القادسية",
-              "telephone": "+966583993468",
-              "address": { "@type": "PostalAddress", "streetAddress": "حي القادسية", "addressLocality": "القادسية، الرياض", "addressCountry": "SA" }
+              "telephone": "+966583993468"
             }
           ]
         },
@@ -435,26 +425,50 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "ما هي أفضل أطباق فوال الأفراح بالرياض؟",
+              "name": "ما هي أشهر الأطباق الشعبية في فوال الأفراح بالرياض؟",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "يشتهر فوال الأفراح بتقديم الكبدة البلدي الطازجة على الصاج، فول الجرة الحجازي، خبز التميس الساخن من التنور، والمعصوب والعريكة الملكية الفاخرة."
+                "text": "نشتهر بتقديم الكبدة الغنمي والبلدي الطازجة المحضرة على الصاج، فول الجرة الحجازي المبخر، التميس الساخن من الفرن، والمعصوب والعريكة الملكية الفاخرة."
               }
             },
             {
               "@type": "Question",
-              "name": "أين تقع فروع فوال الأفراح في الرياض؟",
+              "name": "أين تقع فروع فوال الأفراح في مدينة الرياض؟",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "يمتلك فوال الأفراح 3 فروع رئيسية في الرياض: فرع حي الروضة، فرع حي المونسية، وفرع حي القادسية."
+                "text": "يمتلك فوال الأفراح 3 فروع رئيسية لخدمتكم: فرع حي الروضة، فرع حي المونسية، وفرع حي القادسية."
               }
             },
             {
               "@type": "Question",
-              "name": "كيف يمكنني طلب وجبات الإفطار من فوال الأفراح؟",
+              "name": "كيف يمكنني الطلب السريع عبر الواتساب لتجنب الانتظار؟",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "يمكنك تصفح قائمة الطعام واختيار وجباتك المفضلة والطلب مباشرة عبر الواتساب المخصص لكل فرع لاستلام طلبك جاهزاً بدون انتظار."
+                "text": "يمكنك الدخول للمنيو واختيار أصنافك المفضلة والضغط على زر الواتساب للفرع الأقرب لك، وسيتم تجهيز وجبتك ساخنة لاستلامها فور وصولك."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "ما هي أوقات العمل في فروع فوال الأفراح؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نستقبلكم يومياً على فترتين: الفترة الصباحية من بعد صلاة الفجر مباشرة حتى الظهر، والفترة المسائية من بعد صلاة العصر حتى منتصف الليل."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل اللحوم والكبدة المستخدمة طازجة ويومية؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، نلتزم يومياً بتوريد أجود أنواع الكبدة واللحوم البلدية الطازجة وتحضيرها أمام العميل وفق أعلى معايير النظافة والجودة."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "هل يتوفر خبز تميس ساخن ومخبوزات بأنواعها؟",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "نعم، يتوفر لدينا تميس عادي، تميس بسكوت، تميس بالسمن، وتميس بالجبن يُخبز مباشرة في التنور على مدار الساعة."
               }
             }
           ]
@@ -464,6 +478,9 @@
     </script>
 </head>
 <body>
+
+    <!-- مؤشر النزول السلس في أعلى الصفحة -->
+    <div id="scrollProgress"></div>
 
     <!-- الهيدر الزجاجي -->
     <header class="site-header" id="siteHeader">
@@ -505,7 +522,7 @@
     </div>
 
     <main>
-        <!-- البانر الرئيسي مع حركات الظهور -->
+        <!-- البانر الرئيسي -->
         <section class="hero">
             <div class="container">
                 <div class="grid-2">
@@ -531,7 +548,7 @@
                     </div>
 
                     <div class="reveal-scale delay-2">
-                        <div class="img-frame">
+                        <div class="img-frame scroll-glow">
                             <img src="hero.jpg" alt="أطباق فطور شعبي وكبدة وفول في فوال الأفراح الرياض" width="500" height="370" loading="eager">
                             <div class="img-caption">
                                 <i class="fa-solid fa-circle-check" style="color:var(--accent); margin-left:5px;"></i> الطعم اللي تعودنا عليه - جودة تُحس بالمذاق
@@ -540,18 +557,18 @@
                     </div>
                 </div>
 
-                <!-- إحصائيات الأرقام المتحركة تفاعلياً -->
+                <!-- إحصائيات الأرقام المتزايدة بسلاسة -->
                 <div class="stats-grid reveal-up delay-3" id="statsSection">
                     <div>
-                        <span class="stat-num counter" data-target="50">+0</span>
+                        <span class="stat-num counter" data-target="50" data-plus="true">0</span>
                         <span class="stat-label">عاماً من الخبرة والعراقة</span>
                     </div>
                     <div>
-                        <span class="stat-num counter" data-target="3">0</span>
+                        <span class="stat-num counter" data-target="3" data-plus="false">0</span>
                         <span class="stat-label">فروع بمدينة الرياض</span>
                     </div>
                     <div>
-                        <span class="stat-num counter" data-target="110">+0</span>
+                        <span class="stat-num counter" data-target="110" data-plus="true">0</span>
                         <span class="stat-label">طبقاً طازجاً يومياً</span>
                     </div>
                 </div>
@@ -563,7 +580,7 @@
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal-scale">
-                        <div class="img-frame">
+                        <div class="img-frame scroll-glow">
                             <img src="about.jpg" alt="مخبوزات وتميس فوال الأفراح الطازجة" width="500" height="370" loading="lazy">
                             <div class="img-caption">
                                 <i class="fa-solid fa-wheat-awn" style="color:var(--accent); margin-left:5px;"></i> تحضير طازج ومباشر أمامك مع كل طلب
@@ -571,7 +588,7 @@
                         </div>
                     </div>
                     <div class="reveal-up delay-2">
-                        <span style="color:var(--accent); font-weight:800; font-size:0.85rem; letter-spacing: 0.5px;">عراقة الماضي وتألق الحاضر</span>
+                        <span style="color:var(--accent); font-weight:800; font-size:0.85rem;">عراقة الماضي وتألق الحاضر</span>
                         <h2 style="font-size: 2.1rem; font-weight:900; margin: 0.5rem 0 1rem 0;">فوال الأفراح - أصالة الفطور الشعبي بالرياض</h2>
                         <p style="color:var(--text-muted); margin-bottom:1rem;">
                             منذ عام 1973م، ونحن نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة في الرياض. لسنا مجرد فوال تقليدي، بل وجهة رائدة تجمع بين النكهة التراثية الأصلية ومعايير الجودة والنظافة العالية.
@@ -584,7 +601,7 @@
             </div>
         </section>
 
-        <!-- المميزات مع إضاءة الحواف -->
+        <!-- المميزات -->
         <section id="features" class="section">
             <div class="container">
                 <div class="section-title reveal-up">
@@ -593,22 +610,22 @@
                 </div>
 
                 <div class="cards-grid">
-                    <div class="card reveal-up delay-1">
+                    <div class="card scroll-glow reveal-up delay-1">
                         <i class="fa-solid fa-drumstick-bite"></i>
                         <h3>لحوم وكبدة بلدي طازجة</h3>
                         <p>تُحضر يومياً على الصاج بخلطتنا الخاصة مع كل طلب.</p>
                     </div>
-                    <div class="card reveal-up delay-2">
+                    <div class="card scroll-glow reveal-up delay-2">
                         <i class="fa-solid fa-fire-burner"></i>
                         <h3>تميس وتنور ساخن</h3>
                         <p>يُخبز في التنور مباشرة ويصلك مقرمشاً وطازجاً.</p>
                     </div>
-                    <div class="card reveal-up delay-3">
+                    <div class="card scroll-glow reveal-up delay-3">
                         <i class="fa-solid fa-mortar-pestle"></i>
                         <h3>وصفات الجرة الأصلية</h3>
                         <p>نكهة الفول والقلابة المعتقة الموروثة منذ 1973م.</p>
                     </div>
-                    <div class="card reveal-up delay-4">
+                    <div class="card scroll-glow reveal-up delay-4">
                         <i class="fa-brands fa-whatsapp"></i>
                         <h3>طلب واتساب فوري</h3>
                         <p>حدد وجبتك وتواصل مع الفرع لتجهيزها قبل وصولك.</p>
@@ -617,7 +634,7 @@
             </div>
         </section>
 
-        <!-- الفروع التفاعلية -->
+        <!-- الفروع -->
         <section id="branches" class="section section-white">
             <div class="container">
                 <div class="section-title reveal-up">
@@ -627,7 +644,7 @@
 
                 <div class="branches-grid">
                     <!-- الروضة -->
-                    <div class="branch-card reveal-up delay-1">
+                    <div class="branch-card scroll-glow reveal-up delay-1">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
                             <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع الروضة</h3>
@@ -639,7 +656,7 @@
                     </div>
 
                     <!-- المونسية -->
-                    <div class="branch-card reveal-up delay-2">
+                    <div class="branch-card scroll-glow reveal-up delay-2">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
                             <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع المونسية</h3>
@@ -651,7 +668,7 @@
                     </div>
 
                     <!-- القادسية -->
-                    <div class="branch-card reveal-up delay-3">
+                    <div class="branch-card scroll-glow reveal-up delay-3">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
                             <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع القادسية</h3>
@@ -665,27 +682,80 @@
             </div>
         </section>
 
-        <!-- الأسئلة الشائعة (FAQ) -->
+        <!-- الأسئلة الشائعة (6 أسئلة تفاعلية متكاملة) -->
         <section id="faq" class="section">
-            <div class="container" style="max-width: 800px;">
+            <div class="container">
                 <div class="section-title reveal-up">
                     <h2>الأسئلة الشائعة حول فوال الأفراح</h2>
-                    <p>كل ما تود معرفته عن خدماتنا وفروعنا بالرياض</p>
+                    <p>إجابات شاملة عن خدماتنا، فروعنا وأطباقنا بالرياض</p>
                 </div>
 
-                <div class="faq-item reveal-up delay-1">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> ما هي أشهر أطباق فوال الأفراح؟</div>
-                    <div class="faq-answer">نشتهر بتقديم الكبدة الغنمي والبلدي الطازجة، فول الجرة الأصلي، التميس المخبوز على الحطب والتنور، بالإضافة إلى المعصوب الملكي والعريكة الفاخرة.</div>
-                </div>
+                <div class="faq-container">
+                    <!-- سؤال 1 -->
+                    <div class="faq-item scroll-glow reveal-up delay-1 open">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> ما هي أشهر الأطباق في فوال الأفراح؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            نشتهر بتقديم الكبدة الغنمي والبلدي الطازجة المحضرة على الصاج، فول الجرة الحجازي المبخر، التميس الساخن من الفرن، والمعصوب والعريكة الملكية الفاخرة.
+                        </div>
+                    </div>
 
-                <div class="faq-item reveal-up delay-2">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> أين تقع فروع فوال الأفراح في مدينة الرياض؟</div>
-                    <div class="faq-answer">لدينا 3 فروع رئيسية لخدمتكم: فرع حي الروضة، فرع حي المونسية، وفرع حي القادسية.</div>
-                </div>
+                    <!-- سؤال 2 -->
+                    <div class="faq-item scroll-glow reveal-up delay-2">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> أين تقع فروع فوال الأفراح في مدينة الرياض؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            يمتلك فوال الأفراح 3 فروع رئيسية لخدمتكم: فرع حي الروضة، فرع حي المونسية، وفرع حي القادسية.
+                        </div>
+                    </div>
 
-                <div class="faq-item reveal-up delay-3">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> هل يمكنني الطلب المسبق لتجنب الانتظار؟</div>
-                    <div class="faq-answer">نعم، يمكنك اختيار فرعك والتواصل المباشر عبر الواتساب لتجهيز طلبك واستلامه طازجاً وساخناً بدون أي تأخير.</div>
+                    <!-- سؤال 3 -->
+                    <div class="faq-item scroll-glow reveal-up delay-3">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> كيف يمكنني الطلب السريع عبر الواتساب لتجنب الانتظار؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            يمكنك الدخول للمنيو واختيار أصنافك المفضلة والضغط على زر الواتساب للفرع الأقرب لك، وسيتم تجهيز وجبتك ساخنة لاستلامها فور وصولك.
+                        </div>
+                    </div>
+
+                    <!-- سؤال 4 -->
+                    <div class="faq-item scroll-glow reveal-up delay-1">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> ما هي أوقات العمل الرسمية في فروعكم؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            نستقبلكم يومياً على فترتين: الفترة الصباحية من بعد صلاة الفجر مباشرة حتى الظهر، والفترة المسائية من بعد صلاة العصر حتى منتصف الليل.
+                        </div>
+                    </div>
+
+                    <!-- سؤال 5 -->
+                    <div class="faq-item scroll-glow reveal-up delay-2">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> هل اللحوم والكبدة المستخدمة طازجة ويومية؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            نعم، نلتزم يومياً بتوريد أجود أنواع الكبدة واللحوم البلدية الطازجة وتحضيرها أمام العميل وفق أعلى معايير النظافة والجودة المعتمدة.
+                        </div>
+                    </div>
+
+                    <!-- سؤال 6 -->
+                    <div class="faq-item scroll-glow reveal-up delay-3">
+                        <div class="faq-header" onclick="toggleFaq(this)">
+                            <span><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> هل يتوفر خبز تميس طازج بأنواعه المختلفة؟</span>
+                            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+                        </div>
+                        <div class="faq-body">
+                            نعم، يتوفر لدينا تميس عادي، تميس بسكوت، تميس بالسمن، وتميس بالجبن يُخبز مباشرة في التنور على مدار الساعة مع كل طلب.
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -700,9 +770,9 @@
         </div>
     </footer>
 
-    <!-- ==================== المحرك البرمجي للتفاعلات والحركات ==================== -->
+    <!-- ==================== المحرك البرمجي للحركات الذكية وتزايد الأرقام ==================== -->
     <script>
-        // 1. فتح وإغلاق قائمة الجوال بسلاسة
+        // 1. فتح وإغلاق قائمة الجوال
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
             const icon = document.getElementById('menuIcon');
@@ -714,17 +784,28 @@
             }
         }
 
-        // 2. تغيير شفافية وظلال الهيدر عند التمرير
+        // 2. التحكم في فتح وغلق الأسئلة الشائعة (Accordion)
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            item.classList.toggle('open');
+        }
+
+        // 3. شريط تقدم النزول في الصفحة + تثبيت الهيدر
         window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+
             const header = document.getElementById('siteHeader');
-            if (window.scrollY > 30) {
+            if (winScroll > 30) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
         }, { passive: true });
 
-        // 3. مراقب التمرير لإظهار العناصر بسلاسة (Scroll Reveal)
+        // 4. مراقب التمرير لظهور العناصر بنعومة (Scroll Reveal)
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -732,47 +813,77 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
             revealObserver.observe(el);
         });
 
-        // 4. عداد الأرقام التفاعلي المتحرك (Live Counter Animation)
+        // 5. محرك تزايد الأرقام بنعومة تامة (Smooth Ease-Out Counter)
         let counted = false;
         const statsSection = document.getElementById('statsSection');
 
-        function startCounting() {
+        function animateCounters() {
             const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const hasPlus = target === 50 || target === 110;
-                let count = 0;
-                const speed = target / 35;
+            const duration = 1800; // مدة الحركة بالملي ثانية
+            const startTime = performance.now();
 
-                const updateCount = () => {
-                    count += speed;
-                    if (count < target) {
-                        counter.innerText = (hasPlus ? '+' : '') + Math.ceil(count);
-                        requestAnimationFrame(updateCount);
-                    } else {
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // دالة التخفيف الرياضية EaseOutCubic لنعومة التزايد
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const hasPlus = counter.getAttribute('data-plus') === 'true';
+                    const currentVal = Math.floor(easeProgress * target);
+                    
+                    counter.innerText = (hasPlus ? '+' : '') + currentVal;
+                });
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const hasPlus = counter.getAttribute('data-plus') === 'true';
                         counter.innerText = (hasPlus ? '+' : '') + target;
-                    }
-                };
-                updateCount();
-            });
+                    });
+                }
+            }
+            requestAnimationFrame(update);
         }
 
         const countObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && !counted) {
                 counted = true;
-                startCounting();
+                animateCounters();
             }
-        }, { threshold: 0.3 });
+        }, { threshold: 0.25 });
 
         if (statsSection) {
             countObserver.observe(statsSection);
         }
+
+        // 6. محرك إضاءة العناصر تلقائياً بالجوال عند التمرير إليها (Mobile Center Focus Glow)
+        const glowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('glow-active');
+                } else {
+                    entry.target.classList.remove('glow-active');
+                }
+            });
+        }, {
+            rootMargin: "-25% 0px -25% 0px", // التركيز على المنطقة الوسطى من شاشة الجوال
+            threshold: 0.2
+        });
+
+        document.querySelectorAll('.scroll-glow').forEach(el => {
+            glowObserver.observe(el);
+        });
     </script>
 </body>
 </html>
