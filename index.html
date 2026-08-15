@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="أصالة الفطور الشعبي منذ عام 1973م بالرياض. تصفح المنيو واطلب الآن.">
     <meta name="twitter:image" content="https://smallboatcompany.github.io/fwalalafrah/og-image.jpg">
 
-    <!-- ==================== 2. تحسين محركات البحث الاحترافي (Advanced SEO) ==================== -->
+    <!-- ==================== 2. تحسين محركات البحث الاحترافي (SEO) ==================== -->
     <title>فوال الأفراح | أفضل مطعم فوال وفطور شعبي بالرياض منذ 1973</title>
     <meta name="description" content="الموقع الرسمي لمطعم فوال الأفراح بالرياض. تذوق أشهى فطور شعبي، كبدة بلدي طازجة، فول جرة حجازي، تميس ومعصوب ملكي عبر فروعنا بالروضة، المونسية، والقادسية. اطلب عبر الواتساب.">
     <meta name="keywords" content="فوال الأفراح, فوال, افضل فوال بالرياض, مطعم فوال, فطور شعبي الرياض, كبدة بلدي, فول جرة, تميس, معصوب, عريكة, فوال الروضة, فوال المونسية, فوال القادسية">
@@ -36,26 +36,29 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://smallboatcompany.github.io/fwalalafrah/">
 
-    <!-- ==================== 3. الأيقونات ==================== -->
+    <!-- ==================== 3. الأيقونات والخطوط ==================== -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-    <!-- الخطوط والأيقونات -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- ==================== التنسيقات (CSS فائق السرعة) ==================== -->
+    <!-- ==================== التنسيقات والحركات العصرية (Modern CSS Engine) ==================== -->
     <style>
         :root {
             --primary: #1e5233;
-            --primary-dark: #10301d;
+            --primary-light: #2a6f46;
+            --primary-dark: #0e2b1a;
             --accent: #cfa24d;
+            --accent-glow: rgba(207, 162, 77, 0.45);
             --bg-light: #f9fbf9;
-            --text-main: #1e293b;
+            --text-main: #0f172a;
             --text-muted: #64748b;
+            --card-shadow: 0 10px 25px -5px rgba(16, 48, 29, 0.06), 0 8px 10px -6px rgba(16, 48, 29, 0.04);
+            --glow-shadow: 0 0 25px rgba(207, 162, 77, 0.35);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -66,6 +69,7 @@
             color: var(--text-main);
             line-height: 1.8;
             padding-top: 75px;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -73,122 +77,295 @@
         a { text-decoration: none; color: inherit; }
         .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 1.25rem; }
 
-        /* الهيدر */
+        /* ==================== محرك الحركات والتلاشي Scroll Reveal ==================== */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92) translateY(20px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-up.active, .reveal-scale.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ==================== الهيدر الزجاجي الفاخر ==================== */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; height: 75px;
-            background-color: rgba(30, 82, 51, 0.98); backdrop-filter: blur(10px);
-            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+            background-color: rgba(16, 48, 29, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(207, 162, 77, 0.2);
             display: flex; align-items: center;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .site-header.scrolled {
+            background-color: rgba(14, 43, 26, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         .nav-wrap { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo-img { height: 48px; width: auto; max-width: 180px; object-fit: contain; display: block; }
+        .logo-img { height: 48px; width: auto; max-width: 180px; object-fit: contain; display: block; transition: transform 0.3s ease; }
+        .logo-img:hover { transform: scale(1.05); }
         .nav-links { display: none; gap: 2rem; font-weight: 700; font-size: 0.95rem; color: #d1fae5; }
         @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-links a {
+            position: relative; transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0%; height: 2px;
+            bottom: -4px; right: 0; background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
         .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
 
         .btn-order-nav {
-            background-color: var(--accent); color: #fff; padding: 0.6rem 1.25rem;
-            border-radius: 12px; font-weight: 800; font-size: 0.9rem; display: none;
-            align-items: center; gap: 0.5rem; transition: transform 0.2s, background-color 0.2s;
+            background: linear-gradient(135deg, #cfa24d 0%, #b38533 100%);
+            color: #fff; padding: 0.65rem 1.4rem;
+            border-radius: 14px; font-weight: 800; font-size: 0.9rem; display: none;
+            align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(207, 162, 77, 0.3);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         @media (min-width: 640px) { .btn-order-nav { display: inline-flex; } }
-        .btn-order-nav:hover { background-color: #b88d3b; transform: translateY(-2px); }
+        .btn-order-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(207, 162, 77, 0.5);
+        }
 
-        .menu-toggle { background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer; display: block; }
+        .menu-toggle {
+            background: none; border: none; color: white; font-size: 1.6rem; cursor: pointer;
+            width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; transition: background-color 0.2s;
+        }
+        .menu-toggle:active { background-color: rgba(255,255,255,0.1); }
         @media (min-width: 768px) { .menu-toggle { display: none; } }
 
-        .mobile-menu { display: none; background-color: var(--primary-dark); padding: 1.5rem 1rem; text-align: center; border-bottom: 2px solid var(--accent); }
-        .mobile-menu.open { display: block; }
-        .mobile-menu a { display: block; padding: 0.75rem 0; color: #d1fae5; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        /* قائمة الجوال التفاعلية */
+        .mobile-menu {
+            position: fixed; top: 75px; left: 0; right: 0;
+            background: rgba(14, 43, 26, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            transform: translateY(-120%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu a {
+            display: block; padding: 0.9rem 0; color: #d1fae5; font-weight: 700;
+            font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+            transition: color 0.2s, transform 0.2s;
+        }
+        .mobile-menu a:active { color: var(--accent); transform: scale(0.98); }
 
-        /* البانر */
-        .hero { padding: 3.5rem 0; background: linear-gradient(180deg, rgba(30, 82, 51, 0.06) 0%, rgba(249, 251, 249, 1) 100%); }
+        /* ==================== البانر الرئيسي ==================== */
+        .hero {
+            padding: 3.5rem 0 4.5rem;
+            background: radial-gradient(circle at 80% 20%, rgba(30, 82, 51, 0.08) 0%, rgba(249, 251, 249, 1) 70%);
+            position: relative;
+        }
         .grid-2 { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
         @media (min-width: 768px) { .grid-2 { grid-template-columns: 1.2fr 1fr; } }
 
-        .tag {
-            display: inline-flex; align-items: center; background-color: rgba(30, 82, 51, 0.1);
-            color: var(--primary); padding: 0.35rem 1rem; border-radius: 50px;
-            font-weight: 700; font-size: 0.85rem; margin-bottom: 1.25rem;
+        .tag-pulse {
+            display: inline-flex; align-items: center;
+            background: linear-gradient(135deg, rgba(30, 82, 51, 0.12) 0%, rgba(207, 162, 77, 0.15) 100%);
+            border: 1px solid rgba(207, 162, 77, 0.3);
+            color: var(--primary); padding: 0.45rem 1.2rem; border-radius: 50px;
+            font-weight: 800; font-size: 0.85rem; margin-bottom: 1.25rem;
+            animation: pulse-glow 3s infinite;
         }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(207, 162, 77, 0.3); }
+            50% { box-shadow: 0 0 0 8px rgba(207, 162, 77, 0); }
+        }
+
         .hero h1 { font-size: 2.2rem; font-weight: 900; color: #0f172a; margin-bottom: 1.25rem; }
-        @media (min-width: 768px) { .hero h1 { font-size: 2.9rem; } }
-        .hero h1 span { color: var(--primary); }
+        @media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary) 0%, #2f8352 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .hero p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; }
 
         .btn-group { display: flex; flex-direction: column; gap: 1rem; }
         @media (min-width: 480px) { .btn-group { flex-direction: row; } }
         .btn {
-            padding: 0.85rem 1.75rem; border-radius: 14px; font-weight: 800; text-align: center;
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.25s ease;
+            padding: 0.9rem 1.85rem; border-radius: 16px; font-weight: 800; text-align: center;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+            position: relative; overflow: hidden;
         }
-        .btn-primary { background-color: var(--primary); color: #fff; }
-        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
-        .btn-outline { background-color: #fff; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-outline:hover { background-color: var(--primary); color: #fff; }
+        .btn:active { transform: scale(0.96); }
 
-        /* إطار الصور */
-        .img-frame {
-            border-radius: 24px; overflow: hidden; border: 2px solid rgba(207, 162, 77, 0.4);
-            box-shadow: 0 15px 35px rgba(16, 48, 29, 0.12); position: relative; background-color: #e2e8f0;
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #fff; box-shadow: 0 8px 20px rgba(30, 82, 51, 0.25);
         }
-        .img-frame img { width: 100%; height: 360px; object-fit: cover; display: block; }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(30, 82, 51, 0.35);
+        }
+
+        .btn-outline {
+            background-color: #fff; border: 2px solid var(--primary); color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary); color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ==================== إطار الصور التفاعلي المنير ==================== */
+        .img-frame {
+            border-radius: 28px; overflow: hidden;
+            border: 2px solid rgba(207, 162, 77, 0.4);
+            box-shadow: 0 20px 40px -10px rgba(16, 48, 29, 0.18);
+            position: relative; background-color: #e2e8f0;
+            transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+        .img-frame:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+            box-shadow: 0 25px 50px -10px rgba(207, 162, 77, 0.3);
+        }
+        .img-frame img {
+            width: 100%; height: 370px; object-fit: cover; display: block;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-frame:hover img { transform: scale(1.06); }
         .img-caption {
             position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem;
-            background: linear-gradient(0deg, rgba(16,48,29,0.9) 0%, transparent 100%);
+            background: linear-gradient(0deg, rgba(14,43,26,0.95) 0%, rgba(14,43,26,0.6) 60%, transparent 100%);
             color: white; font-size: 0.85rem; font-weight: 700;
         }
 
+        /* ==================== إحصائيات الأرقام التفاعلية ==================== */
         .stats-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
             padding-top: 2.5rem; margin-top: 2.5rem; border-top: 1px solid #e2e8f0; text-align: center;
         }
-        .stat-num { display: block; font-size: 2rem; font-weight: 900; color: var(--primary); font-family: 'Cairo', sans-serif; }
-        .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 700; }
+        .stat-num {
+            display: block; font-size: 2.3rem; font-weight: 900; color: var(--primary);
+            font-family: 'Cairo', sans-serif; line-height: 1.1; margin-bottom: 0.25rem;
+        }
+        .stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; }
 
-        .section { padding: 4.5rem 0; }
-        .section-white { background-color: #ffffff; border-top: 1px solid #f1f5f9; }
-        .section-title { text-align: center; margin-bottom: 2.5rem; }
-        .section-title h2 { font-size: 2rem; font-weight: 900; color: #0f172a; margin-bottom: 0.5rem; }
+        /* ==================== الأقسام والبطاقات ==================== */
+        .section { padding: 5rem 0; }
+        .section-white { background-color: #ffffff; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.1rem; font-weight: 900; color: #0f172a; margin-bottom: 0.5rem; }
         .section-title p { color: var(--text-muted); font-size: 0.95rem; }
 
         .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+        
+        /* تأثير البطاقات الذكي عند اللمس أو المرور */
         .card {
-            background: #fff; border: 1px solid #e2e8f0; padding: 1.75rem 1.25rem; border-radius: 18px;
-            text-align: center; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            background: #fff; border: 1px solid #e2e8f0; padding: 2rem 1.5rem; border-radius: 22px;
+            text-align: center; position: relative; overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
-        .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 12px 25px rgba(30, 82, 51, 0.08); }
-        .card i { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; }
-        .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .card p { font-size: 0.85rem; color: var(--text-muted); }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .card:hover, .card:active {
+            transform: translateY(-7px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px -5px rgba(207, 162, 77, 0.2);
+        }
+        .card:hover::before, .card:active::before { opacity: 1; }
+        .card i {
+            font-size: 2.2rem; color: var(--accent); margin-bottom: 1.25rem;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card:hover i { transform: scale(1.18) rotate(-5deg); }
+        .card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
 
-        .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        /* ==================== بطاقات الفروع والواتساب ==================== */
+        .branches-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
         .branch-card {
-            background: var(--bg-light); border: 1px solid #e2e8f0; padding: 2rem 1.5rem;
-            border-radius: 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+            background: var(--bg-light); border: 1px solid #e2e8f0; padding: 2.25rem 1.75rem;
+            border-radius: 24px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+        }
+        .branch-card:hover {
+            transform: translateY(-8px);
+            border-color: #22c55e;
+            box-shadow: 0 20px 40px -10px rgba(34, 197, 94, 0.2);
         }
         .branch-icon {
-            width: 50px; height: 50px; background-color: #d1fae5; color: var(--primary);
-            border-radius: 14px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.25rem; margin: 0 auto 1rem auto;
+            width: 56px; height: 56px; background-color: #d1fae5; color: var(--primary);
+            border-radius: 18px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin: 0 auto 1.25rem auto;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
+        .branch-card:hover .branch-icon {
+            transform: scale(1.1) rotate(5deg);
+            background-color: var(--primary); color: #fff;
+        }
+
         .btn-whatsapp {
-            background-color: #16a34a; color: #fff; padding: 0.75rem 1rem; border-radius: 12px;
-            font-weight: 700; font-size: 0.85rem; margin-top: 1.25rem; display: inline-flex;
-            align-items: center; justify-content: center; gap: 0.5rem; transition: background-color 0.2s;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: #fff; padding: 0.85rem 1.25rem; border-radius: 16px;
+            font-weight: 800; font-size: 0.9rem; margin-top: 1.5rem; display: inline-flex;
+            align-items: center; justify-content: center; gap: 0.6rem;
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.25);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .btn-whatsapp:hover { background-color: #15803d; }
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+        }
+        .btn-whatsapp:active { transform: scale(0.96); }
 
-        /* الأسئلة الشائعة FAQ */
+        /* ==================== الأسئلة الشائعة FAQ ==================== */
         .faq-item {
-            background: #fff; border: 1px solid #e2e8f0; border-radius: 14px;
-            padding: 1.25rem; margin-bottom: 1rem;
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 18px;
+            padding: 1.5rem; margin-bottom: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .faq-question { font-weight: 800; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 0.5rem; }
-        .faq-answer { color: var(--text-muted); font-size: 0.95rem; }
+        .faq-item:hover {
+            transform: translateX(-5px);
+            border-color: var(--accent);
+        }
+        .faq-question { font-weight: 800; font-size: 1.05rem; color: var(--primary-dark); margin-bottom: 0.5rem; display: flex; align-items: center; }
+        .faq-answer { color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; }
 
-        footer { background-color: var(--primary-dark); color: #d1fae5; padding: 3rem 0; text-align: center; font-size: 0.85rem; }
-        footer h3 { color: #fff; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        /* الفوتر */
+        footer { background-color: var(--primary-dark); color: #d1fae5; padding: 3.5rem 0; text-align: center; font-size: 0.85rem; border-top: 2px solid var(--accent); }
+        footer h3 { color: #fff; font-size: 1.4rem; margin-bottom: 0.5rem; }
     </style>
 
     <!-- ==================== بيانات Schema المتقدمة لمحركات البحث ==================== -->
@@ -288,7 +465,8 @@
 </head>
 <body>
 
-    <header class="site-header">
+    <!-- الهيدر الزجاجي -->
+    <header class="site-header" id="siteHeader">
         <div class="container">
             <div class="nav-wrap">
                 <a href="index.html" aria-label="الرئيسية">
@@ -315,23 +493,24 @@
         </div>
     </header>
 
+    <!-- قائمة الجوال التفاعلية -->
     <div id="mobileMenu" class="mobile-menu">
         <a href="#about" onclick="toggleMenu()">قصة عراقتنا</a>
         <a href="#features" onclick="toggleMenu()">لماذا فوال الأفراح؟</a>
         <a href="#branches" onclick="toggleMenu()">فروعنا والواتساب</a>
         <a href="#faq" onclick="toggleMenu()">الأسئلة الشائعة</a>
-        <a href="menu.html" style="color: var(--accent); font-weight:900;">
+        <a href="menu.html" style="color: var(--accent); font-weight:900; margin-top:0.5rem;">
             <i class="fa-solid fa-utensils"></i> تصفح المنيو واطلب الآن
         </a>
     </div>
 
     <main>
-        <!-- البانر الرئيسي -->
+        <!-- البانر الرئيسي مع حركات الظهور -->
         <section class="hero">
             <div class="container">
                 <div class="grid-2">
-                    <div>
-                        <div class="tag">
+                    <div class="reveal-up">
+                        <div class="tag-pulse">
                             <i class="fa-solid fa-fire" style="color:var(--accent); margin-left: 6px;"></i> منذ عام 1973م | الطعم الأصيل بالرياض
                         </div>
                         <h1>
@@ -351,9 +530,9 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div class="reveal-scale delay-2">
                         <div class="img-frame">
-                            <img src="hero.jpg" alt="أطباق فطور شعبي وكبدة وفول في فوال الأفراح الرياض" width="500" height="360" loading="eager">
+                            <img src="hero.jpg" alt="أطباق فطور شعبي وكبدة وفول في فوال الأفراح الرياض" width="500" height="370" loading="eager">
                             <div class="img-caption">
                                 <i class="fa-solid fa-circle-check" style="color:var(--accent); margin-left:5px;"></i> الطعم اللي تعودنا عليه - جودة تُحس بالمذاق
                             </div>
@@ -361,17 +540,18 @@
                     </div>
                 </div>
 
-                <div class="stats-grid">
+                <!-- إحصائيات الأرقام المتحركة تفاعلياً -->
+                <div class="stats-grid reveal-up delay-3" id="statsSection">
                     <div>
-                        <span class="stat-num">+50</span>
+                        <span class="stat-num counter" data-target="50">+0</span>
                         <span class="stat-label">عاماً من الخبرة والعراقة</span>
                     </div>
                     <div>
-                        <span class="stat-num">3</span>
+                        <span class="stat-num counter" data-target="3">0</span>
                         <span class="stat-label">فروع بمدينة الرياض</span>
                     </div>
                     <div>
-                        <span class="stat-num">+110</span>
+                        <span class="stat-num counter" data-target="110">+0</span>
                         <span class="stat-label">طبقاً طازجاً يومياً</span>
                     </div>
                 </div>
@@ -382,19 +562,19 @@
         <section id="about" class="section section-white">
             <div class="container">
                 <div class="grid-2">
-                    <div>
+                    <div class="reveal-scale">
                         <div class="img-frame">
-                            <img src="about.jpg" alt="مخبوزات وتميس فوال الأفراح الطازجة" width="500" height="360" loading="lazy">
+                            <img src="about.jpg" alt="مخبوزات وتميس فوال الأفراح الطازجة" width="500" height="370" loading="lazy">
                             <div class="img-caption">
                                 <i class="fa-solid fa-wheat-awn" style="color:var(--accent); margin-left:5px;"></i> تحضير طازج ومباشر أمامك مع كل طلب
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <span style="color:var(--accent); font-weight:800; font-size:0.85rem;">عراقة الماضي وتألق الحاضر</span>
-                        <h2 style="font-size: 2rem; font-weight:900; margin: 0.5rem 0 1rem 0;">فوال الأفراح - أصالة الفطور الشعبي بالرياض</h2>
+                    <div class="reveal-up delay-2">
+                        <span style="color:var(--accent); font-weight:800; font-size:0.85rem; letter-spacing: 0.5px;">عراقة الماضي وتألق الحاضر</span>
+                        <h2 style="font-size: 2.1rem; font-weight:900; margin: 0.5rem 0 1rem 0;">فوال الأفراح - أصالة الفطور الشعبي بالرياض</h2>
                         <p style="color:var(--text-muted); margin-bottom:1rem;">
-                            منذ عام 1973م، ونحن نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة في الرياض. لسنا مجرد فوال تقليدي، بل وجهة رائدة تجمع بين النكهة التراثية الأصيلة ومعايير الجودة والنظافة العالية.
+                            منذ عام 1973م، ونحن نبتكر مفهوم الفطور الشعبي والوجبات الأصيلة في الرياض. لسنا مجرد فوال تقليدي، بل وجهة رائدة تجمع بين النكهة التراثية الأصلية ومعايير الجودة والنظافة العالية.
                         </p>
                         <p style="color:var(--text-muted);">
                             نحرص يومياً على اختيار أجود أنواع اللحوم الطازجة واستخدام الزيوت والسمن البلدي النقي لنقدم لكل عائلة تجربة إفطار شعبية لا تُنسى.
@@ -404,31 +584,31 @@
             </div>
         </section>
 
-        <!-- المميزات -->
+        <!-- المميزات مع إضاءة الحواف -->
         <section id="features" class="section">
             <div class="container">
-                <div class="section-title">
+                <div class="section-title reveal-up">
                     <h2>لماذا يفضلنا زبائن الرياض؟</h2>
                     <p>سر إقبال عشاق الفطور الشعبي لأكثر من 50 عاماً</p>
                 </div>
 
                 <div class="cards-grid">
-                    <div class="card">
+                    <div class="card reveal-up delay-1">
                         <i class="fa-solid fa-drumstick-bite"></i>
                         <h3>لحوم وكبدة بلدي طازجة</h3>
                         <p>تُحضر يومياً على الصاج بخلطتنا الخاصة مع كل طلب.</p>
                     </div>
-                    <div class="card">
+                    <div class="card reveal-up delay-2">
                         <i class="fa-solid fa-fire-burner"></i>
                         <h3>تميس وتنور ساخن</h3>
                         <p>يُخبز في التنور مباشرة ويصلك مقرمشاً وطازجاً.</p>
                     </div>
-                    <div class="card">
+                    <div class="card reveal-up delay-3">
                         <i class="fa-solid fa-mortar-pestle"></i>
                         <h3>وصفات الجرة الأصلية</h3>
                         <p>نكهة الفول والقلابة المعتقة الموروثة منذ 1973م.</p>
                     </div>
-                    <div class="card">
+                    <div class="card reveal-up delay-4">
                         <i class="fa-brands fa-whatsapp"></i>
                         <h3>طلب واتساب فوري</h3>
                         <p>حدد وجبتك وتواصل مع الفرع لتجهيزها قبل وصولك.</p>
@@ -437,80 +617,81 @@
             </div>
         </section>
 
-        <!-- الفروع -->
+        <!-- الفروع التفاعلية -->
         <section id="branches" class="section section-white">
             <div class="container">
-                <div class="section-title">
+                <div class="section-title reveal-up">
                     <h2>فروع فوال الأفراح بمدينة الرياض</h2>
                     <p>اختر الفرع الأقرب لك للطلب والتواصل المباشر عبر الواتساب</p>
                 </div>
 
                 <div class="branches-grid">
                     <!-- الروضة -->
-                    <div class="branch-card">
+                    <div class="branch-card reveal-up delay-1">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
-                            <h3 class="brand-font" style="font-size:1.2rem; font-weight:800;">فرع الروضة</h3>
-                            <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.25rem;">مدينة الرياض - حي الروضة</p>
+                            <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع الروضة</h3>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-top:0.35rem;">مدينة الرياض - حي الروضة</p>
                         </div>
                         <a href="https://wa.me/966533508148?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20الروضة" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i> واتساب: 0533508148
+                            <i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> واتساب: 0533508148
                         </a>
                     </div>
 
                     <!-- المونسية -->
-                    <div class="branch-card">
+                    <div class="branch-card reveal-up delay-2">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
-                            <h3 class="brand-font" style="font-size:1.2rem; font-weight:800;">فرع المونسية</h3>
-                            <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.25rem;">مدينة الرياض - حي المونسية</p>
+                            <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع المونسية</h3>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-top:0.35rem;">مدينة الرياض - حي المونسية</p>
                         </div>
                         <a href="https://wa.me/966550907600?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20المونسية" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i> واتساب: 0550907600
+                            <i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> واتساب: 0550907600
                         </a>
                     </div>
 
                     <!-- القادسية -->
-                    <div class="branch-card">
+                    <div class="branch-card reveal-up delay-3">
                         <div>
                             <div class="branch-icon"><i class="fa-solid fa-shop"></i></div>
-                            <h3 class="brand-font" style="font-size:1.2rem; font-weight:800;">فرع القادسية</h3>
-                            <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.25rem;">مدينة الرياض - حي القادسية</p>
+                            <h3 class="brand-font" style="font-size:1.25rem; font-weight:800;">فرع القادسية</h3>
+                            <p style="color:var(--text-muted); font-size:0.88rem; margin-top:0.35rem;">مدينة الرياض - حي القادسية</p>
                         </div>
                         <a href="https://wa.me/966583993468?text=مرحباً%20فوال%20الأفراح%20-%20فرع%20القادسية" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-                            <i class="fa-brands fa-whatsapp"></i> واتساب: 0583993468
+                            <i class="fa-brands fa-whatsapp" style="font-size:1.1rem;"></i> واتساب: 0583993468
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- الأسئلة الشائعة (FAQ) لرفع الترتيب في قوقل -->
+        <!-- الأسئلة الشائعة (FAQ) -->
         <section id="faq" class="section">
             <div class="container" style="max-width: 800px;">
-                <div class="section-title">
+                <div class="section-title reveal-up">
                     <h2>الأسئلة الشائعة حول فوال الأفراح</h2>
                     <p>كل ما تود معرفته عن خدماتنا وفروعنا بالرياض</p>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:6px;"></i> ما هي أشهر أطباق فوال الأفراح؟</div>
+                <div class="faq-item reveal-up delay-1">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> ما هي أشهر أطباق فوال الأفراح؟</div>
                     <div class="faq-answer">نشتهر بتقديم الكبدة الغنمي والبلدي الطازجة، فول الجرة الأصلي، التميس المخبوز على الحطب والتنور، بالإضافة إلى المعصوب الملكي والعريكة الفاخرة.</div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:6px;"></i> أين تقع فروع فوال الأفراح في مدينة الرياض؟</div>
+                <div class="faq-item reveal-up delay-2">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> أين تقع فروع فوال الأفراح في مدينة الرياض؟</div>
                     <div class="faq-answer">لدينا 3 فروع رئيسية لخدمتكم: فرع حي الروضة، فرع حي المونسية، وفرع حي القادسية.</div>
                 </div>
 
-                <div class="faq-item">
-                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:6px;"></i> هل يمكنني الطلب المسبق لتجنب الانتظار؟</div>
+                <div class="faq-item reveal-up delay-3">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color:var(--accent); margin-left:8px;"></i> هل يمكنني الطلب المسبق لتجنب الانتظار؟</div>
                     <div class="faq-answer">نعم، يمكنك اختيار فرعك والتواصل المباشر عبر الواتساب لتجهيز طلبك واستلامه طازجاً وساخناً بدون أي تأخير.</div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- الفوتر -->
     <footer>
         <div class="container">
             <h3>فوال الأفراح</h3>
@@ -519,17 +700,78 @@
         </div>
     </footer>
 
+    <!-- ==================== المحرك البرمجي للتفاعلات والحركات ==================== -->
     <script>
+        // 1. فتح وإغلاق قائمة الجوال بسلاسة
         function toggleMenu() {
             const menu = document.getElementById('mobileMenu');
             const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('open');
             if (menu.classList.contains('open')) {
-                menu.classList.remove('open');
-                icon.className = 'fa-solid fa-bars';
-            } else {
-                menu.classList.add('open');
                 icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
             }
+        }
+
+        // 2. تغيير شفافية وظلال الهيدر عند التمرير
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('siteHeader');
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        // 3. مراقب التمرير لإظهار العناصر بسلاسة (Scroll Reveal)
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 4. عداد الأرقام التفاعلي المتحرك (Live Counter Animation)
+        let counted = false;
+        const statsSection = document.getElementById('statsSection');
+
+        function startCounting() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const hasPlus = target === 50 || target === 110;
+                let count = 0;
+                const speed = target / 35;
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = (hasPlus ? '+' : '') + Math.ceil(count);
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = (hasPlus ? '+' : '') + target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        const countObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !counted) {
+                counted = true;
+                startCounting();
+            }
+        }, { threshold: 0.3 });
+
+        if (statsSection) {
+            countObserver.observe(statsSection);
         }
     </script>
 </body>
